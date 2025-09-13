@@ -52,18 +52,18 @@ export default function Solutions() {
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-gradient-to-br from-gray-50 via-white to-orange-50 py-20 px-4">
-      <div className="relative z-10 max-w-7xl mx-auto text-gray-900">
+    <section className="relative h-screen w-full bg-gradient-to-br from-gray-50 via-white to-orange-50 py-6 px-4 flex items-center">
+      <div className="relative z-10 max-w-5xl mx-auto text-gray-900 w-full">
         {/* Section Header */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-4"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -74,7 +74,7 @@ export default function Solutions() {
           </motion.h2>
           
           <motion.p 
-            className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -91,20 +91,21 @@ export default function Solutions() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="mb-4"
         >
           <HoverEffect items={solutions} />
         </motion.div>
 
         {/* Call to Action */}
         <motion.div 
-          className="text-center mt-16"
+          className="text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
         >
           <motion.button 
-            className="px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-gradient-to-r hover:from-[#FF9933] hover:to-[#FF7F00] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#FF9933]/40"
+            className="px-4 py-4 bg-black text-white font-bold rounded-full hover:bg-gradient-to-r hover:from-[#FF9933] hover:to-[#FF7F00] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#FF9933]/40"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

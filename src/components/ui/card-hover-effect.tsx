@@ -20,7 +20,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-2",
         className
       )}
     >
@@ -74,12 +74,12 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gradient-to-br from-white to-gray-50 border border-gray-100 group-hover:border-[black]/50 relative z-20 shadow-lg hover:shadow-xl transition-all duration-300",
+        "rounded-2xl h-full w-full p-2 overflow-hidden bg-gradient-to-br from-white to-gray-50 border border-gray-100 group-hover:border-[black]/50 relative z-20 shadow-lg hover:shadow-xl transition-all duration-300",
         className
       )}
     >
       <div className="relative z-50">
-        <div className="p-4">{children}</div>
+        <div className="p-2">{children}</div>
       </div>
     </div>
   );
@@ -92,7 +92,7 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4 className={cn("text-gray-900 font-bold tracking-wide mt-4 text-xl", className)}>
+    <h4 className={cn("text-gray-900 font-bold tracking-wide mt-2 text-base", className)}>
       {children}
     </h4>
   );
@@ -107,7 +107,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-8 text-gray-700 tracking-wide leading-relaxed text-sm",
+        "mt-2 text-gray-700 tracking-wide leading-relaxed text-xs",
         className
       )}
     >
