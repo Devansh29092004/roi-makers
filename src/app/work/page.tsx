@@ -2,26 +2,28 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft, Star } from 'lucide-react';
+import { ArrowLeft, Briefcase } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-export default function ServicesPage() {
+export default function WorkPage() {
   const [stars, setStars] = useState<Array<{
     id: number;
     x: number;
     y: number;
     size: number;
     delay: number;
+    duration: number;
   }>>([]);
 
   // Generate stars only on client side to avoid hydration mismatch
   useEffect(() => {
-    const generatedStars = Array.from({ length: 100 }, (_, i) => ({
+    const generatedStars = Array.from({ length: 150 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      size: Math.random() * 3 + 1,
-      delay: Math.random() * 2,
+      size: Math.random() * 4 + 1,
+      delay: Math.random() * 4,
+      duration: Math.random() * 3 + 2,
     }));
     setStars(generatedStars);
   }, []);
@@ -33,7 +35,7 @@ export default function ServicesPage() {
         {stars.map((star) => (
           <motion.div
             key={star.id}
-            className="absolute bg-white rounded-full opacity-70"
+            className="absolute bg-white rounded-full opacity-50"
             style={{
               left: `${star.x}%`,
               top: `${star.y}%`,
@@ -41,11 +43,12 @@ export default function ServicesPage() {
               height: `${star.size}px`,
             }}
             animate={{
-              opacity: [0.3, 1, 0.3],
-              scale: [0.8, 1.2, 0.8],
+              opacity: [0.1, 0.9, 0.1],
+              scale: [0.3, 1.8, 0.3],
+              rotate: [0, 180, 360],
             }}
             transition={{
-              duration: 3,
+              duration: star.duration,
               repeat: Infinity,
               delay: star.delay,
               ease: "easeInOut",
@@ -55,7 +58,7 @@ export default function ServicesPage() {
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-orange-900/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-orange-900/25" />
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4">
@@ -85,11 +88,18 @@ export default function ServicesPage() {
           {/* Icon */}
           <motion.div
             className="mb-8 flex justify-center"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            animate={{ 
+              scale: [1, 1.1, 1],
+              rotateY: [0, 180, 360]
+            }}
+            transition={{ 
+              duration: 8, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
           >
             <div className="w-24 h-24 bg-gradient-to-br from-[#FF9933] to-orange-600 rounded-full flex items-center justify-center shadow-2xl">
-              <Star className="w-12 h-12 text-white" />
+              <Briefcase className="w-12 h-12 text-white" />
             </div>
           </motion.div>
 
@@ -100,7 +110,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            Our Services
+            Our Work
           </motion.h1>
 
           {/* Subtitle */}
@@ -110,7 +120,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            Something amazing is coming
+            Portfolio in progress
           </motion.p>
 
           {/* Description */}
@@ -120,9 +130,9 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            We're crafting an exceptional services experience that will showcase our comprehensive 
-            digital marketing solutions. Our team is working hard to bring you detailed insights 
-            into how we help businesses achieve extraordinary ROI.
+            We're curating an impressive showcase of our most successful campaigns and client transformations. 
+            From startups to Fortune 500 companies, discover how we've helped businesses achieve 
+            remarkable growth and ROI optimization.
           </motion.p>
 
           {/* Coming Soon Badge */}
@@ -133,22 +143,40 @@ export default function ServicesPage() {
             transition={{ duration: 0.8, delay: 1.1 }}
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-3 h-3 bg-[#FF9933] rounded-full animate-pulse" />
-            <span className="text-white font-semibold text-lg">Coming Soon</span>
+            <motion.div 
+              className="w-3 h-3 bg-[#FF9933] rounded-full"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <span className="text-white font-semibold text-lg">Portfolio Loading</span>
           </motion.div>
         </motion.div>
 
-        {/* Bottom Text */}
-        <motion.div
-          className="absolute bottom-8 text-center text-gray-400"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.3 }}
-        >
-          <p>Stay tuned for something extraordinary</p>
-        </motion.div>
+        {/* Orbiting Elements */}
+        <div className="absolute top-1/4 left-10">
+          <motion.div
+            animate={{ 
+              rotate: 360,
+              x: [0, 30, 0, -30, 0],
+              y: [0, -20, 0, 20, 0]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="w-3 h-3 bg-[#FF9933] rounded-full opacity-40"
+          />
+        </div>
+
+        <div className="absolute bottom-1/4 right-10">
+          <motion.div
+            animate={{ 
+              rotate: -360,
+              x: [0, -25, 0, 25, 0],
+              y: [0, 15, 0, -15, 0]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="w-5 h-5 bg-white rounded-full opacity-30"
+          />
+        </div>
       </div>
     </div>
   );
 }
- 

@@ -117,11 +117,8 @@ export const NavBody = ({ children, className, visible, isOverHero }: NavBodyPro
         stiffness: 200,
         damping: 50,
       }}
-      style={{
-        minWidth: "700px",
-      }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-6 py-3 lg:flex",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 sm:px-6 py-3 md:flex",
         isOverHero 
           ? visible 
             ? "bg-black/50 backdrop-blur-lg border border-[#FF9933]/20 mt-12"
@@ -144,7 +141,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-3 text-sm font-medium text-white transition duration-200 hover:text-[#FF9933] lg:flex lg:space-x-3",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 md:space-x-3 text-sm font-medium text-white transition duration-200 hover:text-[#FF9933] md:flex",
         className,
       )}
     >
@@ -152,7 +149,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-white hover:text-[#FF9933] text-sm"
+          className="relative px-2 md:px-3 lg:px-4 py-2 text-white hover:text-[#FF9933] text-xs md:text-sm"
           key={`link-${idx}`}
           href={item.link}
         >
@@ -189,7 +186,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between rounded-2xl px-0 py-3 lg:hidden",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-1rem)] sm:max-w-[calc(100vw-2rem)] flex-col items-center justify-between rounded-2xl px-0 py-3 md:hidden",
         visible ? "bg-black/80 backdrop-blur-lg border border-[#FF9933]/50" : "bg-transparent border-none",
         className,
       )}
@@ -229,7 +226,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-black/95 backdrop-blur-md border border-[#FF9933]/30 px-4 py-8 shadow-[0_4px_20px_rgba(0,_0,_0,_0.3),_0_1px_3px_rgba(0,_0,_0,_0.1)]",
+            "absolute inset-x-0 top-14 sm:top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-black/95 backdrop-blur-md border border-[#FF9933]/30 px-4 sm:px-6 py-6 sm:py-8 shadow-[0_4px_20px_rgba(0,_0,_0,_0.3),_0_1px_3px_rgba(0,_0,_0,_0.1)]",
             className,
           )}
         >
@@ -248,9 +245,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <IconX className="text-white hover:text-[#FF9933] cursor-pointer" onClick={onClick} />
+    <IconX className="text-white hover:text-[#FF9933] cursor-pointer w-6 h-6 sm:w-7 sm:h-7 p-1" onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-white hover:text-[#FF9933] cursor-pointer" onClick={onClick} />
+    <IconMenu2 className="text-white hover:text-[#FF9933] cursor-pointer w-6 h-6 sm:w-7 sm:h-7 p-1" onClick={onClick} />
   );
 };
 

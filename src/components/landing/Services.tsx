@@ -40,7 +40,7 @@ export default function Services() {
     <section className={cn(
       "relative min-h-screen w-full overflow-hidden",
       "bg-gradient-to-br from-gray-50 via-white to-gray-100",
-      "py-20 px-4"
+      "py-12 md:py-16 lg:py-20 px-4"
     )}>
       {/* Subtle Grid Background */}
       <div 
@@ -61,10 +61,10 @@ export default function Services() {
       <div className={cn(
         "relative z-10 max-w-7xl mx-auto"
       )}>
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Content Section */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-5 space-y-6 md:space-y-8">
             {/* Main Headline */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -73,7 +73,7 @@ export default function Services() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-black">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight text-black">
                 WE DO MORE THEN EVER
                 <br />
                 <span className="relative">
@@ -125,7 +125,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               viewport={{ once: true }}
-              className="text-lg text-gray-600 leading-relaxed max-w-md"
+              className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-md"
             >
               There are many variants of passages the majority have suffered alteration in some form randomised words believable.
             </motion.p>
@@ -158,7 +158,7 @@ export default function Services() {
 
           {/* Right Content - Expandable Services */}
           <div className="lg:col-span-7">
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {services.map((service, index) => (
                 <motion.div
                   key={service.id}
@@ -174,7 +174,7 @@ export default function Services() {
                   {/* Service Header */}
                   <motion.div
                     className={cn(
-                      "flex items-center justify-between p-6 cursor-pointer",
+                      "flex items-center justify-between p-4 md:p-6 cursor-pointer",
                       "border-b border-gray-200 last:border-b-0"
                     )}
                     onClick={() => toggleService(service.id)}

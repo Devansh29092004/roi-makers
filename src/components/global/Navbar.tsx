@@ -70,12 +70,12 @@ export function NavbarDemo() {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-white hover:text-[#FF9933] transition-colors text-lg font-medium py-2 border-b border-gray-700 last:border-b-0"
+                className="relative text-white hover:text-[#FF9933] transition-colors text-lg sm:text-xl font-medium py-3 sm:py-4 w-full border-b border-gray-700 last:border-b-0 touch-manipulation"
               >
                 <span className="block">{item.name}</span>
               </a>
             ))}
-            <div className="flex w-full flex-col gap-4 mt-6">
+            <div className="flex w-full flex-col gap-3 sm:gap-4 mt-4 sm:mt-6">
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="secondary"

@@ -29,22 +29,22 @@ export default function Trust() {
   return (
     <section className={cn(
       "relative min-h-screen w-full overflow-hidden",
-      "bg-gradient-to-br from-gray-900 via-black to-gray-800",
-      "py-20 px-4"
+      "bg-gradient-to-br from-gray-50 via-white to-orange-50",
+      "py-12 md:py-16 lg:py-20 px-4"
     )}>
       <div className={cn(
         "relative z-10 max-w-7xl mx-auto"
       )}>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto w-full">
           
           {/* Orange Commitment Card */}
           <WobbleCard
-            containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-br from-orange-500 to-orange-600 min-h-[500px] lg:min-h-[300px]"
+            containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-br from-orange-500 to-orange-600 min-h-[400px] sm:min-h-[450px] lg:min-h-[300px]"
             className=""
           >
             <div className="max-w-xs">
               <motion.h2 
-                className="text-left text-balance text-base md:text-xl lg:text-3xl font-bold tracking-tight text-white"
+                className="text-left text-balance text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-white"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
