@@ -130,8 +130,8 @@ export default function WorkPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            We're curating an impressive showcase of our most successful campaigns and client transformations. 
-            From startups to Fortune 500 companies, discover how we've helped businesses achieve 
+            We&apos;re curating an impressive showcase of our most successful campaigns and client transformations. 
+            From startups to Fortune 500 companies, discover how we&apos;ve helped businesses achieve 
             remarkable growth and ROI optimization.
           </motion.p>
 

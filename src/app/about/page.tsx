@@ -127,7 +127,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            We're preparing to share the incredible journey of ROI Makers - from our humble beginnings 
+            We&apos;re preparing to share the incredible journey of ROI Makers - from our humble beginnings 
             to becoming a category leader in performance marketing. Our story of innovation, client success, 
             and team excellence will inspire you.
           </motion.p>

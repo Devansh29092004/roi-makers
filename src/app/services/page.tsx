@@ -120,7 +120,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            We're crafting an exceptional services experience that will showcase our comprehensive 
+            We&apos;re crafting an exceptional services experience that will showcase our comprehensive 
             digital marketing solutions. Our team is working hard to bring you detailed insights 
             into how we help businesses achieve extraordinary ROI.
           </motion.p>

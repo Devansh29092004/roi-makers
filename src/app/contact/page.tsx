@@ -122,7 +122,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            Let's start a conversation
+            Let&apos;s start a conversation
           </motion.p>
 
           {/* Description */}
@@ -132,8 +132,8 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
           >
-            We're building an innovative contact experience that will make connecting with our team 
-            seamless and efficient. Soon you'll be able to reach out, schedule consultations, 
+            We&apos;re building an innovative contact experience that will make connecting with our team 
+            seamless and efficient. Soon you&apos;ll be able to reach out, schedule consultations, 
             and start your ROI transformation journey with just a few clicks.
           </motion.p>
 
