@@ -3,8 +3,16 @@
 import { StickyScroll } from '../ui/sticky-scroll-reveal';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { CountUp } from '../ui/count-up';
 
 export default function BrandsClients() {
+  const stats = [
+    { value: 1200, suffix: '+', label: 'Total Clients' },
+    { value: 98, suffix: '%', label: 'Client Retention' },
+    { value: 50, suffix: '+', label: 'Industries Served' },
+    { value: 5, suffix: ' Years', label: 'Average Partnership' },
+  ];
+
   const content = [
     {
       title: "Fortune 500 Companies",
@@ -112,6 +120,33 @@ export default function BrandsClients() {
       "py-12 md:py-16 lg:py-20"
     )}>
       <div className="max-w-full mx-auto px-4">
+        {/* Stats Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="space-y-2"
+            >
+              <div className="text-5xl md:text-4xl font-bold text-orange-500">
+                <CountUp value={stat.value} suffix={stat.suffix} duration={2} />
+              </div>
+              <div className="text-gray-600 font-medium">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -131,38 +166,6 @@ export default function BrandsClients() {
 
         {/* Sticky Scroll Component */}
         <StickyScroll content={content} />
-
-        {/* Stats Footer */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
-        >
-          {[
-            { number: "1200+", label: "Total Clients" },
-            { number: "98%", label: "Client Retention" },
-            { number: "50+", label: "Industries Served" },
-            { number: "5 Years", label: "Average Partnership" }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="space-y-2"
-            >
-              <div className="text-5xl md:text-4xl font-bold text-orange-500">
-                {stat.number}
-              </div>
-              <div className="text-gray-600 font-medium">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
