@@ -99,7 +99,7 @@ export default function OurServicesFlowing() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+          className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-6"
         >
           {services.map((service, index) => (
             <motion.div
@@ -111,6 +111,31 @@ export default function OurServicesFlowing() {
               className="h-[120px] rounded-xl overflow-hidden"
             >
               <FlowingMenu items={[service]} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Mobile Services List - Simple layout for mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="md:hidden grid grid-cols-1 gap-4"
+        >
+          {services.map((service, index) => (
+            <motion.div
+              key={service.link}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-gradient-to-r from-white/80 to-orange-50/60 backdrop-blur-lg border border-orange-200/40 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{service.text}</h3>
+              <p className="text-gray-600 text-sm">
+                Professional {service.text.toLowerCase()} solutions to enhance your business growth.
+              </p>
             </motion.div>
           ))}
         </motion.div>

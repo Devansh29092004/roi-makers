@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { gsap } from 'gsap';
 
 interface MenuItemProps {
@@ -52,10 +52,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
     const rect = itemRef.current.getBoundingClientRect();
     const edge = findClosestEdge(ev.clientX - rect.left, ev.clientY - rect.top, rect.width, rect.height);
 
-    const tl = gsap.timeline({ defaults: animationDefaults }) as TimelineMax;
-    tl.to(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' }).to(marqueeInnerRef.current, {
-      y: edge === 'top' ? '101%' : '-101%'
-    });
+    const tl = gsap.timeline({ defaults: animationDefaults });
+    tl.to(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' })
+      .to(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' }, '<');
   };
 
   const repeatedMarqueeContent = React.useMemo(() => {
@@ -78,7 +77,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {/* Default State - Light background with black text and arrow */}
         <span className="text-black font-bold text-xl group-hover:opacity-0 transition-opacity duration-300">
           {text}
         </span>
@@ -89,7 +87,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
         </div>
       </a>
       
-      {/* Hover State - Dark background with flowing content */}
       <div
         className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-gradient-to-br from-gray-900 to-black translate-y-[101%]"
         ref={marqueeRef}
@@ -105,26 +102,3 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
 };
 
 export default FlowingMenu;
-
-// Note: this is also needed
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-//   theme: {
-//     extend: {
-//       translate: {
-//         '101': '101%',
-//       },
-//       keyframes: {
-//         marquee: {
-//           'from': { transform: 'translateX(0%)' },
-//           'to': { transform: 'translateX(-50%)' }
-//         }
-//       },
-//       animation: {
-//         marquee: 'marquee 15s linear infinite'
-//       }
-//     }
-//   },
-//   plugins: [],
-// };

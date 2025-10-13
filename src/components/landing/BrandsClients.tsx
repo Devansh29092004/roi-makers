@@ -17,7 +17,7 @@ export default function BrandsClients() {
             <div className="text-xl">Fortune Companies</div>
             <div className="grid grid-cols-3 gap-4 mt-8">
               {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
+                <div key={i} className="w-20 h-20 bg-white/20 rounded-lg flex items-center justify-center">
                   <div className="w-8 h-8 bg-white/40 rounded-md"></div>
                 </div>
               ))}
@@ -111,7 +111,7 @@ export default function BrandsClients() {
       "bg-gradient-to-br from-gray-50 via-white to-orange-50",
       "py-12 md:py-16 lg:py-20"
     )}>
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-full mx-auto px-4">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -120,9 +120,9 @@ export default function BrandsClients() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-12 lg:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-4 md:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-4 md:mb-6">
             Brands Our <span className="text-orange-500">Clients</span>
-          </h2>
+          </h1>
           <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4">
             Trusted by industry leaders across diverse sectors. Our clients range from innovative startups 
             to Fortune 500 companies, all achieving exceptional results with our ROI-driven solutions.
@@ -154,7 +154,7 @@ export default function BrandsClients() {
               viewport={{ once: true }}
               className="space-y-2"
             >
-              <div className="text-3xl md:text-4xl font-bold text-orange-500">
+              <div className="text-5xl md:text-4xl font-bold text-orange-500">
                 {stat.number}
               </div>
               <div className="text-gray-600 font-medium">

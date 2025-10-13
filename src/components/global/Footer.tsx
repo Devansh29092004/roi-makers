@@ -1,4 +1,11 @@
 import React from "react";
+import {
+  IconBrandFacebook,
+  IconBrandX,
+  IconBrandLinkedin,
+  IconBrandYoutube,
+  IconBrandInstagram,
+} from "@tabler/icons-react";
 
 const Footer = () => (
   <footer className="w-full bg-white flex items-center justify-center py-8 sm:py-12">
@@ -15,12 +22,44 @@ const Footer = () => (
           </form>
           {/* Social Icons */}
           <div className="flex gap-3 mt-2 justify-center lg:justify-start w-full">
-            {/* Replace with actual icons as needed */}
-            <span className="bg-[#222] rounded-full p-3 sm:p-4 text-sm sm:text-base cursor-pointer hover:bg-[#FF9933] transition-colors">F</span>
-            <span className="bg-[#222] rounded-full p-3 sm:p-4 text-sm sm:text-base cursor-pointer hover:bg-[#FF9933] transition-colors">X</span>
-            <span className="bg-[#222] rounded-full p-3 sm:p-4 text-sm sm:text-base cursor-pointer hover:bg-[#FF9933] transition-colors">in</span>
-            <span className="bg-[#222] rounded-full p-3 sm:p-4 text-sm sm:text-base cursor-pointer hover:bg-[#FF9933] transition-colors">Y</span>
-            <span className="bg-[#222] rounded-full p-3 sm:p-4 text-sm sm:text-base cursor-pointer hover:bg-[#FF9933] transition-colors">IG</span>
+            {[
+              {
+                label: "Facebook",
+                href: "https://www.facebook.com",
+                Icon: IconBrandFacebook,
+              },
+              {
+                label: "X",
+                href: "https://www.x.com",
+                Icon: IconBrandX,
+              },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com",
+                Icon: IconBrandLinkedin,
+              },
+              {
+                label: "YouTube",
+                href: "https://www.youtube.com",
+                Icon: IconBrandYoutube,
+              },
+              {
+                label: "Instagram",
+                href: "https://www.instagram.com",
+                Icon: IconBrandInstagram,
+              },
+            ].map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noreferrer"
+                className="bg-[#222] rounded-full p-3 sm:p-4 text-sm sm:text-base transition-colors hover:bg-[#FF9933] flex items-center justify-center"
+              >
+                <Icon className="h-4 w-4 sm:h-5 sm:w-5" stroke={1.5} />
+              </a>
+            ))}
           </div>
         </div>
         {/* Footer Links */}
@@ -29,21 +68,13 @@ const Footer = () => (
             <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Services</span>
             <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Work</span>
             <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">About</span>
-            <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Culture</span>
-            <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Meet The Risers</span>
+            <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Contact</span>
           </div>
-          <div className="flex flex-col gap-2 sm:gap-3 sm:border-r border-white sm:pr-6 lg:pr-8 text-center sm:text-left">
+          <div className="flex flex-col gap-2 sm:gap-3  sm:pr-6 lg:pr-8 text-center sm:text-left">
             <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Testimonials</span>
             <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Blog</span>
             <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Webinars</span>
             <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Careers</span>
-          </div>
-          <div className="flex flex-col gap-2 sm:gap-3 sm:pr-6 lg:pr-8 text-center sm:text-left">
-            <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Sheffield</span>
-            <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Manchester</span>
-            <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">London</span>
-            <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">New York</span>
-            <span className="hover:text-[#FF9933] cursor-pointer transition-colors text-sm sm:text-base">Contact</span>
           </div>
         </div>
       </div>
@@ -56,9 +87,9 @@ const Footer = () => (
         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0">
           <span>&copy; {new Date().getFullYear()} ROI Makers. All rights reserved</span>
           <span className="hidden sm:inline">&nbsp;&bull;&nbsp;</span>
-          <span>Company Number 12345678</span>
+          <span>Company Number : 9009500202</span>
           <span className="hidden sm:inline">&nbsp;&bull;&nbsp;</span>
-          <span>VAT Registered GB 123456789</span>
+          <span>Mail : info@roimakers.in</span>
           <div className="flex flex-wrap justify-center sm:justify-start gap-1 mt-1 sm:mt-0">
             <span className="hidden sm:inline">&nbsp;&bull;&nbsp;</span>
             <a href="#" className="underline hover:text-[#FF9933] transition-colors">Privacy Policy</a>

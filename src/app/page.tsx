@@ -6,12 +6,10 @@ import OurServices from '@/components/landing/OurServicesFlowing';
 import Trust from '@/components/landing/Trust';
 import BrandsClients from '@/components/landing/BrandsClients';
 import Footer from '@/components/global/Footer';
-import { NavbarDemo } from "../components/global/Navbar";
 
 export default function Home() {
   return (
     <main>
-      <NavbarDemo />
       <Hero />
       <Solutions />
       {/* <Agency /> */}
