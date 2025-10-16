@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 interface MenuItemProps {
@@ -13,7 +13,7 @@ interface FlowingMenuProps {
 
 const FlowingMenu: React.FC<FlowingMenuProps> = ({ items = [] }) => {
   return (
-    <div className="w-full h-full overflow-hidden">
+    <div className="w-full h-full overflow-hidden flowing-menu-container">
       <nav className="flex flex-col h-full m-0 p-0">
         {items.map((item, idx) => (
           <MenuItem key={idx} {...item} />
@@ -24,9 +24,10 @@ const FlowingMenu: React.FC<FlowingMenuProps> = ({ items = [] }) => {
 };
 
 const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
-  const itemRef = React.useRef<HTMLDivElement>(null);
-  const marqueeRef = React.useRef<HTMLDivElement>(null);
-  const marqueeInnerRef = React.useRef<HTMLDivElement>(null);
+  const itemRef = useRef<HTMLDivElement>(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const marqueeInnerRef = useRef<HTMLDivElement>(null);
+  const tweenRef = useRef<gsap.core.Timeline | null>(null);
 
   const animationDefaults = { duration: 0.6, ease: 'expo' };
 
@@ -36,24 +37,39 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
     return topEdgeDist < bottomEdgeDist ? 'top' : 'bottom';
   };
 
+  useEffect(() => {
+    // Clean up any existing animations on unmount
+    return () => {
+      tweenRef.current?.kill();
+    };
+  }, []);
+
   const handleMouseEnter = (ev: React.MouseEvent<HTMLAnchorElement>) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
+    
+    // Kill any existing animation
+    tweenRef.current?.kill();
+    
     const rect = itemRef.current.getBoundingClientRect();
     const edge = findClosestEdge(ev.clientX - rect.left, ev.clientY - rect.top, rect.width, rect.height);
 
-    const tl = gsap.timeline({ defaults: animationDefaults });
-    tl.set(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' })
+    tweenRef.current = gsap.timeline({ defaults: animationDefaults });
+    tweenRef.current.set(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' })
       .set(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' })
       .to([marqueeRef.current, marqueeInnerRef.current], { y: '0%' });
   };
 
   const handleMouseLeave = (ev: React.MouseEvent<HTMLAnchorElement>) => {
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
+    
+    // Kill any existing animation
+    tweenRef.current?.kill();
+    
     const rect = itemRef.current.getBoundingClientRect();
     const edge = findClosestEdge(ev.clientX - rect.left, ev.clientY - rect.top, rect.width, rect.height);
 
-    const tl = gsap.timeline({ defaults: animationDefaults });
-    tl.to(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' })
+    tweenRef.current = gsap.timeline({ defaults: animationDefaults });
+    tweenRef.current.to(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' })
       .to(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' }, '<');
   };
 

@@ -13,10 +13,10 @@ const Footer = () => (
       {/* Newsletter Signup */}
       <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-8">
         <div className="flex-1 flex flex-col gap-3 sm:gap-4 items-start">
-          <div className="text-xl sm:text-2xl lg:text-3xl font-semibold text-center lg:text-left w-full">Stay updated with ROI news</div>
+          <div className="text-xl sm:text-2xl lg:text-3xl font-semibold text-center lg:text-left w-full">Stay updated with ROI™ news</div>
           <form className="w-full flex flex-col sm:flex-row gap-3 sm:gap-2">
             <input type="email" placeholder="Your Email Address" className="flex-1 rounded-full px-4 sm:px-6 py-3 sm:py-4 bg-[#222] text-white placeholder:text-gray-400 focus:outline-none text-sm sm:text-base" />
-            <button type="submit" className="rounded-full bg-[#FF9933] text-black px-6 sm:px-8 py-3 sm:py-4 font-bold text-lg sm:text-xl flex items-center justify-center whitespace-nowrap">
+            <button type="submit" className="rounded-full bg-white text-black px-6 sm:px-8 py-3 sm:py-4 font-bold text-lg sm:text-xl flex items-center justify-center whitespace-nowrap">
               Subscribe →
             </button>
           </form>
@@ -80,12 +80,12 @@ const Footer = () => (
       </div>
       {/* Large Logo */}
       <div className="w-full text-center mt-6 sm:mt-8">
-        <span className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[7vw] xl:text-[6vw] font-extrabold tracking-tight leading-none">ROI Makers</span>
+        <span className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[7vw] xl:text-[6vw] font-extrabold tracking-tight leading-none">ROI Makers<span className="align-super text-xl ml-1">™</span></span>
       </div>
       {/* Legal & Credits */}
       <div className="w-full flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm mt-4 sm:mt-6 gap-3 sm:gap-2 text-center sm:text-left">
         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0">
-          <span>&copy; {new Date().getFullYear()} ROI Makers. All rights reserved</span>
+          <span>&copy; {new Date().getFullYear()} ROI Makers<span className="align-super text-s ml-1">™</span> All rights reserved</span>
           <span className="hidden sm:inline">&nbsp;&bull;&nbsp;</span>
           <span>Company Number : 9009500202</span>
           <span className="hidden sm:inline">&nbsp;&bull;&nbsp;</span>
@@ -98,7 +98,7 @@ const Footer = () => (
           </div>
         </div>
         <div className="text-center sm:text-right">
-          <span className="text-[#FF9933] font-medium">Website MadeByROI</span>
+          <span className="text-white font-medium">Website MadeByROI<span className="align-super text-xs ml-1">™</span></span>
         </div>
       </div>
     </div>

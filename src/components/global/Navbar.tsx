@@ -1,33 +1,36 @@
 "use client";
+import { useState } from "react";
 import {
   Navbar,
   NavBody,
   NavItems,
   NavbarLogo,
   NavbarButton,
+  MobileNav,
+  MobileNavHeader,
+  MobileNavMenu,
+  MobileNavToggle,
 } from "@/components/ui/resizable-navbar";
 
 export function NavbarDemo() {
+  const [isOpen, setIsOpen] = useState(false);
+  
   const navItems = [
     {
-      name: "Services",
-      link: "/services",
+      name: "Projects",
+      link: "#projects",
+    },
+    {
+      name: "Approach",
+      link: "#approach",
     },
     {
       name: "About",
-      link: "/about",
+      link: "#about",
     },
     {
-      name: "Work",
-      link: "/work",
-    },
-    {
-      name: "Blog",
-      link: "/blog",
-    },
-    {
-      name:"Carrer",
-      link: "/contact",
+      name: "Contact",
+      link: "#contact",
     },
   ];
 
@@ -39,10 +42,33 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            {/* <NavbarButton variant="secondary" className="px-4 py-2 text-sm">Login</NavbarButton> */}
             <NavbarButton variant="primary" className="px-4 py-2 text-sm">Contact</NavbarButton>
           </div>
         </NavBody>
+
+        {/* Mobile Navigation */}
+        <MobileNav>
+          <MobileNavHeader>
+            <NavbarLogo />
+            <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+          </MobileNavHeader>
+
+          <MobileNavMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            {navItems.map((item, idx) => (
+              <a
+                key={idx}
+                href={item.link}
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-[#FF9933] text-lg font-medium transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
+            <NavbarButton variant="primary" className="w-full mt-4">
+              Contact
+            </NavbarButton>
+          </MobileNavMenu>
+        </MobileNav>
       </Navbar>
     </div>
   );
