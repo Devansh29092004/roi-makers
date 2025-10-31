@@ -13,6 +13,7 @@ import Hero from "@/components/Hero";
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import TeamShowcase from "@/components/TeamShowcase";
 import LogoLoop from "@/components/LogoLoop";
+import BrandsClients from "@/components/landing/BrandsClients";
 
 const breakpoints = [
   { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
@@ -295,27 +296,8 @@ const MenuPage = () => {
             />
           </section>
           <OurServicesFlowing />
-           <section className="logo-loop-section py-12 md:py-20 w-full bg-background">
-            <LogoLoop
-              logos={[
-                { src: "/images/stack/1.jpg", alt: "Brand 1" },
-                { src: "/images/stack/2.jpg", alt: "Brand 2" },
-                { src: "/images/stack/3.jpg", alt: "Brand 3" },
-                { src: "/images/stack/4.jpg", alt: "Brand 4" },
-                { src: "/images/stack/5.jpg", alt: "Brand 5" },
-                { src: "/images/stack/6.jpg", alt: "Brand 6" },
-              ]}
-              speed={30}
-              direction="left"
-              logoHeight={80}
-              gap={60}
-              pauseOnHover={true}
-              fadeOut={true}
-              scaleOnHover={true}
-              className="w-full"
-            />
-          </section>
-          
+            
+          <BrandsClients/>
           <Art/>
           <Footer />
         </>
