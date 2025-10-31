@@ -178,8 +178,8 @@ const VideoShowcase: React.FC<VideoShowcaseProps> = ({
             <iframe
               src={videoSrc}
               frameBorder="0"
-              allow="autoplay; fullscreen"
-              referrerPolicy="no-referrer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
               loading="lazy"
               title="video"
               className="absolute top-0 left-0 w-full h-full rounded-[1.5rem] pointer-events-none"

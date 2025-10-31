@@ -9,11 +9,10 @@ import ImageWall from "@/components/ImageWall";
 import Footer from "@/components/global/Footer";
 import OurServicesFlowing from "@/components/landing/OurServicesFlowing";
 import Art from "@/components/Art";
-import BrandsClients from "@/components/landing/BrandsClients";
-import Services from "@/components/landing/Services";
-import Solutions from "@/components/landing/Solutions";
-import Agency from "@/components/landing/Agency";
-import Trust from "@/components/landing/Trust";
+import Hero from "@/components/Hero";
+import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
+import TeamShowcase from "@/components/TeamShowcase";
+import LogoLoop from "@/components/LogoLoop";
 
 const breakpoints = [
   { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
@@ -213,24 +212,25 @@ const MenuPage = () => {
   return (
     <div className="min-h-screen bg-white text-black boska-font overflow-x-hidden">
       {showLoading && <LoadingOverlay onFinish={() => setShowLoading(false)} />}
+      {/* <Hero /> */}
       {/* <Navbar /> */}
-      <section className="hero flex flex-col justify-between pt-[4em] h-[100svh] w-full px-[2.5em]">
+      <section className="hero flex flex-col justify-between pt-[4em] md:pt-[4em] h-[100svh] w-full px-4 md:px-[2.5em]">
         <h1
           ref={heroTitleRef}
-          className="relative uppercase font-black left-[-0.05em] text-[25vw] tracking-[-0.04em] leading-[1] select-none"
+          className="relative uppercase font-black left-[-0.05em] text-[18vw] sm:text-[20vw] md:text-[25vw] tracking-[-0.04em] leading-[1] select-none"
           style={{ opacity: showHero ? 1 : 0 }}
         >
           ROI<span className="align-super text-[0.5em] ml-1">™</span>
         </h1>
         {showContent && (
           <div
-            className="flex justify-between items-end mb-12"
+            className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-4 md:gap-0"
             ref={subtitleRef}
           >
-            <p className="text-3xl md:text-[3vw] md:w-[50%] pp-neue-world-font font-normal select-none">
+            <p className="text-xl sm:text-2xl md:text-[3vw] md:w-[50%] pp-neue-world-font font-normal select-none">
               Strategy, design, and campaigns for ambitious companies.
             </p>
-            <p className="text-[20px] font-medium hidden md:flex select-none">
+            <p className="text-[18px] md:text-[20px] font-medium hidden md:flex select-none">
               {"{"}Scroll{"}"}
             </p>
           </div>
@@ -239,7 +239,7 @@ const MenuPage = () => {
       {showContent && (
         <>
           <section
-            className="intro max-md:-mt-80 h-full w-full px-[2.5em]"
+            className="intro max-md:-mt-80 h-full w-full px-4 md:px-[2.5em]"
             ref={videoSectionRef}
           >
             {/* Desktop VideoShowcase */}
@@ -252,8 +252,8 @@ const MenuPage = () => {
             </div>
             {/* Mobile Video Preview */}
             <div className="video-container-mobile pp-neue-world-font max-w-[800px] w-full mx-auto flex-col gap-[1em] flex md:hidden">
-              <div className="video-preview relative w-full aspect-[16/9] rounded-[1.5rem] bg-[#b9b9b3] overflow-hidden">
-                <div className="video-wrapper absolute top-0 left-0 w-full h-full rounded-[1.5rem] overflow-hidden">
+              <div className="video-preview relative w-full aspect-[16/9] rounded-xl md:rounded-[1.5rem] bg-[#b9b9b3] overflow-hidden">
+                <div className="video-wrapper absolute top-0 left-0 w-full h-full rounded-xl md:rounded-[1.5rem] overflow-hidden">
                   <iframe
                     src="https://player.vimeo.com/video/1027126039?background=1&autoplay=1&loop=1&muted=1&dnt=1&app_id=codegrid"
                     frameBorder="0"
@@ -261,23 +261,23 @@ const MenuPage = () => {
                     referrerPolicy="no-referrer"
                     loading="lazy"
                     title="ROI video"
-                    className="absolute top-0 left-0 w-full h-full rounded-[1.5rem] pointer-events-none"
+                    className="absolute top-0 left-0 w-full h-full rounded-xl md:rounded-[1.5rem] pointer-events-none"
                   ></iframe>
                 </div>
               </div>
               <div className="video-title">
-                <p className="font-medium text-4xl">ROI™ Showreel</p>
-                <p className="font-medium text-2xl">(Clients — 2018/2024)</p>
+                <p className="font-medium text-3xl sm:text-4xl">ROI™ Showreel</p>
+                <p className="font-medium text-xl sm:text-2xl">(Clients — 2018/2024)</p>
               </div>
             </div>
           </section>
           <section
-            className="outro flex flex-col justify-center items-center min-h-[100svh] w-full px-[2.5em]"
+            className="outro flex flex-col justify-center items-center min-h-[100svh] w-full px-4 md:px-[2.5em]"
             ref={outroRef}
           >
             <ImageWall
               heroText="See how we transform brands"
-              heroTextClassName="text-7xl px-[2.5em] flex justify-center items-center font-medium text-foreground text-center w-full"
+              heroTextClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl px-4 md:px-[2.5em] flex justify-center items-center font-medium text-foreground text-center w-full"
               buttonText="Work With Us"
               lines={[
                 "Creative strategy. Impactful design.",
@@ -285,8 +285,8 @@ const MenuPage = () => {
                 "Partner with Mocko™ for your next leap.",
               ]}
               footerContent={
-                <section className="hero mb-60 flex justify-center items-center w-screen bg-background">
-                  <p className="text-7xl px-[2.5em] flex justify-center items-center font-medium text-foreground text-center w-full">
+                <section className="hero mb-40 md:mb-60 flex justify-center items-center w-screen bg-background">
+                  <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl px-4 md:px-[2.5em] flex justify-center items-center font-medium text-foreground text-center w-full">
                     See how we transform brands
                   </p>
                 </section>
@@ -295,21 +295,29 @@ const MenuPage = () => {
             />
           </section>
           <OurServicesFlowing />
-          <Art/>
-          {/* <BrandsClients/> */}
-          {/* <Services/> */}
-          {/* <Solutions/> */}
-          {/* <Agency/> */}
-          {/* <Trust/> */}
-          <Footer />
-          {/* <section>
-            <TeamShowcase
-              teamNames={teamNames}
-              teamImages={teamImages}
-              teamInfo={teamInfo}
-              title="{ Meet The }"
+           <section className="logo-loop-section py-12 md:py-20 w-full bg-background">
+            <LogoLoop
+              logos={[
+                { src: "/images/stack/1.jpg", alt: "Brand 1" },
+                { src: "/images/stack/2.jpg", alt: "Brand 2" },
+                { src: "/images/stack/3.jpg", alt: "Brand 3" },
+                { src: "/images/stack/4.jpg", alt: "Brand 4" },
+                { src: "/images/stack/5.jpg", alt: "Brand 5" },
+                { src: "/images/stack/6.jpg", alt: "Brand 6" },
+              ]}
+              speed={30}
+              direction="left"
+              logoHeight={80}
+              gap={60}
+              pauseOnHover={true}
+              fadeOut={true}
+              scaleOnHover={true}
+              className="w-full"
             />
-          </section> */}
+          </section>
+          
+          <Art/>
+          <Footer />
         </>
       )}
       <style jsx>{`
@@ -319,12 +327,12 @@ const MenuPage = () => {
             padding: 1.5em;
           }
           .hero {
-            padding-top: 5em;
+            padding-top: 4em;
             justify-content: flex-start;
             gap: 2em;
           }
           .hero h1 {
-            font-size: 19vw;
+            font-size: 18vw;
           }
           .video-container-desktop {
             display: none;
@@ -333,6 +341,16 @@ const MenuPage = () => {
             display: flex;
             flex-direction: column;
             gap: 1em;
+          }
+        }
+        @media (max-width: 640px) {
+          .hero {
+            padding-top: 3em;
+            padding-left: 1em;
+            padding-right: 1em;
+          }
+          .hero h1 {
+            font-size: 18vw;
           }
         }
       `}</style>

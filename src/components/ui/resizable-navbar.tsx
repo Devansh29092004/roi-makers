@@ -118,7 +118,7 @@ export const NavBody = ({ children, className, visible, isOverHero }: NavBodyPro
         damping: 50,
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 sm:px-6 py-3 md:flex",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-6 sm:px-8 py-3 md:flex",
         isOverHero 
           ? visible 
             ? "bg-black/50 backdrop-blur-lg border border-[#FF9933]/20 mt-12"
@@ -141,7 +141,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 md:space-x-3 text-sm font-medium text-white transition duration-200 hover:text-[#FF9933] md:flex",
+        "flex flex-row items-center justify-end space-x-2 md:space-x-3 text-sm font-medium text-white transition duration-200 hover:text-[#FF9933]",
         className,
       )}
     >

@@ -23,7 +23,7 @@ export default function Art() {
   // Preload images for smoother animations
   useEffect(() => {
     const preloadImages = () => {
-      const imageUrls = ["/ok-img.jpg", "/ok-masked.png"];
+      const imageUrls = ["/amit.jpg", "/amit-masked.png"];
       imageUrls.forEach((url) => {
         const img = new window.Image();
         img.src = url;
@@ -95,7 +95,7 @@ export default function Art() {
       end: `+=${window.innerHeight * 4}px`,
       pin: true,
       pinSpacing: true,
-      scrub: 0.3, // Even smoother scrub
+      scrub: 1, // Smoother and more responsive scrub
       anticipatePin: 1,
       refreshPriority: -1,
       fastScrollEnd: true,
@@ -103,76 +103,71 @@ export default function Art() {
       onUpdate: (self) => {
         const progress = self.progress;
 
-        // Use requestAnimationFrame for optimal performance
-        requestAnimationFrame(() => {
-          // Use transform3d for hardware acceleration
-          gsap.set(bannerContainerRef.current, {
-            scale: progress * 0.95,
+        // Use transform3d for hardware acceleration
+        gsap.set(bannerContainerRef.current, {
+          scale: progress * 0.95,
+          force3D: true,
+        });
+
+        // Image scale animation (0% to 60% of scroll)
+        const imageScaleProgress = Math.min(progress / 0.6, 1);
+        bannerMaskLayers.forEach((layer, i) => {
+          const initialScale = 0.9 - i * 0.15;
+          const maxScale = 1.0;
+          const currentScale =
+            initialScale + imageScaleProgress * (maxScale - initialScale);
+          gsap.set(layer, {
+            scale: currentScale,
+            force3D: true,
+          });
+        });
+
+        // Text movement animation (0% to 60% of scroll - synced with image)
+        if (progress <= 0.6) {
+          const textProgress = imageScaleProgress;
+
+          gsap.set(bannerIntroTextElements[0], {
+            x: -textProgress * moveDistance - 5,
             force3D: true,
           });
 
-          // Batch DOM updates for better performance
-          const updates: Array<{ element: HTMLElement; scale: number }> = [];
-
-          bannerMaskLayers.forEach((layer, i) => {
-            const initialScale = 0.9 - i * 0.15;
-            const layerProgress = Math.min(progress / 0.9, 1.0);
-            const maxScale = 1.0;
-            const currentScale =
-              initialScale + layerProgress * (maxScale - initialScale);
-            updates.push({ element: layer, scale: currentScale });
+          gsap.set(bannerIntroTextElements[1], {
+            x: textProgress * moveDistance + 5,
+            force3D: true,
           });
+        } else {
+          // Keep text at final position
+          gsap.set(bannerIntroTextElements[0], {
+            x: -moveDistance - 5,
+            force3D: true,
+          });
+          gsap.set(bannerIntroTextElements[1], {
+            x: moveDistance + 5,
+            force3D: true,
+          });
+        }
 
-          // Apply all scale updates at once
-          updates.forEach(({ element, scale }) => {
-            gsap.set(element, {
-              scale: scale,
+        // Character reveal animation (60% to 85% of scroll)
+        if (progress >= 0.6 && progress <= 0.85) {
+          const headerProgress = (progress - 0.6) / 0.25;
+
+          chars.forEach((char, i) => {
+            const charDelay = i / totalChars;
+            const charOpacity = Math.max(
+              0,
+              Math.min(1, (headerProgress - charDelay) * (totalChars / 2))
+            );
+
+            gsap.set(char, {
+              opacity: charOpacity,
               force3D: true,
             });
           });
-
-          // Text movement animation - starts at 70% progress
-          if (progress <= 0.9) {
-            const textProgress = progress / 0.9;
-
-            gsap.set(bannerIntroTextElements[0], {
-              x: -textProgress * moveDistance - 5,
-            });
-
-            gsap.set(bannerIntroTextElements[1], {
-              x: textProgress * moveDistance + 5,
-            });
-          }
-
-          // Optimize character animation
-          if (progress >= 0.7 && progress <= 0.9) {
-            const headerProgress = (progress - 0.7) / 0.2;
-
-            chars.forEach((char, i) => {
-              const charStartDelay = i / totalChars;
-              const charEndDelay = (i + 1) / totalChars;
-
-              let charOpacity = 0;
-
-              if (headerProgress >= charStartDelay) {
-                charOpacity = 1;
-              } else if (headerProgress >= charEndDelay) {
-                const charProgress =
-                  (headerProgress - charStartDelay) /
-                  (charEndDelay - charStartDelay);
-                charOpacity = charProgress;
-              }
-              gsap.set(char, {
-                opacity: charOpacity,
-                force3D: true,
-              });
-            });
-          } else if (progress < 0.7) {
-            gsap.set(chars, { opacity: 0, force3D: true });
-          } else if (progress > 1) {
-            gsap.set(chars, { opacity: 0, force3D: true });
-          }
-        });
+        } else if (progress < 0.6) {
+          gsap.set(chars, { opacity: 0, force3D: true });
+        } else if (progress > 0.85) {
+          gsap.set(chars, { opacity: 1, force3D: true });
+        }
       },
     });
 
@@ -185,8 +180,8 @@ export default function Art() {
   const maskLayers = useMemo(() => Array.from({ length: 8 }), []);
   const maskStyle = useMemo<CSSProperties>(
     () => ({
-      WebkitMaskImage: "url('/ok-masked.png')",
-      maskImage: "url('/ok-masked.png')",
+      WebkitMaskImage: "url('/amit-masked.png')",
+      maskImage: "url('/amit-masked.png')",
       WebkitMaskSize: "cover",
       maskSize: "cover",
       WebkitMaskPosition: "center",
@@ -204,12 +199,12 @@ export default function Art() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative w-screen h-screen bg-gray-200 text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-6 px-6 text-center"
+        className="relative w-screen h-screen bg-gray-200 text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
       >
-        <h1 className="text-6xl leading-tight max-w-3xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
           Art is never just what you see.
         </h1>
-        <p className="max-w-2xl text-lg text-gray-600">
+        <p className="max-w-2xl text-base sm:text-lg text-gray-600 px-4">
           Every image holds more than its surface—shapes that shift when the
           light changes, meanings that reveal themselves only when you stand at
           a different angle. What looks simple is often layered, waiting for the
@@ -224,15 +219,15 @@ export default function Art() {
       >
         <div
           ref={bannerContainerRef}
-          className="relative w-full h-full p-6 rounded-3xl overflow-hidden"
+          className="relative w-full h-full p-3 md:p-6 rounded-2xl md:rounded-3xl overflow-hidden"
         >
           {/* Base image */}
-          <div className="absolute top-0 left-0 w-full h-full rounded-3xl overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full rounded-2xl md:rounded-3xl overflow-hidden">
             <Image
-              src="/ok-img.jpg"
+              src="/amit.jpg"
               alt="Telescope banner"
               fill
-              className="object-cover rounded-3xl"
+              className="object-cover rounded-2xl md:rounded-3xl"
               priority
             />
           </div>
@@ -241,11 +236,11 @@ export default function Art() {
           {maskLayers.map((_, index) => (
             <div
               key={index}
-              className="mask absolute top-0 left-0 w-full h-full rounded-3xl overflow-hidden"
+              className="mask absolute top-0 left-0 w-full h-full rounded-2xl md:rounded-3xl overflow-hidden"
               style={maskStyle}
             >
               <Image
-                src="/ok-img.jpg"
+                src="/amit.jpg"
                 alt="Telescope banner mask"
                 fill
                 className="object-cover"
@@ -257,21 +252,21 @@ export default function Art() {
           {/* Banner header */}
           <div
             ref={bannerHeaderRef}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 text-center text-gray-100 z-10"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-4/5 text-center text-orange-600 z-10 text-xl sm:text-2xl md:text-3xl lg:text-4xl"
           >
             <h1>Every layer tells a different truth.</h1>
           </div>
         </div>
 
         {/* Intro text container */}
-        <div className="absolute top-1/2 transform -translate-y-1/2 w-full flex gap-2 z-20">
+        <div className="absolute top-1/2 transform -translate-y-1/2 w-full flex gap-1 md:gap-2 z-20">
           <div ref={introText1Ref} className="flex-1 flex justify-end">
-            <div className="banner-intro-text">
+            <div className="banner-intro-text text-xl sm:text-2xl md:text-3xl lg:text-4xl">
               <h1>Seen from Above</h1>
             </div>
           </div>
           <div ref={introText2Ref} className="flex-1">
-            <div className="banner-intro-text">
+            <div className="banner-intro-text text-xl sm:text-2xl md:text-3xl lg:text-4xl">
               <h1>Felt from Within</h1>
             </div>
           </div>
@@ -281,17 +276,28 @@ export default function Art() {
       {/* Outro Section */}
       <section
         ref={outroRef}
-        className="relative w-screen h-screen bg-gray-200 text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-6 px-6 text-center"
+        className="relative w-screen h-screen bg-gray-200 text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
       >
-        <h1 className="text-6xl leading-tight max-w-3xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
           We are always reading between the strokes.
         </h1>
-        <p className="max-w-2xl text-lg text-gray-600">
+        <p className="max-w-2xl text-base sm:text-lg text-gray-600 px-4">
           Perspective decides the story: a gesture becomes confession, a shadow
           turns into memory. The deeper you look, the more versions appear—proof
           that art isn&apos;t fixed, but alive in the way we choose to see it.
         </p>
       </section>
+      <style jsx>{`
+        .banner-intro-text h1 {
+          font-size: clamp(1.5rem, 4vw, 3rem);
+          font-weight: bold;
+        }
+        @media (max-width: 768px) {
+          .banner-intro-text h1 {
+            font-size: clamp(1.25rem, 3.5vw, 2rem);
+          }
+        }
+      `}</style>
     </div>
   );
 }

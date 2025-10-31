@@ -189,9 +189,9 @@ const ImageWall: React.FC<ImageWallProps> = ({
       {/* Approach Hero Section */}
       <section
         ref={heroRef}
-        className="w-full flex flex-col items-center justify-center px-[2.5em] pt-24 pb-16"
+        className="w-full flex flex-col items-center justify-center px-4 md:px-[2.5em] pt-16 md:pt-24 pb-12 md:pb-16"
       >
-        <div className="flex w-full max-w-7xl mx-auto items-start gap-8">
+        <div className="flex w-full max-w-7xl mx-auto items-start gap-4 md:gap-8">
           {/* Left Arrow */}
           <div className="flex-shrink-0 hidden md:flex flex-col items-start justify-start pt-2 min-w-[60px]">
             <span className="flex text-[3.5rem] md:text-[4.5rem] font-bold leading-none">
@@ -202,28 +202,28 @@ const ImageWall: React.FC<ImageWallProps> = ({
           <div className="flex-1">
             <h2
               ref={headlineRef}
-              className="text-[2.5rem] md:text-[3.5rem] font-bold leading-tight tracking-tight mb-12"
+              className="text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] font-bold leading-tight tracking-tight mb-8 md:mb-12"
               style={{ lineHeight: 1.05 }}
             >
               Defining how brands move, scale,
-              <br className="hidden md:block" />
+              <br className="hidden sm:block" />
               and express themselves across
-              <br className="hidden md:block" />
+              <br className="hidden sm:block" />
               modern media
             </h2>
             {/* Two-column grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8">
               <div
                 ref={approachRef}
-                className="text-2xl text-black/80 flex items-start font-bold italic"
+                className="text-xl md:text-2xl text-black/80 flex items-start font-bold italic"
               >
                 (Approach)
               </div>
               <div ref={subheadlineRef} className="pp-neue-world-font">
-                <div className="font-semibold text-xl mb-2">
+                <div className="font-semibold text-lg md:text-xl mb-2">
                   Motion is the new frontier of branding and communication.
                 </div>
-                <div className="text-gray-500 text-base  leading-relaxed space-y-4">
+                <div className="text-gray-500 text-sm md:text-base leading-relaxed space-y-4">
                   <p>
                     The media landscape has evolved, brands are called to scale
                     beyond static and adapt to the world of motion. With
@@ -248,21 +248,21 @@ const ImageWall: React.FC<ImageWallProps> = ({
         ref={mainRef}
         className="main w-screen min-h-[150vh] md:flex flex-col items-center relative bg-background hidden"
       >
-        <div className="main-content flex flex-col items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none">
-          <div className="copy flex flex-col items-center justify-center m-8">
+        <div className="main-content flex flex-col items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none px-4">
+          <div className="copy flex flex-col items-center justify-center m-4 md:m-8">
             {lines.map((line, idx) => (
               <div
-                className="line w-max min-h-[2.5em] flex items-center overflow-hidden mb-5"
+                className="line w-max min-h-[2em] md:min-h-[2.5em] flex items-center overflow-hidden mb-3 md:mb-5"
                 key={idx}
               >
-                <p className="text-foreground clash-display-font tracking font-medium text-3xl md:text-[2.5vw] translate-y-10 opacity-0 transition-transform duration-100 py-1">
+                <p className="text-foreground clash-display-font tracking font-medium text-xl sm:text-2xl md:text-[2.5vw] translate-y-10 opacity-0 transition-transform duration-100 py-1">
                   {line}
                 </p>
               </div>
             ))}
             <div className="btn mt-4">
               <Button
-                className="relative overflow-hidden text-background  cursor-pointer border-0 rounded-full px-10 py-4 text-2xl font-semibold bg-foreground shadow-lg opacity-0 translate-y-8 transition-all duration-300 ease-out hover:scale-105 focus:scale-105 active:scale-100 group"
+                className="relative overflow-hidden text-background cursor-pointer border-0 rounded-full px-6 md:px-10 py-3 md:py-4 text-lg md:text-2xl font-semibold bg-foreground shadow-lg opacity-0 translate-y-8 transition-all duration-300 ease-out hover:scale-105 focus:scale-105 active:scale-100 group"
                 style={{ boxShadow: "0 4px 24px 0 rgba(255, 72, 146, 0.15)" }}
               >
                 <span className="relative z-10">{buttonText}</span>
