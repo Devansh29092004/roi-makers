@@ -171,7 +171,7 @@ export default function BrandsClients() {
                         { src: "/images/stack/5.jpg", alt: "Brand 5" },
                         { src: "/images/stack/6.jpg", alt: "Brand 6" },
                       ]}
-                      speed={30}
+                      speed={80}
                       direction="left"
                       logoHeight={80}
                       gap={60}

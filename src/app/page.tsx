@@ -14,6 +14,7 @@ import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import TeamShowcase from "@/components/TeamShowcase";
 import LogoLoop from "@/components/LogoLoop";
 import BrandsClients from "@/components/landing/BrandsClients";
+import FAQSection from "@/components/landing/faq";
 
 const breakpoints = [
   { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
@@ -299,6 +300,7 @@ const MenuPage = () => {
             
           <BrandsClients/>
           <Art/>
+          <FAQSection/>
           <Footer />
         </>
       )}

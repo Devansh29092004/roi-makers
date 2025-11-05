@@ -50,53 +50,22 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
     const defaultLetters = nameElements[0]?.querySelectorAll(".letter") ?? [];
     gsap.set(defaultLetters, { y: "100%" });
 
-    if (window.innerWidth >= 900) {
-      profileImages.forEach((img, index) => {
-        const correspondingName = nameElements[index + 1];
-        if (!correspondingName) return;
-        const letters = correspondingName.querySelectorAll(".letter");
+    // Apply animations for both mobile and desktop
+    profileImages.forEach((img, index) => {
+      const correspondingName = nameElements[index + 1];
+      if (!correspondingName) return;
+      const letters = correspondingName.querySelectorAll(".letter");
 
-        img.addEventListener("mouseenter", () => {
-          gsap.to(img, {
-            width: 140,
-            height: 140,
-            duration: 0.4,
-            ease: "power4.out",
-          });
-
-          gsap.to(letters, {
-            y: "-100%",
-            duration: 0.4,
-            stagger: {
-              each: 0.08,
-              from: "center",
-            },
-          });
-        });
-
-        img.addEventListener("mouseleave", () => {
-          gsap.to(img, {
-            width: 70,
-            height: 70,
-            duration: 0.4,
-            ease: "power4.out",
-          });
-
-          gsap.to(letters, {
-            y: "0%",
-            duration: 0.4,
-            stagger: {
-              each: 0.08,
-              from: "center",
-            },
-          });
-        });
-      });
-
-      profileImagesContainer?.addEventListener("mouseenter", () => {
-        gsap.to(defaultLetters, {
-          y: "0%",
+      img.addEventListener("mouseenter", () => {
+        gsap.to(img, {
+          width: window.innerWidth >= 900 ? 140 : 80,
+          height: window.innerWidth >= 900 ? 140 : 80,
+          duration: 0.4,
           ease: "power4.out",
+        });
+
+        gsap.to(letters, {
+          y: "-100%",
           duration: 0.4,
           stagger: {
             each: 0.08,
@@ -105,9 +74,16 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         });
       });
 
-      profileImagesContainer?.addEventListener("mouseleave", () => {
-        gsap.to(defaultLetters, {
-          y: "100%",
+      img.addEventListener("mouseleave", () => {
+        gsap.to(img, {
+          width: window.innerWidth >= 900 ? 70 : 60,
+          height: window.innerWidth >= 900 ? 70 : 60,
+          duration: 0.4,
+          ease: "power4.out",
+        });
+
+        gsap.to(letters, {
+          y: "0%",
           duration: 0.4,
           stagger: {
             each: 0.08,
@@ -115,13 +91,67 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
           },
         });
       });
-    }
+    });
+
+    profileImagesContainer?.addEventListener("mouseenter", () => {
+      gsap.to(defaultLetters, {
+        y: "0%",
+        ease: "power4.out",
+        duration: 0.4,
+        stagger: {
+          each: 0.08,
+          from: "center",
+        },
+      });
+    });
+
+    profileImagesContainer?.addEventListener("mouseleave", () => {
+      gsap.to(defaultLetters, {
+        y: "100%",
+        duration: 0.4,
+        stagger: {
+          each: 0.08,
+          from: "center",
+        },
+      });
+    });
   }, [teamNames, teamImages, teamInfo]);
 
   // Mobile tap effect with exit animation and index+1 mapping
   useEffect(() => {
-    if (typeof window === "undefined" || window.innerWidth >= 900) return;
+    if (typeof window === "undefined") return;
+    const isMobile = window.innerWidth < 900;
+    if (!isMobile) return; // Only run on mobile for tap interactions
+    
     const nameElements = namesRef.current?.querySelectorAll(".name") ?? [];
+    const profileImages = imagesRef.current?.querySelectorAll(".img") ?? [];
+    
+    // Animate previous active image
+    if (prevActiveIndex.current !== null && prevActiveIndex.current !== activeIndex) {
+      const prevImg = profileImages[prevActiveIndex.current];
+      if (prevImg) {
+        gsap.to(prevImg, {
+          width: 60,
+          height: 60,
+          duration: 0.4,
+          ease: "power4.out",
+        });
+      }
+    }
+    
+    // Animate current active image
+    if (activeIndex !== null) {
+      const currentImg = profileImages[activeIndex];
+      if (currentImg) {
+        gsap.to(currentImg, {
+          width: 80,
+          height: 80,
+          duration: 0.4,
+          ease: "power4.out",
+        });
+      }
+    }
+    
     // Animate previous active name out
     if (
       prevActiveIndex.current !== null &&
@@ -134,21 +164,11 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         y: "0%",
         duration: 0.3,
         stagger: { each: 0.06, from: "center" },
-        onComplete: () => {
-          // Animate new active name in
-          if (activeIndex !== null && nameElements[activeIndex + 1]) {
-            const newLetters =
-              nameElements[activeIndex + 1].querySelectorAll(".letter");
-            gsap.to(newLetters, {
-              y: "-100%",
-              duration: 0.4,
-              stagger: { each: 0.08, from: "center" },
-            });
-          }
-        },
       });
-    } else if (activeIndex !== null && nameElements[activeIndex + 1]) {
-      // No previous, just animate in
+    }
+    
+    // Animate new active name in
+    if (activeIndex !== null && nameElements[activeIndex + 1]) {
       const newLetters =
         nameElements[activeIndex + 1].querySelectorAll(".letter");
       gsap.to(newLetters, {
@@ -157,6 +177,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         stagger: { each: 0.08, from: "center" },
       });
     }
+    
     // Animate Core (index 0) out when a profile is active, in when not
     const coreLetters = nameElements[0]?.querySelectorAll(".letter") ?? [];
     if (activeIndex !== null) {
@@ -172,6 +193,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         stagger: { each: 0.08, from: "center" },
       });
     }
+    
     // Reset all others
     nameElements.forEach((el, i) => {
       if (activeIndex === null || i !== activeIndex + 1) {
@@ -183,6 +205,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         });
       }
     });
+    
     prevActiveIndex.current = activeIndex;
   }, [activeIndex, teamInfo]);
 
@@ -194,11 +217,11 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
 
   return (
     <Card className="team-section bg-foreground border-4 border-muted w-screen h-[100svh] flex md:flex-col justify-center items-center md:gap-[2.5em] gap-4 overflow-hidden relative team-page m-0 p-0 box-border flex-col-reverse md:flex-nowrap">
-      <CardHeader className="absolute top-55 md:top-38 left-0 w-full  flex justify-center items-center secondary-font">
-        <CardTitle className="text-4xl text-background">{title}</CardTitle>
+      <CardHeader className="absolute top-12 md:top-20 left-0 w-full flex justify-center items-center secondary-font z-30">
+        <CardTitle className="text-3xl md:text-4xl lg:text-5xl text-background">{title}</CardTitle>
       </CardHeader>
       <div
-        className="profile-images flex flex-wrap md:flex-nowrap justify-center items-center w-full md:w-max max-w-[90%] md:max-w-none"
+        className="profile-images flex flex-wrap md:flex-nowrap justify-center items-center w-full md:w-max max-w-[95%] sm:max-w-[85%] md:max-w-none gap-2 md:gap-0"
         ref={imagesRef}
       >
         {teamImages.map((src, i) => (
@@ -228,7 +251,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         ))}
       </div>
       <div
-        className="profile-names relative flex items-center justify-center w-full h-[4rem] md:h-[15rem] overflow-hidden z-10"
+        className="profile-names relative flex items-center justify-center w-full h-[5rem] sm:h-[6rem] md:h-[15rem] overflow-hidden z-10"
         ref={namesRef}
       >
         {teamNames.map((name, i) => (
@@ -260,7 +283,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         {activeIndex !== null && teamInfo[activeIndex] && (
           <Card
             key={activeIndex}
-            className="absolute left-1/2 -translate-x-1/2 bottom-8 w-[calc(100%-40px)] max-w-2xl md:max-w-4xl bg-foreground rounded-xl shadow-xl p-0 secondary-font border-none h-[100px] max-md:h-[200px] flex flex-col justify-center items-center"
+            className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 md:bottom-8 w-[calc(100%-20px)] sm:w-[calc(100%-40px)] max-w-2xl md:max-w-4xl bg-foreground rounded-xl shadow-xl p-0 secondary-font border-none min-h-[180px] sm:min-h-[160px] md:min-h-[100px] flex flex-col justify-center items-center"
             style={{ zIndex: 20 }}
           >
             <motion.div
@@ -268,30 +291,30 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.15, ease: "easeInOut" }}
-              className="w-full h-full flex flex-row justify-between items-center p-6 gap-6 mx-20 max-md:mx-2"
+              className="w-full h-full flex flex-col md:flex-row justify-between items-start md:items-center p-4 sm:p-5 md:p-6 gap-4 md:gap-6 md:mx-8"
             >
               {/* Left: Name and Role */}
-              <div className="flex flex-col h-full items-start min-w-[120px] max-w-[40%]">
-                <h3 className="text-2xl font-bold text-background leading-tight">
+              <div className="flex flex-col items-start min-w-[120px] w-full md:w-auto md:max-w-[40%]">
+                <h3 className="text-xl sm:text-2xl font-bold text-background leading-tight">
                   {teamInfo[activeIndex]?.fullName ||
                     teamNames[activeIndex + 1]}
                 </h3>
-                <p className="text-sm text-background font-semibold mt-1">
+                <p className="text-xs sm:text-sm text-background font-semibold mt-1">
                   {teamInfo[activeIndex].role}
                 </p>
               </div>
               {/* Right: Bio and Fun Fact */}
-              <div className="flex-1 text-left pl-6 border-l-4 border-accent flex flex-col justify-center h-full">
+              <div className="flex-1 text-left md:pl-6 md:border-l-4 border-accent flex flex-col justify-center w-full">
                 <div className="flex items-start gap-2">
-                  <span className="text-3xl  select-none leading-none text-[#f93535]">
+                  <span className="text-2xl sm:text-3xl select-none leading-none text-[#f93535]">
                     “
                   </span>
-                  <span className="text-lg md:text-xl text-background font-medium leading-snug">
+                  <span className="text-base sm:text-lg md:text-xl text-background font-medium leading-snug">
                     {teamInfo[activeIndex].bio}
                   </span>
                 </div>
                 {teamInfo[activeIndex].fun && (
-                  <span className="block text-sm text-[#f93535] italic mt-2 pl-8">
+                  <span className="block text-xs sm:text-sm text-[#f93535] italic mt-2 pl-6 md:pl-8">
                     {teamInfo[activeIndex].fun}
                   </span>
                 )}
