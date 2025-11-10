@@ -15,6 +15,10 @@ import TeamShowcase from "@/components/TeamShowcase";
 import LogoLoop from "@/components/LogoLoop";
 import BrandsClients from "@/components/landing/BrandsClients";
 import FAQSection from "@/components/landing/faq";
+import Employee from "@/components/landing/Employee";
+import Ballpit from "@/components/ui/ballpit";
+import GradientBackground from "@/components/ui/gradient-background";
+
 
 const breakpoints = [
   { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
@@ -217,7 +221,9 @@ const MenuPage = () => {
       {/* <Hero /> */}
       {/* <Navbar /> */}
       <section className="hero flex flex-col justify-between pt-[4em] md:pt-[4em] h-[100svh] w-full px-4 md:px-[2.5em]">
-        <h1
+       <div>
+        
+         <h1
           ref={heroTitleRef}
           className="relative uppercase font-black left-[-0.05em] text-[18vw] sm:text-[20vw] md:text-[25vw] tracking-[-0.04em] leading-[1] select-none"
           style={{ opacity: showHero ? 1 : 0 }}
@@ -237,6 +243,7 @@ const MenuPage = () => {
             </p>
           </div>
         )}
+      </div>
       </section>
       {showContent && (
         <>
@@ -245,33 +252,14 @@ const MenuPage = () => {
             ref={videoSectionRef}
           >
             {/* Desktop VideoShowcase */}
-            <div className="hidden md:block">
+            {/* <div className="hidden md:block">
               <VideoShowcase
                 videoSrc="https://www.youtube.com/embed/HXFkg0vwLpQ?autoplay=1&mute=1&controls=0&loop=1&playlist=HXFkg0vwLpQ"
                 title1="ROI™ Showreel"
                 title2="(Clients — 2018/2024)"
               />
-            </div>
-            {/* Mobile Video Preview */}
-            <div className="video-container-mobile pp-neue-world-font max-w-[800px] w-full mx-auto flex-col gap-[1em] flex md:hidden">
-              <div className="video-preview relative w-full aspect-[16/9] rounded-xl md:rounded-[1.5rem] bg-[#b9b9b3] overflow-hidden">
-                <div className="video-wrapper absolute top-0 left-0 w-full h-full rounded-xl md:rounded-[1.5rem] overflow-hidden">
-                  <iframe
-                    src="https://player.vimeo.com/video/1027126039?background=1&autoplay=1&loop=1&muted=1&dnt=1&app_id=codegrid"
-                    frameBorder="0"
-                    allow="autoplay; fullscreen"
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                    title="ROI video"
-                    className="absolute top-0 left-0 w-full h-full rounded-xl md:rounded-[1.5rem] pointer-events-none"
-                  ></iframe>
-                </div>
-              </div>
-              <div className="video-title">
-                <p className="font-medium text-3xl sm:text-4xl">ROI™ Showreel</p>
-                <p className="font-medium text-xl sm:text-2xl">(Clients — 2018/2024)</p>
-              </div>
-            </div>
+            </div> */}
+            {/* Mobile Video Preview removed */}
           </section>
           <section
             className="outro flex flex-col justify-center items-center min-h-[100svh] w-full px-4 md:px-[2.5em]"
@@ -295,11 +283,16 @@ const MenuPage = () => {
               }
               stackImageCount={6}
             />
+            
           </section>
           <OurServicesFlowing />
             
           <BrandsClients/>
           <Art/>
+        <Employee />
+        <div className="px-4 md:px-[2.5em] my-16">
+          <Ballpit />
+        </div>
           <FAQSection/>
           <Footer />
         </>

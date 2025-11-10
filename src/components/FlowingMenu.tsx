@@ -73,18 +73,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       .to(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' }, '<');
   };
 
-  const repeatedMarqueeContent = React.useMemo(() => {
-    return Array.from({ length: 4 }).map((_, idx) => (
-      <React.Fragment key={idx}>
-        <span className="text-white uppercase font-bold text-2xl leading-[1.2] px-4">{text}</span>
-        <div
-          className="w-[120px] h-[60px] my-4 mx-8 rounded-lg bg-cover bg-center"
-          style={{ backgroundImage: `url(${image})` }}
-        />
-      </React.Fragment>
-    ));
-  }, [text, image]);
-
   return (
     <div className="flex-1 relative overflow-hidden bg-gray-100 rounded-xl" ref={itemRef}>
       <a
@@ -102,14 +90,24 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
           </svg>
         </div>
       </a>
-      
+
       <div
-        className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-gradient-to-br from-gray-900 to-black translate-y-[101%]"
+        className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none translate-y-[101%]"
         ref={marqueeRef}
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
       >
-        <div className="h-full w-[200%] flex" ref={marqueeInnerRef}>
-          <div className="flex items-center relative h-full w-[200%] will-change-transform animate-marquee">
-            {repeatedMarqueeContent}
+        <div
+          ref={marqueeInnerRef}
+          className="flex items-center justify-center w-full h-full"
+        >
+          <div className="w-full h-full bg-gradient-to-t from-black/70 via-black/40 to-black/10 flex items-center justify-center p-6">
+            <span className="text-white uppercase font-bold tracking-[0.2em] text-2xl sm:text-3xl lg:text-4xl text-center">
+              {text}
+            </span>
           </div>
         </div>
       </div>
