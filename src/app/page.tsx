@@ -220,9 +220,8 @@ const MenuPage = () => {
       {showLoading && <LoadingOverlay onFinish={() => setShowLoading(false)} />}
       {/* <Hero /> */}
       {/* <Navbar /> */}
-      <section className="hero flex flex-col justify-between pt-[4em] md:pt-[4em] h-[100svh] w-full px-4 md:px-[2.5em]">
+      <section className="hero flex flex-col justify-between pt-[4em] md:pt-[4em] h-[100svh] w-full px-4 md:px-[2.5em] relative">
        <div>
-        
          <h1
           ref={heroTitleRef}
           className="relative uppercase font-black left-[-0.05em] text-[18vw] sm:text-[20vw] md:text-[25vw] tracking-[-0.04em] leading-[1] select-none"
@@ -291,7 +290,7 @@ const MenuPage = () => {
           <Art/>
         <Employee />
         <div className="px-4 md:px-[2.5em] my-16">
-          <Ballpit />
+          {/* <Ballpit /> */}
         </div>
           <FAQSection/>
           <Footer />
