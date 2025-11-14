@@ -104,7 +104,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   };
 
   return (
-    <div className="flex-1 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300" ref={itemRef}>
+    <div className="flex-1 relative overflow-hidden bg-gradient-to-br from-gray-100 to-#E9E4D7 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300" ref={itemRef}>
       <a
         className="flex items-center justify-between h-full px-4 sm:px-6 relative cursor-pointer no-underline group active:scale-[0.98] transition-transform duration-150"
         href={link}

@@ -114,9 +114,10 @@ export default function BrandsClients() {
 
   return (
     <section className={cn( "relative w-full overflow-hidden",
-      "bg-gradient-to-br from-gray-50 via-white to-orange-50",
       "py-12 md:py-16 lg:py-20"
-    )}>
+    )}
+    style={{ backgroundColor: '#E9E4D7' }}
+    >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -9,17 +9,10 @@ import ImageWall from "@/components/ImageWall";
 import Footer from "@/components/global/Footer";
 import OurServicesFlowing from "@/components/landing/OurServicesFlowing";
 import Art from "@/components/Art";
-// import LandingHero from "@/components/landing/Hero";
 import BrandsClients from "@/components/landing/BrandsClients";
 import FAQSection from "@/components/landing/faq";
 import Employee from "@/components/landing/Employee";
-import Ballpit from "@/components/ui/ballpit";
-import GradientBackground from "@/components/ui/gradient-background";
-import HorizontalScroll from "@/components/landing/HorizontalScroll";
-import Solutions from "@/components/landing/Solutions";
-import HoverExpandHorizontal from "@/components/ui/horizontal-hover-expand";
-import Hero1 from "@/components/Hero1";
-
+import Hero from "@/components/Hero";
 
 const breakpoints = [
   { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
@@ -199,22 +192,14 @@ const MenuPage = () => {
   }, [showContent]);
 
   return (
-    <div className="min-h-screen bg-white text-black boska-font overflow-x-hidden">
-      <Hero1
+    <div className="min-h-screen text-black boska-font overflow-x-hidden" style={{ backgroundColor: '#E9E4D7' }}>
+      <Hero
         showLoading={showLoading}
         showHero={showHero}
         showContent={showContent}
         onLoadingFinish={() => setShowContent(true)}
       />
       {showLoading && <LoadingOverlay onFinish={() => setShowLoading(false)} />}
-      
-      {/* <LandingHero 
-        showLoading={showLoading}
-        showHero={showHero}
-        showContent={showContent}
-        onLoadingFinish={() => {}}
-      />
-       */}
       {showContent && (
         <>
           <section
@@ -222,13 +207,13 @@ const MenuPage = () => {
             ref={videoSectionRef}
           >
             {/* Desktop VideoShowcase */}
-            {/* <div className="hidden md:block">
+            <div className="hidden md:block">
               <VideoShowcase
                 videoSrc="https://www.youtube.com/embed/HXFkg0vwLpQ?autoplay=1&mute=1&controls=0&loop=1&playlist=HXFkg0vwLpQ"
                 title1="ROI™ Showreel"
                 title2="(Clients — 2018/2024)"
               />
-            </div> */}
+            </div>
             {/* Mobile Video Preview removed */}
           </section>
           <section
@@ -253,17 +238,12 @@ const MenuPage = () => {
               }
               stackImageCount={6}
             />
-            
           </section>
           <OurServicesFlowing />
-          <BrandsClients/>
-          <Art/>
-        <Employee />
-        <HoverExpandHorizontal />
-        <div className="px-4 md:px-[2.5em] my-16">
-          {/* <Ballpit /> */}
-        </div>
-          <FAQSection/>
+          <BrandsClients />
+          <Art />
+          <Employee />
+          <FAQSection />
           <Footer />
         </>
       )}

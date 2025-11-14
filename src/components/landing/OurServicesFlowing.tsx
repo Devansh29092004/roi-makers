@@ -57,8 +57,10 @@ export default function OurServicesFlowing() {
   return (
     <section className={cn(
       "relative w-full overflow-hidden",
-      "bg-gradient-to-br from-gray-50 via-white to-orange-50 py-12 md:py-16 lg:py-20 px-4"
-    )}>
+      "py-12 md:py-16 lg:py-20 px-4"
+    )}
+    style={{ backgroundColor: '#E9E4D7' }}
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 md:mb-12 lg:mb-16 gap-4">

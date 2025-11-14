@@ -199,7 +199,8 @@ export default function Art() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative w-screen h-screen bg-gray-200 text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
+        className="relative w-screen h-screen text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
+        style={{ backgroundColor: '#E9E4D7' }}
       >
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
           Art is never just what you see.
@@ -215,7 +216,8 @@ export default function Art() {
       {/* Banner Section */}
       <section
         ref={bannerRef}
-        className="relative w-screen h-screen bg-gray-200 text-gray-900 overflow-hidden"
+        className="relative w-screen h-screen  text-gray-900 overflow-hidden"
+        style={{ backgroundColor: '#E9E4D7' }}
       >
         <div
           ref={bannerContainerRef}
@@ -276,7 +278,8 @@ export default function Art() {
       {/* Outro Section */}
       <section
         ref={outroRef}
-        className="relative w-screen h-screen bg-gray-200 text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
+        className="relative w-screen h-screen  text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
+        style={{ backgroundColor: '#E9E4D7' }}
       >
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
           We are always reading between the strokes.

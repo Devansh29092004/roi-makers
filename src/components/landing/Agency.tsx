@@ -9,7 +9,7 @@ export default function Agency(): React.ReactElement {
   return (
     <section className={cn(
       "relative min-h-screen w-full overflow-hidden flex items-center",
-      "bg-white",
+      "text-black",
       "py-8 md:py-12 px-4"
     )}>
       {/* Grid Background */}

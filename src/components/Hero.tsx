@@ -90,11 +90,11 @@ return (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}
       >
-        <div className="text-black text-[10px] sm:text-xs max-w-lg text-center md:text-left leading-relaxed">
+        <div className="text-black font-bold text-[10px] sm:text-xs max-w-lg text-center md:text-left leading-relaxed">
           Performance marketing specialists creating, optimizing & scaling <br className="hidden md:block" />
           <span className="font-bold">ROI-focused</span> campaigns for sustainable growth
         </div>
-        <div className="text-black text-[10px] sm:text-xs text-center md:text-right leading-relaxed">
+        <div className="text-black font-bold text-[10px] sm:text-xs text-center md:text-right leading-relaxed">
           218-B ,Trade Center,South Tukoganj <br className="hidden md:block" /> 
           Indore , Madhya Pradesh 452001
         </div>

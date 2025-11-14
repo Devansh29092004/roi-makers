@@ -8,7 +8,7 @@ import {
 } from "@tabler/icons-react";
 
 const Footer = () => (
-  <footer className="w-full bg-white flex items-center justify-center py-8 sm:py-12">
+  <footer className="w-full flex items-center justify-center py-8 sm:py-12" style={{ backgroundColor: '#E9E4D7' }}>
     <div className="w-full max-w-[95vw] sm:max-w-[90vw] bg-black text-white rounded-2xl sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-20 min-h-[30rem] sm:min-h-[35rem] lg:min-h-[40rem] flex flex-col gap-6 sm:gap-8 items-center justify-center border border-[#222] shadow-2xl">
       {/* Newsletter Signup */}
       <div className="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-8">
