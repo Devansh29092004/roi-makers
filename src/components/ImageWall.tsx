@@ -126,13 +126,6 @@ const ImageWall: React.FC<ImageWallProps> = ({
       }
     });
 
-    gsap.to(".logo", {
-      scale: 1,
-      duration: 0.5,
-      ease: "power1.out",
-      scrollTrigger: scrollTriggerSettings,
-    });
-
     gsap.to(".line p", {
       y: 0,
       opacity: 1,

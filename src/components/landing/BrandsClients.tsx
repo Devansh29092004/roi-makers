@@ -172,8 +172,8 @@ export default function BrandsClients() {
                       ]}
                       speed={80}
                       direction="left"
-                      logoHeight={80}
-                      gap={60}
+                      logoHeight={150}
+                      gap={80}
                       pauseOnHover={true}
                       fadeOut={true}
                       scaleOnHover={true}

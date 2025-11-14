@@ -11,7 +11,6 @@ import OurServicesFlowing from "@/components/landing/OurServicesFlowing";
 import Art from "@/components/Art";
 import BrandsClients from "@/components/landing/BrandsClients";
 import FAQSection from "@/components/landing/faq";
-import Employee from "@/components/landing/Employee";
 import Hero from "@/components/Hero";
 import { BentoGridSection } from "@/components/landing/BentoGridSection";
 

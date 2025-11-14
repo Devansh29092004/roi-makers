@@ -64,114 +64,117 @@ export default function Art() {
       return;
     }
 
-    const bannerMaskLayers = gsap.utils.toArray<HTMLDivElement>(".mask");
-    const bannerIntroTextElements = [
-      introText1Ref.current,
-      introText2Ref.current,
-    ];
-    const splitText = new SplitText(bannerHeaderRef.current, {
-      type: "chars",
-    });
-    const chars = splitText.chars;
+    // Wait for fonts to load before splitting text
+    document.fonts.ready.then(() => {
+      const bannerMaskLayers = gsap.utils.toArray<HTMLDivElement>(".mask");
+      const bannerIntroTextElements = [
+        introText1Ref.current!,
+        introText2Ref.current!,
+      ];
+      const splitText = new SplitText(bannerHeaderRef.current!, {
+        type: "chars",
+      });
+      const chars = splitText.chars;
 
-    // Set initial states
-    bannerMaskLayers.forEach((layer, i) => {
-      gsap.set(layer, { scale: 0.9 - i * 0.15 });
-    });
-    gsap.set(bannerContainerRef.current, { scale: 0 });
-    gsap.set(chars, { opacity: 0 });
+      // Set initial states
+      bannerMaskLayers.forEach((layer, i) => {
+        gsap.set(layer, { scale: 0.9 - i * 0.15 });
+      });
+      gsap.set(bannerContainerRef.current, { scale: 0 });
+      gsap.set(chars, { opacity: 0 });
 
-    // Pre-calculate values for better performance
-    const moveDistance = window.innerWidth * 0.5;
-    const totalChars = chars.length;
+      // Pre-calculate values for better performance
+      const moveDistance = window.innerWidth * 0.5;
+      const totalChars = chars.length;
 
-    const trigger = ScrollTrigger.create({
-      trigger: bannerRef.current,
-      start: "top top",
-      end: `+=${window.innerHeight * 4}px`,
-      pin: true,
-      pinSpacing: true,
-      scrub: 1, // Smoother and more responsive scrub
-      anticipatePin: 1,
-      refreshPriority: -1,
-      fastScrollEnd: true,
-      invalidateOnRefresh: true,
-      onUpdate: (self) => {
-        const progress = self.progress;
+      const trigger = ScrollTrigger.create({
+        trigger: bannerRef.current,
+        start: "top top",
+        end: `+=${window.innerHeight * 4}px`,
+        pin: true,
+        pinSpacing: true,
+        scrub: 1, // Smoother and more responsive scrub
+        anticipatePin: 1,
+        refreshPriority: -1,
+        fastScrollEnd: true,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
 
-        // Use transform3d for hardware acceleration
-        gsap.set(bannerContainerRef.current, {
-          scale: progress * 0.95,
-          force3D: true,
-        });
-
-        // Image scale animation (0% to 60% of scroll)
-        const imageScaleProgress = Math.min(progress / 0.6, 1);
-        bannerMaskLayers.forEach((layer, i) => {
-          const initialScale = 0.9 - i * 0.15;
-          const maxScale = 1.0;
-          const currentScale =
-            initialScale + imageScaleProgress * (maxScale - initialScale);
-          gsap.set(layer, {
-            scale: currentScale,
-            force3D: true,
-          });
-        });
-
-        // Text movement animation (0% to 60% of scroll - synced with image)
-        if (progress <= 0.6) {
-          const textProgress = imageScaleProgress;
-
-          gsap.set(bannerIntroTextElements[0], {
-            x: -textProgress * moveDistance - 5,
+          // Use transform3d for hardware acceleration
+          gsap.set(bannerContainerRef.current, {
+            scale: progress * 0.95,
             force3D: true,
           });
 
-          gsap.set(bannerIntroTextElements[1], {
-            x: textProgress * moveDistance + 5,
-            force3D: true,
-          });
-        } else {
-          // Keep text at final position
-          gsap.set(bannerIntroTextElements[0], {
-            x: -moveDistance - 5,
-            force3D: true,
-          });
-          gsap.set(bannerIntroTextElements[1], {
-            x: moveDistance + 5,
-            force3D: true,
-          });
-        }
-
-        // Character reveal animation (60% to 85% of scroll)
-        if (progress >= 0.6 && progress <= 0.85) {
-          const headerProgress = (progress - 0.6) / 0.25;
-
-          chars.forEach((char, i) => {
-            const charDelay = i / totalChars;
-            const charOpacity = Math.max(
-              0,
-              Math.min(1, (headerProgress - charDelay) * (totalChars / 2))
-            );
-
-            gsap.set(char, {
-              opacity: charOpacity,
+          // Image scale animation (0% to 60% of scroll)
+          const imageScaleProgress = Math.min(progress / 0.6, 1);
+          bannerMaskLayers.forEach((layer, i) => {
+            const initialScale = 0.9 - i * 0.15;
+            const maxScale = 1.0;
+            const currentScale =
+              initialScale + imageScaleProgress * (maxScale - initialScale);
+            gsap.set(layer, {
+              scale: currentScale,
               force3D: true,
             });
           });
-        } else if (progress < 0.6) {
-          gsap.set(chars, { opacity: 0, force3D: true });
-        } else if (progress > 0.85) {
-          gsap.set(chars, { opacity: 1, force3D: true });
-        }
-      },
-    });
 
-    return () => {
-      trigger.kill();
-      splitText.revert();
-    };
-  }, []);
+          // Text movement animation (0% to 60% of scroll - synced with image)
+          if (progress <= 0.6) {
+            const textProgress = imageScaleProgress;
+
+            gsap.set(bannerIntroTextElements[0], {
+              x: -textProgress * moveDistance - 5,
+              force3D: true,
+            });
+
+            gsap.set(bannerIntroTextElements[1], {
+              x: textProgress * moveDistance + 5,
+              force3D: true,
+            });
+          } else {
+            // Keep text at final position
+            gsap.set(bannerIntroTextElements[0], {
+              x: -moveDistance - 5,
+              force3D: true,
+            });
+            gsap.set(bannerIntroTextElements[1], {
+              x: moveDistance + 5,
+              force3D: true,
+            });
+          }
+
+          // Character reveal animation (60% to 85% of scroll)
+          if (progress >= 0.6 && progress <= 0.85) {
+            const headerProgress = (progress - 0.6) / 0.25;
+
+            chars.forEach((char, i) => {
+              const charDelay = i / totalChars;
+              const charOpacity = Math.max(
+                0,
+                Math.min(1, (headerProgress - charDelay) * (totalChars / 2))
+              );
+
+              gsap.set(char, {
+                opacity: charOpacity,
+                force3D: true,
+              });
+            });
+          } else if (progress < 0.6) {
+            gsap.set(chars, { opacity: 0, force3D: true });
+          } else if (progress > 0.85) {
+            gsap.set(chars, { opacity: 1, force3D: true });
+          }
+        },
+      });
+
+      return () => {
+        trigger.kill();
+        splitText.revert();
+      };
+    });
+  });
 
   const maskLayers = useMemo(() => Array.from({ length: 8 }), []);
   const maskStyle = useMemo<CSSProperties>(
@@ -225,6 +228,7 @@ export default function Art() {
               src="/amit.jpg"
               alt="Telescope banner"
               fill
+              sizes="100vw"
               className="object-cover rounded-2xl md:rounded-3xl"
               priority
             />
