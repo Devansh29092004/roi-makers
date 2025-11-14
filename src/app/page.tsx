@@ -244,7 +244,7 @@ const MenuPage = () => {
           <BentoGridSection />
           <BrandsClients />
           <Art />
-          <Employee />
+          {/* <Employee /> */}
           <FAQSection />
           <Footer />
         </>

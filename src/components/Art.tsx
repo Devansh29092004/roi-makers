@@ -36,24 +36,20 @@ export default function Art() {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
     });
 
-    const update = (time: number) => {
-      lenis.raf(time * 1000);
-    };
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
 
     lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add(update);
-
-    // Optimize GSAP performance
-    gsap.ticker.lagSmoothing(0);
-    gsap.config({
-      nullTargetWarn: false,
-    });
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(update);
     };
   }, []);
 
@@ -195,11 +191,11 @@ export default function Art() {
   );
 
   return (
-    <div className="font-serif">
+    <div className="font-serif w-full">
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative w-screen h-screen text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
+        className="relative w-full min-h-screen text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
         style={{ backgroundColor: '#E9E4D7' }}
       >
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
@@ -216,7 +212,7 @@ export default function Art() {
       {/* Banner Section */}
       <section
         ref={bannerRef}
-        className="relative w-screen h-screen  text-gray-900 overflow-hidden"
+        className="relative w-full min-h-screen text-gray-900 overflow-hidden"
         style={{ backgroundColor: '#E9E4D7' }}
       >
         <div
@@ -278,7 +274,7 @@ export default function Art() {
       {/* Outro Section */}
       <section
         ref={outroRef}
-        className="relative w-screen h-screen  text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
+        className="relative w-full min-h-screen text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
         style={{ backgroundColor: '#E9E4D7' }}
       >
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
