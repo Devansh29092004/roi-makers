@@ -27,8 +27,7 @@ export default function Navbar() {
         left: 0, 
         width: '100vw', 
         height: '100vh', 
-        zIndex: 9999, 
-        pointerEvents: 'none',
+        zIndex: 9999,
         isolation: 'isolate',
       }}
     >
