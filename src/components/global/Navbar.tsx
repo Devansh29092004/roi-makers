@@ -1,75 +1,51 @@
 "use client";
-import { useState } from "react";
-import {
-  Navbar,
-  NavBody,
-  NavItems,
-  NavbarLogo,
-  NavbarButton,
-  MobileNav,
-  MobileNavHeader,
-  MobileNavMenu,
-  MobileNavToggle,
-} from "@/components/ui/resizable-navbar";
+import React from "react";
+import { StaggeredMenu, StaggeredMenuItem, StaggeredMenuSocialItem } from "@/components/StaggeredMenu";
 
-export function NavbarDemo() {
-  const [isOpen, setIsOpen] = useState(false);
-  
-  const navItems = [
-    {
-      name: "Projects",
-      link: "#projects",
-    },
-    {
-      name: "Approach",
-      link: "#approach",
-    },
-    {
-      name: "About",
-      link: "#about",
-    },
-    {
-      name: "Contact",
-      link: "#contact",
-    },
-  ];
+const menuItems: StaggeredMenuItem[] = [
+  { label: "Projects", ariaLabel: "Projects", link: "#projects" },
+  { label: "Approach", ariaLabel: "Approach", link: "#approach" },
+  { label: "About", ariaLabel: "About", link: "#about" },
+  { label: "Career", ariaLabel: "Career", link: "#career" },
+  { label: "Blog", ariaLabel: "Blog", link: "#blog" },
+   { label: "Team", ariaLabel: "Team", link: "/team" },
+  { label: "Contact", ariaLabel: "Contact", link: "#contact" },
+];
 
+const socialItems: StaggeredMenuSocialItem[] = [
+  { label: "Instagram", link: "https://instagram.com" },
+  { label: "Twitter", link: "https://twitter.com" },
+  { label: "LinkedIn", link: "https://linkedin.com" },
+];
+
+export default function Navbar() {
   return (
-    <div className="relative w-full">
-      <Navbar>
-        {/* Desktop Navigation */}
-        <NavBody>
-          <NavbarLogo />
-          <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
-            <NavbarButton variant="primary" className="px-4 py-2 text-sm">Contact</NavbarButton>
-          </div>
-        </NavBody>
-
-        {/* Mobile Navigation */}
-        <MobileNav>
-          <MobileNavHeader>
-            <NavbarLogo />
-            <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-          </MobileNavHeader>
-
-          <MobileNavMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
-            {navItems.map((item, idx) => (
-              <a
-                key={idx}
-                href={item.link}
-                onClick={() => setIsOpen(false)}
-                className="text-white hover:text-[#FF9933] text-lg font-medium transition-colors"
-              >
-                {item.name}
-              </a>
-            ))}
-            <NavbarButton variant="primary" className="w-full mt-4">
-              Contact
-            </NavbarButton>
-          </MobileNavMenu>
-        </MobileNav>
-      </Navbar>
+    <div 
+      style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        width: '100vw', 
+        height: '100vh', 
+        zIndex: 9999, 
+        pointerEvents: 'none',
+        isolation: 'isolate',
+      }}
+    >
+      <StaggeredMenu
+        position="right"
+        colors={['#FF9933', '#CC7722']}
+        items={menuItems}
+        socialItems={socialItems}
+        displaySocials={true}
+        displayItemNumbering={true}
+        logoUrl="/roi-logo.png"
+        menuButtonColor="#000000"
+        openMenuButtonColor="#000000"
+        accentColor="#FF9933"
+        isFixed={false}
+        changeMenuColorOnOpen={true}
+      />
     </div>
   );
 }

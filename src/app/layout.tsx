@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import SmartNav from "@/components/SmartNav";
+import Navbar from "@/components/global/Navbar";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -25,7 +25,7 @@ export default function RootLayout({
         />
       </head>
       <body className={playfair.className + " antialiased"}>
-        <SmartNav />
+        <Navbar/>
         {children}
       </body>
     </html>

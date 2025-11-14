@@ -9,15 +9,16 @@ import ImageWall from "@/components/ImageWall";
 import Footer from "@/components/global/Footer";
 import OurServicesFlowing from "@/components/landing/OurServicesFlowing";
 import Art from "@/components/Art";
-import Hero from "@/components/Hero";
-import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
-import TeamShowcase from "@/components/TeamShowcase";
-import LogoLoop from "@/components/LogoLoop";
+// import LandingHero from "@/components/landing/Hero";
 import BrandsClients from "@/components/landing/BrandsClients";
 import FAQSection from "@/components/landing/faq";
 import Employee from "@/components/landing/Employee";
 import Ballpit from "@/components/ui/ballpit";
 import GradientBackground from "@/components/ui/gradient-background";
+import HorizontalScroll from "@/components/landing/HorizontalScroll";
+import Solutions from "@/components/landing/Solutions";
+import HoverExpandHorizontal from "@/components/ui/horizontal-hover-expand";
+import Hero1 from "@/components/Hero1";
 
 
 const breakpoints = [
@@ -50,8 +51,6 @@ const MenuPage = () => {
   const [showLoading, setShowLoading] = React.useState(true);
   const [showHero, setShowHero] = React.useState(false);
   const [showContent, setShowContent] = React.useState(false);
-  const heroTitleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLDivElement>(null);
   const videoSectionRef = useRef<HTMLElement>(null);
   const outroRef = useRef<HTMLElement>(null);
 
@@ -171,31 +170,15 @@ const MenuPage = () => {
   }, [showLoading]);
 
   useEffect(() => {
-    if (showHero && heroTitleRef.current) {
-      gsap.fromTo(
-        heroTitleRef.current,
-        { opacity: 0, x: "-100vw" },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1.2,
-          ease: "power3.out",
-          onComplete: () => setShowContent(true),
-        }
-      );
+    if (showHero) {
+      // Wait a bit before showing content
+      const timer = setTimeout(() => setShowContent(true), 1200);
+      return () => clearTimeout(timer);
     }
   }, [showHero]);
 
   useEffect(() => {
     if (showContent) {
-      // Animate subtitle/scroll cue
-      if (subtitleRef.current) {
-        gsap.fromTo(
-          subtitleRef.current,
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.7, ease: "power2.out", delay: 0.1 }
-        );
-      }
       // Animate video section
       if (videoSectionRef.current) {
         gsap.fromTo(
@@ -217,33 +200,21 @@ const MenuPage = () => {
 
   return (
     <div className="min-h-screen bg-white text-black boska-font overflow-x-hidden">
+      <Hero1
+        showLoading={showLoading}
+        showHero={showHero}
+        showContent={showContent}
+        onLoadingFinish={() => setShowContent(true)}
+      />
       {showLoading && <LoadingOverlay onFinish={() => setShowLoading(false)} />}
-      {/* <Hero /> */}
-      {/* <Navbar /> */}
-      <section className="hero flex flex-col justify-between pt-[4em] md:pt-[4em] h-[100svh] w-full px-4 md:px-[2.5em] relative">
-       <div>
-         <h1
-          ref={heroTitleRef}
-          className="relative uppercase font-black left-[-0.05em] text-[18vw] sm:text-[20vw] md:text-[25vw] tracking-[-0.04em] leading-[1] select-none"
-          style={{ opacity: showHero ? 1 : 0 }}
-        >
-          ROI<span className="align-super text-[0.5em] ml-1">™</span>
-        </h1>
-        {showContent && (
-          <div
-            className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-4 md:gap-0"
-            ref={subtitleRef}
-          >
-            <p className="text-xl sm:text-2xl md:text-[3vw] md:w-[50%] pp-neue-world-font font-normal select-none">
-              Strategy, design, and campaigns for ambitious companies.
-            </p>
-            <p className="text-[18px] md:text-[20px] font-medium hidden md:flex select-none">
-              {"{"}Scroll{"}"}
-            </p>
-          </div>
-        )}
-      </div>
-      </section>
+      
+      {/* <LandingHero 
+        showLoading={showLoading}
+        showHero={showHero}
+        showContent={showContent}
+        onLoadingFinish={() => {}}
+      />
+       */}
       {showContent && (
         <>
           <section
@@ -285,10 +256,10 @@ const MenuPage = () => {
             
           </section>
           <OurServicesFlowing />
-            
           <BrandsClients/>
           <Art/>
         <Employee />
+        <HoverExpandHorizontal />
         <div className="px-4 md:px-[2.5em] my-16">
           {/* <Ballpit /> */}
         </div>

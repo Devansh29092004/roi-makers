@@ -1,6 +1,4 @@
 'use client';
-
-import { StickyScroll } from '../ui/sticky-scroll-reveal';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { CountUp } from '../ui/count-up';

@@ -28,6 +28,8 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeInnerRef = useRef<HTMLDivElement>(null);
   const tweenRef = useRef<gsap.core.Timeline | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = React.useState(false);
+  const [isActive, setIsActive] = React.useState(false);
 
   const animationDefaults = { duration: 0.6, ease: 'expo' };
 
@@ -38,6 +40,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   };
 
   useEffect(() => {
+    // Detect touch device
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    
     // Clean up any existing animations on unmount
     return () => {
       tweenRef.current?.kill();
@@ -45,6 +50,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   }, []);
 
   const handleMouseEnter = (ev: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isTouchDevice) return; // Skip mouse events on touch devices
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
     
     // Kill any existing animation
@@ -60,6 +66,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   };
 
   const handleMouseLeave = (ev: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isTouchDevice) return; // Skip mouse events on touch devices
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
     
     // Kill any existing animation
@@ -73,19 +80,44 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
       .to(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' }, '<');
   };
 
+  const handleTouchStart = () => {
+    if (!isTouchDevice || !marqueeRef.current || !marqueeInnerRef.current) return;
+    
+    setIsActive(true);
+    tweenRef.current?.kill();
+    
+    tweenRef.current = gsap.timeline({ defaults: animationDefaults });
+    tweenRef.current.set(marqueeRef.current, { y: '101%' })
+      .set(marqueeInnerRef.current, { y: '-101%' })
+      .to([marqueeRef.current, marqueeInnerRef.current], { y: '0%' });
+  };
+
+  const handleTouchEnd = () => {
+    if (!isTouchDevice || !marqueeRef.current || !marqueeInnerRef.current) return;
+    
+    setIsActive(false);
+    tweenRef.current?.kill();
+    
+    tweenRef.current = gsap.timeline({ defaults: animationDefaults });
+    tweenRef.current.to(marqueeRef.current, { y: '101%' })
+      .to(marqueeInnerRef.current, { y: '-101%' }, '<');
+  };
+
   return (
-    <div className="flex-1 relative overflow-hidden bg-gray-100 rounded-xl" ref={itemRef}>
+    <div className="flex-1 relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300" ref={itemRef}>
       <a
-        className="flex items-center justify-between h-full px-6 relative cursor-pointer no-underline group"
+        className="flex items-center justify-between h-full px-4 sm:px-6 relative cursor-pointer no-underline group active:scale-[0.98] transition-transform duration-150"
         href={link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        <span className="text-black font-bold text-xl group-hover:opacity-0 transition-opacity duration-300">
+        <span className="text-black font-bold text-lg sm:text-xl md:text-2xl group-hover:opacity-0 transition-opacity duration-300 z-10">
           {text}
         </span>
-        <div className="w-8 h-8 border-2 border-black rounded-full flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
-          <svg className="w-4 h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 border-2 border-black rounded-full flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300 shrink-0 group-active:scale-90">
+          <svg className="w-3 h-3 sm:w-4 sm:h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
           </svg>
         </div>
@@ -104,8 +136,8 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
           ref={marqueeInnerRef}
           className="flex items-center justify-center w-full h-full"
         >
-          <div className="w-full h-full bg-gradient-to-t from-black/70 via-black/40 to-black/10 flex items-center justify-center p-6">
-            <span className="text-white uppercase font-bold tracking-[0.2em] text-2xl sm:text-3xl lg:text-4xl text-center">
+          <div className="w-full h-full bg-gradient-to-t from-black/75 via-black/50 to-black/20 flex items-center justify-center p-4 sm:p-6">
+            <span className="text-white uppercase font-bold tracking-[0.15em] sm:tracking-[0.2em] text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-center drop-shadow-lg">
               {text}
             </span>
           </div>
