@@ -23,7 +23,7 @@ export default function Art() {
   // Preload images for smoother animations
   useEffect(() => {
     const preloadImages = () => {
-      const imageUrls = ["/amit.jpg", "/amit-masked.png"];
+      const imageUrls = ["/amit.webp", "/amit-masked.webp"];
       imageUrls.forEach((url) => {
         const img = new window.Image();
         img.src = url;
@@ -179,8 +179,8 @@ export default function Art() {
   const maskLayers = useMemo(() => Array.from({ length: 8 }), []);
   const maskStyle = useMemo<CSSProperties>(
     () => ({
-      WebkitMaskImage: "url('/amit-masked.png')",
-      maskImage: "url('/amit-masked.png')",
+      WebkitMaskImage: "url('/amit-masked.webp')",
+      maskImage: "url('/amit-masked.webp')",
       WebkitMaskSize: "cover",
       maskSize: "cover",
       WebkitMaskPosition: "center",
@@ -225,7 +225,7 @@ export default function Art() {
           {/* Base image */}
           <div className="absolute top-0 left-0 w-full h-full rounded-2xl md:rounded-3xl overflow-hidden">
             <Image
-              src="/amit.jpg"
+              src="/amit.webp"
               alt="Telescope banner"
               fill
               sizes="100vw"
@@ -242,7 +242,7 @@ export default function Art() {
               style={maskStyle}
             >
               <Image
-                src="/amit.jpg"
+                src="/amit.webp"
                 alt="Telescope banner mask"
                 fill
                 className="object-cover"

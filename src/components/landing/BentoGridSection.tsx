@@ -254,7 +254,7 @@ const SkeletonSix = () => {
       className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden relative"
     >
       <Image
-        src="/images/stack/6.jpg"
+        src="/images/stack/6.webp"
         alt="Partnership"
         fill
         className="object-cover transition-transform duration-300 hover:scale-110"
@@ -273,7 +273,7 @@ const SkeletonSeven = () => {
       className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden relative"
     >
       <Image
-        src="/flower.jpeg"
+        src="/flower.webp"
         alt="Track Record"
         fill
         className="object-cover transition-transform duration-300 hover:scale-110"

@@ -39,7 +39,7 @@ export default function Navbar() {
         socialItems={socialItems}
         displaySocials={true}
         displayItemNumbering={true}
-        logoUrl="/roi-logo.png"
+        logoUrl="/roi-logo.webp"
         menuButtonColor="#000000"
         openMenuButtonColor="#000000"
         accentColor="#FF9933"

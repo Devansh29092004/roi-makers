@@ -53,7 +53,7 @@ const ImageWall: React.FC<ImageWallProps> = ({
         >
           <div className="relative w-[40%] h-[360px] rounded-[0.75em] overflow-hidden will-change-transform card-left ">
             <Image
-              src={`/images/stack/${i}.jpg`}
+              src={`/images/stack/${i}.webp`}
               alt=""
               width={600}
               height={360}
@@ -62,7 +62,7 @@ const ImageWall: React.FC<ImageWallProps> = ({
           </div>
           <div className="relative w-[40%] h-[360px] rounded-[0.75em] overflow-hidden will-change-transform card-right">
             <Image
-              src={`/images/stack/${i + 1}.jpg`}
+              src={`/images/stack/${i + 1}.webp`}
               alt=""
               width={600}
               height={360}

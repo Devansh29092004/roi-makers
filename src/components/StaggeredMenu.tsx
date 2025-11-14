@@ -47,6 +47,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 }: StaggeredMenuProps) => {
   const [open, setOpen] = useState(false);
   const openRef = useRef(false);
+  const isInitializedRef = useRef(false);
 
   const panelRef = useRef<HTMLDivElement | null>(null);
   const preLayersRef = useRef<HTMLDivElement | null>(null);
@@ -95,15 +96,20 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       preLayerElsRef.current = preLayers;
 
       const offscreen = position === 'left' ? -100 : 100;
-      gsap.set([panel, ...preLayers], { xPercent: offscreen });
+      
+      // Set initial states immediately without animation
+      gsap.set([panel, ...preLayers], { xPercent: offscreen, immediateRender: true });
 
-      gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
-      gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
-      gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
+      gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0, immediateRender: true });
+      gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90, immediateRender: true });
+      gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%', immediateRender: true });
 
-      gsap.set(textInner, { yPercent: 0 });
+      gsap.set(textInner, { yPercent: 0, immediateRender: true });
 
-      if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
+      if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor, immediateRender: true });
+      
+      // Mark as initialized to prevent animation on mount
+      isInitializedRef.current = true;
     }, scope); // Pass scope element to isolate GSAP context
     return () => ctx.revert();
   }, [menuButtonColor, position]);
@@ -377,7 +383,10 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
               <div
                 key={i}
                 className="sm-prelayer absolute top-0 right-0 h-full w-full translate-x-0"
-                style={{ background: c }}
+                style={{ 
+                  background: c,
+                  transform: `translateX(${position === 'left' ? '-100%' : '100%'})`,
+                }}
               />
             ));
           })()}
@@ -451,7 +460,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
           id="staggered-menu-panel"
           ref={panelRef}
           className="staggered-menu-panel absolute top-0 right-0 h-full flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
-          style={{ backgroundColor: '#E9E4D7', WebkitBackdropFilter: 'blur(12px)' }}
+          style={{ 
+            backgroundColor: '#E9E4D7', 
+            WebkitBackdropFilter: 'blur(12px)',
+            transform: `translateX(${position === 'left' ? '-100%' : '100%'})`,
+          }}
           aria-hidden={!open}
         >
           <div className="sm-panel-inner flex-1 flex flex-col gap-5">

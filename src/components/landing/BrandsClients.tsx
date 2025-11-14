@@ -163,12 +163,12 @@ export default function BrandsClients() {
         </motion.div>
         <LogoLoop
                       logos={[
-                        { src: "/images/stack/1.jpg", alt: "Brand 1" },
-                        { src: "/images/stack/2.jpg", alt: "Brand 2" },
-                        { src: "/images/stack/3.jpg", alt: "Brand 3" },
-                        { src: "/images/stack/4.jpg", alt: "Brand 4" },
-                        { src: "/images/stack/5.jpg", alt: "Brand 5" },
-                        { src: "/images/stack/6.jpg", alt: "Brand 6" },
+                        { src: "/images/stack/1.webp", alt: "Brand 1" },
+                        { src: "/images/stack/2.webp", alt: "Brand 2" },
+                        { src: "/images/stack/3.webp", alt: "Brand 3" },
+                        { src: "/images/stack/4.webp", alt: "Brand 4" },
+                        { src: "/images/stack/5.webp", alt: "Brand 5" },
+                        { src: "/images/stack/6.webp", alt: "Brand 6" },
                       ]}
                       speed={80}
                       direction="left"

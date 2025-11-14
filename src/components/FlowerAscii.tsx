@@ -40,7 +40,7 @@ const asciiShader = {
 
 export default function FlowerAscii() {
   const ref = useRef<THREE.Mesh>(null);
-  const texture = useLoader(THREE.TextureLoader, '/flower.jpeg');
+  const texture = useLoader(THREE.TextureLoader, '/flower.webp');
 
   const material = new ShaderMaterial({
     ...asciiShader,
