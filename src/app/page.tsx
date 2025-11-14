@@ -13,6 +13,7 @@ import BrandsClients from "@/components/landing/BrandsClients";
 import FAQSection from "@/components/landing/faq";
 import Employee from "@/components/landing/Employee";
 import Hero from "@/components/Hero";
+import { BentoGridSection } from "@/components/landing/BentoGridSection";
 
 const breakpoints = [
   { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
@@ -240,6 +241,7 @@ const MenuPage = () => {
             />
           </section>
           <OurServicesFlowing />
+          <BentoGridSection />
           <BrandsClients />
           <Art />
           <Employee />
