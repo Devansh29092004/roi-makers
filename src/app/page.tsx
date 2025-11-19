@@ -50,7 +50,12 @@ const MenuPage = () => {
   useEffect(() => {
     if (typeof window === "undefined" || window.innerWidth <= 900) return;
 
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    
     lenis.on("scroll", ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
@@ -188,6 +193,11 @@ const MenuPage = () => {
           { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.5 }
         );
       }
+      
+      // Refresh ScrollTrigger after content loads
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
     }
   }, [showContent]);
 

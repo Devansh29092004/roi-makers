@@ -47,6 +47,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 }: StaggeredMenuProps) => {
   const [open, setOpen] = useState(false);
   const openRef = useRef(false);
+  const isInitializedRef = useRef(false);
 
   const panelRef = useRef<HTMLDivElement | null>(null);
   const preLayersRef = useRef<HTMLDivElement | null>(null);
@@ -95,15 +96,18 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       preLayerElsRef.current = preLayers;
 
       const offscreen = position === 'left' ? -100 : 100;
-      gsap.set([panel, ...preLayers], { xPercent: offscreen });
+      gsap.set([panel, ...preLayers], { xPercent: offscreen, immediateRender: true });
 
-      gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0 });
-      gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90 });
-      gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%' });
+      gsap.set(plusH, { transformOrigin: '50% 50%', rotate: 0, immediateRender: true });
+      gsap.set(plusV, { transformOrigin: '50% 50%', rotate: 90, immediateRender: true });
+      gsap.set(icon, { rotate: 0, transformOrigin: '50% 50%', immediateRender: true });
 
-      gsap.set(textInner, { yPercent: 0 });
+      gsap.set(textInner, { yPercent: 0, immediateRender: true });
 
-      if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor });
+      if (toggleBtnRef.current) gsap.set(toggleBtnRef.current, { color: menuButtonColor, immediateRender: true });
+      
+      // Mark as initialized
+      isInitializedRef.current = true;
     }, scope); // Pass scope element to isolate GSAP context
     return () => ctx.revert();
   }, [menuButtonColor, position]);
@@ -195,7 +199,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
     openTlRef.current = tl;
     return tl;
-  }, [position]);
+  }, []);
 
   const playOpen = useCallback(() => {
     if (busyRef.current) return;
@@ -229,6 +233,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       xPercent: offscreen,
       duration: 0.32,
       ease: 'power3.in',
+      stagger: 0.02,
       overwrite: 'auto',
       onComplete: () => {
         const itemEls = Array.from(panel.querySelectorAll('.sm-panel-itemLabel')) as HTMLElement[];
@@ -332,6 +337,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   }, []);
 
   const toggleMenu = useCallback(() => {
+    if (!isInitializedRef.current || busyRef.current) return;
     const target = !openRef.current;
     openRef.current = target;
     setOpen(target);
@@ -368,19 +374,13 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         >
           {(() => {
             const raw = colors && colors.length ? colors.slice(0, 4) : ['#1e1e22', '#35353c'];
-            let arr = [...raw];
-            if (arr.length >= 3) {
-              const mid = Math.floor(arr.length / 2);
-              arr.splice(mid, 1);
-            }
+            // Don't remove middle layer - we want all curtains to show
+            const arr = [...raw];
             return arr.map((c, i) => (
               <div
                 key={i}
-                className="sm-prelayer absolute top-0 right-0 h-full w-full translate-x-0"
-                style={{ 
-                  background: c,
-                  transform: `translateX(${position === 'left' ? '-100%' : '100%'})`,
-                }}
+                className="sm-prelayer absolute top-0 right-0 h-full w-full"
+                style={{ background: c }}
               />
             ));
           })()}

@@ -33,7 +33,7 @@ export default function Navbar() {
     >
       <StaggeredMenu
         position="right"
-        colors={['#FF9933', '#CC7722']}
+        colors={['#FF9933', '#E8873E', '#CC7722', '#B36619']}
         items={menuItems}
         socialItems={socialItems}
         displaySocials={true}
