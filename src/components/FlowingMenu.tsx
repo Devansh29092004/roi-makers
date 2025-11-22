@@ -1,5 +1,7 @@
-﻿import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+"use client";
+
+import React, { useEffect, useMemo, useRef } from "react";
+import { gsap } from "gsap";
 
 interface MenuItemProps {
   link: string;
@@ -13,8 +15,8 @@ interface FlowingMenuProps {
 
 const FlowingMenu: React.FC<FlowingMenuProps> = ({ items = [] }) => {
   return (
-    <div className="w-full h-full overflow-hidden flowing-menu-container">
-      <nav className="flex flex-col h-full m-0 p-0">
+    <div className="w-full h-full overflow-visible">
+      <nav className="flex flex-col h-full m-0 gap-4 p-0">
         {items.map((item, idx) => (
           <MenuItem key={idx} {...item} />
         ))}
@@ -28,8 +30,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeInnerRef = useRef<HTMLDivElement>(null);
   const tweenRef = useRef<gsap.core.Timeline | null>(null);
-  const [isTouchDevice, setIsTouchDevice] = React.useState(false);
-  const [isActive, setIsActive] = React.useState(false);
 
   const animationDefaults = { duration: 0.6, ease: 'expo' };
 
@@ -40,106 +40,75 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   };
 
   useEffect(() => {
-    // Detect touch device
-    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    
-    // Clean up any existing animations on unmount
+    if (typeof window === "undefined") return;
+
+    if (marqueeRef.current && marqueeInnerRef.current) {
+      gsap.set(marqueeRef.current, { y: "101%", immediateRender: true });
+      gsap.set(marqueeInnerRef.current, { y: "-101%", immediateRender: true });
+    }
+
     return () => {
       tweenRef.current?.kill();
     };
   }, []);
 
   const handleMouseEnter = (ev: React.MouseEvent<HTMLAnchorElement>) => {
-    if (isTouchDevice) return; // Skip mouse events on touch devices
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
-    
-    // Kill any existing animation
-    tweenRef.current?.kill();
-    
     const rect = itemRef.current.getBoundingClientRect();
     const edge = findClosestEdge(ev.clientX - rect.left, ev.clientY - rect.top, rect.width, rect.height);
 
-    tweenRef.current = gsap.timeline({ defaults: animationDefaults });
-    tweenRef.current.set(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' })
+    tweenRef.current?.kill();
+
+    tweenRef.current = gsap.timeline({ defaults: animationDefaults })
+      .set(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' })
       .set(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' })
       .to([marqueeRef.current, marqueeInnerRef.current], { y: '0%' });
   };
 
   const handleMouseLeave = (ev: React.MouseEvent<HTMLAnchorElement>) => {
-    if (isTouchDevice) return; // Skip mouse events on touch devices
     if (!itemRef.current || !marqueeRef.current || !marqueeInnerRef.current) return;
-    
-    // Kill any existing animation
-    tweenRef.current?.kill();
-    
     const rect = itemRef.current.getBoundingClientRect();
     const edge = findClosestEdge(ev.clientX - rect.left, ev.clientY - rect.top, rect.width, rect.height);
 
-    tweenRef.current = gsap.timeline({ defaults: animationDefaults });
-    tweenRef.current.to(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' })
-      .to(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' }, '<');
+    tweenRef.current?.kill();
+
+    tweenRef.current = gsap.timeline({ defaults: animationDefaults })
+      .to(marqueeRef.current, { y: edge === 'top' ? '-101%' : '101%' })
+      .to(marqueeInnerRef.current, { y: edge === 'top' ? '101%' : '-101%' });
   };
 
-  const handleTouchStart = () => {
-    if (!isTouchDevice || !marqueeRef.current || !marqueeInnerRef.current) return;
-    
-    setIsActive(true);
-    tweenRef.current?.kill();
-    
-    tweenRef.current = gsap.timeline({ defaults: animationDefaults });
-    tweenRef.current.set(marqueeRef.current, { y: '101%' })
-      .set(marqueeInnerRef.current, { y: '-101%' })
-      .to([marqueeRef.current, marqueeInnerRef.current], { y: '0%' });
-  };
-
-  const handleTouchEnd = () => {
-    if (!isTouchDevice || !marqueeRef.current || !marqueeInnerRef.current) return;
-    
-    setIsActive(false);
-    tweenRef.current?.kill();
-    
-    tweenRef.current = gsap.timeline({ defaults: animationDefaults });
-    tweenRef.current.to(marqueeRef.current, { y: '101%' })
-      .to(marqueeInnerRef.current, { y: '-101%' }, '<');
-  };
+  const repeatedMarqueeContent = useMemo(() => {
+    return Array.from({ length: 4 }).map((_, idx) => (
+      <React.Fragment key={idx}>
+        <span className="text-[#060010] uppercase font-normal text-[4vh] leading-[1.2] p-[1vh_1vw_0]">{text}</span>
+        <div
+          className="w-[200px] h-[7vh] my-[2em] mx-[2vw] p-[1em_0] rounded-[50px] bg-cover bg-center"
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      </React.Fragment>
+    ));
+  }, [text, image]);
 
   return (
-    <div className="flex-1 relative overflow-hidden bg-gradient-to-br from-gray-100 to-#E9E4D7 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300" ref={itemRef}>
+    <div
+      className="flex-1 relative overflow-hidden rounded-[30px] border border-[#e0dad0] bg-white/70 text-center text-[#0f0d0b] shadow-[0_25px_80px_-50px_rgba(15,13,11,0.7)] backdrop-blur-sm"
+      ref={itemRef}
+    >
       <a
-        className="flex items-center justify-between h-full px-4 sm:px-6 relative cursor-pointer no-underline group active:scale-[0.98] transition-transform duration-150"
+        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline text-[3vh] font-semibold text-[#0f0d0b] transition-colors duration-300 hover:text-[#060010]"
         href={link}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
       >
-        <span className="text-black font-bold text-lg sm:text-xl md:text-2xl group-hover:opacity-0 transition-opacity duration-300 z-10">
-          {text}
-        </span>
-        <div className="w-7 h-7 sm:w-8 sm:h-8 border-2 border-black rounded-full flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300 shrink-0 group-active:scale-90">
-          <svg className="w-3 h-3 sm:w-4 sm:h-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-          </svg>
-        </div>
+        {text}
       </a>
-
       <div
-        className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none translate-y-[101%]"
+        className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-white"
         ref={marqueeRef}
-        style={{
-          backgroundImage: `url(${image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
       >
-        <div
-          ref={marqueeInnerRef}
-          className="flex items-center justify-center w-full h-full"
-        >
-          <div className="w-full h-full bg-gradient-to-t from-black/75 via-black/50 to-black/20 flex items-center justify-center p-4 sm:p-6">
-            <span className="text-white uppercase font-bold tracking-[0.15em] sm:tracking-[0.2em] text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-center drop-shadow-lg">
-              {text}
-            </span>
+        <div className="h-full w-[200%] flex" ref={marqueeInnerRef}>
+          <div className="flex items-center relative h-full w-[200%] will-change-transform animate-marquee">
+            {repeatedMarqueeContent}
           </div>
         </div>
       </div>
@@ -148,3 +117,26 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
 };
 
 export default FlowingMenu;
+
+// Note: this is also needed
+// /** @type {import('tailwindcss').Config} */
+// export default {
+//   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+//   theme: {
+//     extend: {
+//       translate: {
+//         '101': '101%',
+//       },
+//       keyframes: {
+//         marquee: {
+//           'from': { transform: 'translateX(0%)' },
+//           'to': { transform: 'translateX(-50%)' }
+//         }
+//       },
+//       animation: {
+//         marquee: 'marquee 15s linear infinite'
+//       }
+//     }
+//   },
+//   plugins: [],
+// };

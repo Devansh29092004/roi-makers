@@ -7,12 +7,12 @@ import VideoShowcase from "@/components/VideoShowcase";
 import LoadingOverlay from "@/components/LoadingOverlay";
 import ImageWall from "@/components/ImageWall";
 import Footer from "@/components/global/Footer";
-import OurServicesFlowing from "@/components/landing/OurServicesFlowing";
 import Art from "@/components/Art";
 import BrandsClients from "@/components/landing/BrandsClients";
 import FAQSection from "@/components/landing/faq";
 import Hero from "@/components/Hero";
 import { BentoGridSection } from "@/components/landing/BentoGridSection";
+import OurServices from "@/components/landing/OurServices";
 
 const breakpoints = [
   { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
@@ -249,7 +249,7 @@ const MenuPage = () => {
               stackImageCount={6}
             />
           </section>
-          <OurServicesFlowing />
+          <OurServices/>
           <BentoGridSection />
           <BrandsClients />
           <Art />

@@ -3,13 +3,13 @@ import React from "react";
 import { StaggeredMenu, StaggeredMenuItem, StaggeredMenuSocialItem } from "@/components/StaggeredMenu";
 
 const menuItems: StaggeredMenuItem[] = [
-  { label: "Projects", ariaLabel: "Projects", link: "#projects" },
-  { label: "Approach", ariaLabel: "Approach", link: "#approach" },
-  { label: "About", ariaLabel: "About", link: "#about" },
-  { label: "Career", ariaLabel: "Career", link: "#career" },
-  { label: "Blog", ariaLabel: "Blog", link: "#blog" },
+  { label: "Home", ariaLabel: "Home", link: "/" },
+  { label: "Projects", ariaLabel: "Projects", link: "/projects" },
+  { label: "About", ariaLabel: "About", link: "/about" },
+  { label: "Career", ariaLabel: "Career", link: "/career" },
+  { label: "Blog", ariaLabel: "Blog", link: "/blog" },
    { label: "Team", ariaLabel: "Team", link: "/team" },
-  { label: "Contact", ariaLabel: "Contact", link: "#contact" },
+  { label: "Contact", ariaLabel: "Contact", link: "/contact" },
 ];
 
 const socialItems: StaggeredMenuSocialItem[] = [
@@ -29,6 +29,7 @@ export default function Navbar() {
         height: '100vh', 
         zIndex: 9999,
         isolation: 'isolate',
+        pointerEvents: 'none',
       }}
     >
       <StaggeredMenu
