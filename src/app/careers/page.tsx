@@ -399,13 +399,13 @@ export default function CareersPage() {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-semibold text-[#060010] mb-2 clash-display-font uppercase tracking-wider">
+              <label htmlFor="coverLetter" className="block text-sm font-semibold text-[#060010] mb-2 clash-display-font uppercase tracking-wider">
                 Why ROI Makers? *
               </label>
               <textarea
-                id="message"
-                name="message"
-                value={formData.message}
+                id="coverLetter"
+                name="coverLetter"
+                value={formData.coverLetter}
                 onChange={handleChange}
                 required
                 rows={6}
