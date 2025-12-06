@@ -216,9 +216,9 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
   };
 
   return (
-    <Card className="team-section bg-foreground border-4 border-muted w-screen h-[100svh] flex md:flex-col justify-center items-center md:gap-[2.5em] gap-4 overflow-hidden relative team-page m-0 p-0 box-border flex-col-reverse md:flex-nowrap">
+    <Card className="team-section border-4 border-muted w-screen h-[100svh] flex md:flex-col justify-center items-center md:gap-[2.5em] gap-4 overflow-hidden relative team-page m-0 p-0 box-border flex-col-reverse md:flex-nowrap" style={{ backgroundColor: '#E9E4D7' }}>
       <CardHeader className="absolute top-12 md:top-20 left-0 w-full flex justify-center items-center secondary-font z-30">
-        <CardTitle className="text-3xl md:text-4xl lg:text-5xl text-background">{title}</CardTitle>
+        <CardTitle className="text-3xl md:text-4xl lg:text-5xl" style={{ color: '#060010' }}>{title}</CardTitle>
       </CardHeader>
       <div
         className="profile-images flex flex-wrap md:flex-nowrap justify-center items-center w-full md:w-max max-w-[95%] sm:max-w-[85%] md:max-w-none gap-2 md:gap-0"
@@ -264,11 +264,12 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
                 `split absolute w-full text-center uppercase font-extrabold leading-none select-none z-10 ` +
                 `font-['Barlow_Condensed'] text-[4rem] tracking-[0] drop-shadow-lg md:text-[13rem] md:tracking-[-0.5rem] ` +
                 (i === 0
-                  ? "text-[#e3e3db] -translate-x-1/2 -translate-y-[60%] left-1/2 top-1/2 md:-translate-y-[150%]"
-                  : "text-[#f93535] -translate-x-1/2 translate-y-[50%] left-1/2 top-1/2 md:translate-y-[50%]")
+                  ? "-translate-x-1/2 -translate-y-[60%] left-1/2 top-1/2 md:-translate-y-[150%]"
+                  : "-translate-x-1/2 translate-y-[50%] left-1/2 top-1/2 md:translate-y-[50%]")
               }
               style={{
                 fontFamily: "Barlow Condensed, Arial,  sans-serif",
+                color: i === 0 ? '#060010' : '#8c7b62',
               }}
             >
               {i === 0
@@ -283,8 +284,8 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         {activeIndex !== null && teamInfo[activeIndex] && (
           <Card
             key={activeIndex}
-            className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 md:bottom-8 w-[calc(100%-20px)] sm:w-[calc(100%-40px)] max-w-2xl md:max-w-4xl bg-foreground rounded-xl shadow-xl p-0 secondary-font border-none min-h-[180px] sm:min-h-[160px] md:min-h-[100px] flex flex-col justify-center items-center"
-            style={{ zIndex: 20 }}
+            className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 md:bottom-8 w-[calc(100%-20px)] sm:w-[calc(100%-40px)] max-w-2xl md:max-w-4xl rounded-xl shadow-xl p-0 secondary-font border-none min-h-[180px] sm:min-h-[160px] md:min-h-[100px] flex flex-col justify-center items-center"
+            style={{ zIndex: 20, backgroundColor: 'rgba(255, 255, 255, 0.95)' }}
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -295,26 +296,26 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
             >
               {/* Left: Name and Role */}
               <div className="flex flex-col items-start min-w-[120px] w-full md:w-auto md:max-w-[40%]">
-                <h3 className="text-xl sm:text-2xl font-bold text-background leading-tight">
+                <h3 className="text-xl sm:text-2xl font-bold leading-tight" style={{ color: '#060010' }}>
                   {teamInfo[activeIndex]?.fullName ||
                     teamNames[activeIndex + 1]}
                 </h3>
-                <p className="text-xs sm:text-sm text-background font-semibold mt-1">
+                <p className="text-xs sm:text-sm font-semibold mt-1" style={{ color: '#060010' }}>
                   {teamInfo[activeIndex].role}
                 </p>
               </div>
               {/* Right: Bio and Fun Fact */}
-              <div className="flex-1 text-left md:pl-6 md:border-l-4 border-accent flex flex-col justify-center w-full">
+              <div className="flex-1 text-left md:pl-6 md:border-l-4 flex flex-col justify-center w-full" style={{ borderColor: '#8c7b62' }}>
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl sm:text-3xl select-none leading-none text-[#f93535]">
-                    “
+                  <span className="text-2xl sm:text-3xl select-none leading-none" style={{ color: '#8c7b62' }}>
+                    "
                   </span>
-                  <span className="text-base sm:text-lg md:text-xl text-background font-medium leading-snug">
+                  <span className="text-base sm:text-lg md:text-xl font-medium leading-snug" style={{ color: '#060010' }}>
                     {teamInfo[activeIndex].bio}
                   </span>
                 </div>
                 {teamInfo[activeIndex].fun && (
-                  <span className="block text-xs sm:text-sm text-[#f93535] italic mt-2 pl-6 md:pl-8">
+                  <span className="block text-xs sm:text-sm italic mt-2 pl-6 md:pl-8" style={{ color: '#8c7b62' }}>
                     {teamInfo[activeIndex].fun}
                   </span>
                 )}

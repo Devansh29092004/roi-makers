@@ -1,13 +1,13 @@
 import TeamShowcase, { TeamInfo } from "@/components/TeamShowcase";
 
 const teamImages = [
-  "/team/1.jpg",
-  "/team/2.jpg",
-  "/team/3.jpg",
-  "/team/1.jpg",
-  "/team/2.jpg",
-  "/team/3.jpg",
-  "/team/1.jpg",
+  "/team/1.webp",
+  "/team/2.webp",
+  "/team/3.webp",
+  "/team/1.webp",
+  "/team/2.webp",
+  "/team/3.webp",
+  "/team/1.webp",
 ];
 
 const teamNames = [

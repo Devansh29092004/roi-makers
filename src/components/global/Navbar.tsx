@@ -6,7 +6,7 @@ const menuItems: StaggeredMenuItem[] = [
   { label: "Home", ariaLabel: "Home", link: "/" },
   { label: "Projects", ariaLabel: "Projects", link: "/projects" },
   { label: "About", ariaLabel: "About", link: "/about" },
-  { label: "Career", ariaLabel: "Career", link: "/career" },
+  { label: "Careers", ariaLabel: "Careers", link: "/careers" },
   { label: "Blog", ariaLabel: "Blog", link: "/blog" },
    { label: "Team", ariaLabel: "Team", link: "/team" },
   { label: "Contact", ariaLabel: "Contact", link: "/contact" },
