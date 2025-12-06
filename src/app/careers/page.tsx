@@ -11,7 +11,11 @@ export default function CareersPage() {
     email: '',
     phone: '',
     position: '',
-    message: ''
+    linkedin: '',
+    portfolio: '',
+    experience: '',
+    resume: null as File | null,
+    coverLetter: ''
   });
 
   const benefits = [
@@ -217,7 +221,6 @@ export default function CareersPage() {
                 viewport={{ once: true }}
                 className="bg-white/70 rounded-[28px] p-8 border border-[#060010]/10 shadow-[0_20px_60px_-40px_rgba(6,0,16,0.25)] hover:shadow-[0_30px_90px_-40px_rgba(6,0,16,0.4)] transition-all duration-300"
               >
-                <div className="text-4xl mb-4">{benefit.icon}</div>
                 <h3 className="text-xl font-bold text-[#060010] mb-2">{benefit.title}</h3>
                 <p className="text-sm text-[#312619]/80 archivo-font leading-relaxed">{benefit.description}</p>
               </motion.div>

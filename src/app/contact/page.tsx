@@ -161,7 +161,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold text-[#060010] mb-3 flex items-center gap-2">
-                    <span className="text-2xl">⚡</span> What To Expect
+                   What To Expect
                   </h3>
                   <ul className="space-y-2 text-sm archivo-font text-[#312619]/80">
                     <li className="flex items-start gap-2">
@@ -181,7 +181,7 @@ export default function ContactPage() {
 
                 <div>
                   <h3 className="text-xl font-bold text-[#060010] mb-3 flex items-center gap-2">
-                    <span className="text-2xl">🎯</span> Who We Work With
+                    Who We Work With
                   </h3>
                   <ul className="space-y-2 text-sm archivo-font text-[#312619]/80">
                     <li className="flex items-start gap-2">

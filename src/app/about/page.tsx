@@ -162,10 +162,10 @@ export default function About() {
 							viewport={{ once: true }}
 							className="rounded-[28px] border border-[#060010]/10 bg-white/80 p-8 text-center shadow-[0_20px_60px_-40px_rgba(6,0,16,0.25)]"
 						>
-							<p className="text-5xl font-black text-[#060010]">
-								<CountUp end={stat.value} duration={2000} />
-								{stat.suffix || '+'}
-							</p>
+						<p className="text-5xl font-black text-[#060010]">
+							<CountUp value={stat.value} duration={2} />
+							{stat.suffix || '+'}
+						</p>
 							<p className="mt-3 text-xs uppercase tracking-[0.3em] text-[#8c7b62] clash-display-font">{stat.label}</p>
 						</motion.div>
 					))}
