@@ -13,6 +13,8 @@ import FAQSection from "@/components/landing/faq";
 import Hero from "@/components/Hero";
 import { BentoGridSection } from "@/components/landing/BentoGridSection";
 import OurServices from "@/components/landing/OurServices";
+import HoverExpandGallery from "@/components/landing/HoverExpandGallery";
+import StickyCardSection from "@/components/landing/StickyCardSection";
 
 const breakpoints = [
   { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
@@ -251,9 +253,10 @@ const MenuPage = () => {
           </section>
           <OurServices/>
           <BentoGridSection />
+          <HoverExpandGallery />
+          <StickyCardSection />
           <BrandsClients />
-          <Art />
-          {/* <Employee /> */}
+          {/* <Art /> */}
           <FAQSection />
           <Footer />
         </>

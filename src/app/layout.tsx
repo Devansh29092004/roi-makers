@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/global/Navbar";
+import LenisProvider from "@/app/providers/LenisProvider";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -25,8 +26,10 @@ export default function RootLayout({
         />
       </head>
       <body className={playfair.className + " antialiased"}>
-        <Navbar/>
-        {children}
+        <LenisProvider>
+          <Navbar/>
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );
