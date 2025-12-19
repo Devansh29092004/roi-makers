@@ -168,15 +168,15 @@ img {
 */
 :root {
   --radius: 0.625rem;
-  --background: #E9E4D7;
+  --background: #FFFFFF;
   --foreground: oklch(0.145 0 0);
-  --card: #E9E4D7;
+  --card: #FFFFFF;
   --card-foreground: oklch(0.145 0 0);
-  --popover: #E9E4D7;
+  --popover: #FFFFFF;
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: #E9E4D7;
+  --secondary: #FFFFFF;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);

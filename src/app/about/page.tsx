@@ -61,28 +61,28 @@ const values = [
 	{
 		title: 'Relentless Curiosity',
 		description: 'We question assumptions, test hypotheses, and let data reshape our thinking.',
-		icon: '🔬',
+		
 	},
 	{
 		title: 'Craft Meets Speed',
 		description: 'Beautiful work that ships fast. No compromises between quality and velocity.',
-		icon: '⚡',
+		
 	},
 	{
 		title: 'Transparent Partnership',
 		description: 'Open books, honest feedback, and shared accountability. We grow together.',
-		icon: '🤝',
+		
 	},
 	{
 		title: 'Compound Learning',
 		description: 'Every campaign feeds our collective knowledge base. Insights scale infinitely.',
-		icon: '📈',
+	
 	},
 ];
 
 export default function About() {
 	return (
-		<main className="min-h-screen w-full boska-font" style={{ backgroundColor: '#E9E4D7' }}>
+		<main className="min-h-screen w-full boska-font" style={{ backgroundColor: '#FFFFFF' }}>
 			{/* Hero Section */}
 			<section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
 				<motion.div
@@ -194,7 +194,6 @@ export default function About() {
 							viewport={{ once: true }}
 							className="rounded-[28px] border border-[#060010]/10 bg-white/70 p-8 shadow-[0_20px_60px_-40px_rgba(6,0,16,0.25)] hover:shadow-[0_30px_90px_-40px_rgba(6,0,16,0.4)] transition-shadow duration-300"
 						>
-							<div className="text-4xl mb-4">{value.icon}</div>
 							<h3 className="text-2xl font-bold text-[#060010] mb-3">{value.title}</h3>
 							<p className="text-base text-[#312619]/80 archivo-font leading-relaxed">{value.description}</p>
 						</motion.div>

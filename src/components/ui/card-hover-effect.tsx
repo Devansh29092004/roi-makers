@@ -51,7 +51,7 @@ export const HoverEffect = ({
           </AnimatePresence>
           <Card>
             {item.icon && (
-              <div className="text-[#FF9933] mb-4">
+              <div className="text-[#FFAA17] mb-4">
                 {item.icon}
               </div>
             )}

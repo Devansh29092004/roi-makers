@@ -30,8 +30,8 @@ export async function POST(request: Request) {
     }
     
     const { error } = await resend.emails.send({
-      from: 'ROI Makers <onboarding@resend.dev>', // Use verified domain in production
-      to: 'devanshjagtap2@gmail.com',
+      from: 'ROI Makers <devanshjagtap2@gmail.com>',
+      to: 'info@roimakers.in',
       replyTo: data.email,
       subject: `Job Application: ${data.position}`,
       html: `

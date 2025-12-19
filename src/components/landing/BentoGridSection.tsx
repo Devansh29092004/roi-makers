@@ -15,7 +15,7 @@ import {
 
 export function BentoGridSection() {
   return (
-    <section style={{ backgroundColor: '#E9E4D7' }} className="py-20 px-4">
+    <section style={{ backgroundColor: '#FFFFFF' }} className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -41,20 +41,6 @@ export function BentoGridSection() {
     </section>
   );
 }
-
-const Skeleton = ({ imageSrc }: { imageSrc?: string }) => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden relative bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
-    {imageSrc && (
-      <Image
-        src={imageSrc}
-        alt="Feature image"
-        fill
-        className="object-cover"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      />
-    )}
-  </div>
-);
 
 const SkeletonOne = () => {
   const variants = {

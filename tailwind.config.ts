@@ -66,6 +66,14 @@ const config: Config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			},
+  			orange: {
+  				'50': '#FFF7ED',
+  				'100': '#FFEDD5',
+  				'200': '#FED7AA',
+  				'500': '#FFAA17',
+  				'600': '#E69815',
+  				'700': '#CC8713'
   			}
   		}
   	}

@@ -8,7 +8,7 @@ const HoverExpand = ({
   images,
   className,
 }: {
-  images: { src: string; alt: string; code: string }[];
+  images: { src: string; alt: string; code: string; title?: string; subtitle?: string }[];
   className?: string;
 }) => {
   const [activeImage, setActiveImage] = useState<number | null>(1);
@@ -34,10 +34,10 @@ const HoverExpand = ({
             <motion.div
               key={index}
               className="relative cursor-pointer overflow-hidden rounded-3xl"
-              initial={{ width: "2.5rem", height: "32rem" }}
+              initial={{ width: "2.5rem", height: "24rem" }}
               animate={{
-                width: activeImage === index ? "32rem" : "4rem",
-                height: activeImage === index ? "38rem" : "38rem",
+                width: activeImage === index ? "32rem" : "8rem",
+                height: activeImage === index ? "28rem" : "28rem",
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               onClick={() => setActiveImage(index)}
@@ -59,11 +59,21 @@ const HoverExpand = ({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute flex h-full w-full flex-col items-end justify-end p-4"
+                    className="absolute flex h-full w-full flex-col items-start justify-end p-6 gap-1"
                   >
-                    <p className="text-left text-xs text-white/50">
+                    {/* <p className="text-left text-xs text-white/50">
                       {image.code}
-                    </p>
+                    </p> */}
+                    {image.title && (
+                      <h3 className="text-left text-2xl font-bold text-[#FFAA17]">
+                        {image.title}
+                      </h3>
+                    )}
+                    {image.subtitle && (
+                      <p className="text-left text-sm text-[#FFAA17]">
+                        {image.subtitle}
+                      </p>
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>

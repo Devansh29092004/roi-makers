@@ -105,7 +105,7 @@ export default function Services() {
                 </div>
                 {/* Floating dots animation */}
                 <motion.div
-                  className="absolute -top-2 -right-2 w-3 h-3 bg-[#FF9933] rounded-full"
+                  className="absolute -top-2 -right-2 w-3 h-3 bg-[#FFAA17] rounded-full"
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
@@ -113,7 +113,7 @@ export default function Services() {
               <div>
                 <h3 className="text-xl font-bold text-black">ROI MAKERS</h3>
                 <div className="flex items-center gap-2 mt-1">
-                  <div className="w-8 h-0.5 bg-[#FF9933]"></div>
+                  <div className="w-8 h-0.5 bg-[#FFAA17]"></div>
                   <span className="text-sm text-gray-600">Digital Agency</span>
                 </div>
               </div>
@@ -184,7 +184,7 @@ export default function Services() {
                     <div className="flex items-center gap-4">
                       <span className={cn(
                         "text-2xl font-bold",
-                        expandedService === service.id ? "text-[#FF9933]" : "text-gray-400"
+                        expandedService === service.id ? "text-[#FFAA17]" : "text-gray-400"
                       )}>
                         {service.id}.
                       </span>
@@ -200,7 +200,7 @@ export default function Services() {
                       transition={{ duration: 0.3 }}
                       className={cn(
                         "w-8 h-8 rounded-full flex items-center justify-center",
-                        expandedService === service.id ? "bg-[#FF9933]" : "bg-gray-100"
+                        expandedService === service.id ? "bg-[#FFAA17]" : "bg-gray-100"
                       )}
                     >
                       <Plus className={cn(
@@ -242,7 +242,7 @@ export default function Services() {
                         </div>
                         <div className="relative h-1 bg-gray-700 rounded-full overflow-hidden">
                           <motion.div
-                            className="absolute left-0 top-0 h-full bg-gradient-to-r from-[#FF9933] to-orange-400 rounded-full"
+                            className="absolute left-0 top-0 h-full bg-gradient-to-r from-[#FFAA17] to-[#FFAA17] rounded-full"
                             initial={{ width: 0 }}
                             animate={{
                               width: expandedService === service.id ? `${service.percentage}%` : 0

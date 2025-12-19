@@ -13,9 +13,9 @@ const menuItems: StaggeredMenuItem[] = [
 ];
 
 const socialItems: StaggeredMenuSocialItem[] = [
-  { label: "Instagram", link: "https://instagram.com" },
-  { label: "Twitter", link: "https://twitter.com" },
-  { label: "LinkedIn", link: "https://linkedin.com" },
+  { label: "Instagram", link: "https://www.instagram.com/roimakers/" },
+  { label: "Twitter", link: "http://x.com/roimakers" },
+  { label: "LinkedIn", link: "https://www.linkedin.com/company/roimakers/" },
 ];
 
 export default function Navbar() {
@@ -34,7 +34,7 @@ export default function Navbar() {
     >
       <StaggeredMenu
         position="right"
-        colors={['#FF9933', '#E8873E', '#CC7722', '#B36619']}
+        colors={['#FFAA17', '#E69815', '#CC8713', '#B36619']}
         items={menuItems}
         socialItems={socialItems}
         displaySocials={true}
@@ -42,7 +42,7 @@ export default function Navbar() {
         logoUrl="/roi-logo.webp"
         menuButtonColor="#000000"
         openMenuButtonColor="#000000"
-        accentColor="#FF9933"
+        accentColor="#FFAA17"
         isFixed={false}
         changeMenuColorOnOpen={true}
       />

@@ -10,6 +10,9 @@ interface CardData {
   id: number | string;
   image: string;
   alt?: string;
+  title?: string;
+  description?: string;
+  bgColor?: string;
 }
 
 interface StickyCard002Props {
@@ -25,105 +28,136 @@ const StickyCard002 = ({
   containerClassName,
   imageClassName,
 }: StickyCard002Props) => {
-  const container = useRef(null);
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  const container = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(
     () => {
+      // Register GSAP plugins
       gsap.registerPlugin(ScrollTrigger);
 
-      const imageElements = imageRefs.current;
-      const totalCards = imageElements.length;
+      const cardElements = cardRefs.current.filter(Boolean);
+      const totalCards = cardElements.length;
 
-      if (!imageElements[0]) return;
+      if (totalCards === 0) return;
 
-      gsap.set(imageElements[0], { y: "0%", scale: 1, rotation: 0, zIndex: 1 });
+      // Initial state: All cards stacked at same position with top-left origin
+      cardElements.forEach((card, i) => {
+        if (!card) return;
+        gsap.set(card, {
+          y: 0,
+          x: 0,
+          scale: 1,
+          opacity: 1,
+          rotationX: 0,
+          rotationY: 0,
+          rotationZ: 0,
+          transformOrigin: "top left",
+          zIndex: totalCards - i,
+        });
+      });
 
-      for (let i = 1; i < totalCards; i++) {
-        if (!imageElements[i]) continue;
-        gsap.set(imageElements[i], { y: "100%", scale: 1, rotation: 0, zIndex: i + 1 });
-      }
-
-      const scrollTimeline = gsap.timeline({
+      // Create GSAP timeline
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".sticky-cards",
+          trigger: container.current,
           start: "top top",
-          end: `+=${window.innerHeight * (totalCards - 1)}`,
+          end: `+=${totalCards * 100}%`,
           pin: true,
-          scrub: 0.5,
-          pinSpacing: true,
+          scrub: true,
+          anticipatePin: 1,
         },
       });
 
-      for (let i = 0; i < totalCards - 1; i++) {
-        const currentImage = imageElements[i];
-        const nextImage = imageElements[i + 1];
-        const position = i;
-        if (!currentImage || !nextImage) continue;
-
-        scrollTimeline.to(
-          currentImage,
-          {
-            scale: 0.7,
-            rotation: 5,
-            duration: 1,
-            ease: "none",
-          },
-          position,
-        );
-
-        scrollTimeline.to(
-          nextImage,
-          {
-            y: "0%",
-            duration: 1,
-            ease: "none",
-          },
-          position,
-        );
-      }
-
-      const resizeObserver = new ResizeObserver(() => {
-        ScrollTrigger.refresh();
+      // Animate each card to rotate and flip upward from top-left corner
+      cardElements.forEach((card, i) => {
+        if (!card || i === totalCards - 1) return; // Skip last card
+        
+        tl.to(card, {
+          rotationX: 15,
+          rotationY: -10,
+          rotationZ: 8,
+          x: "30%",
+          y: "-80%",
+          opacity: 0,
+          duration: 1,
+          ease: "power2.inOut",
+        }, i);
       });
 
-      if (container.current) {
-        resizeObserver.observe(container.current);
-      }
-
+      // Cleanup
       return () => {
-        resizeObserver.disconnect();
-        scrollTimeline.kill();
+        tl.kill();
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
     },
-    { scope: container },
+    { scope: container, dependencies: [cards.length] }
   );
 
   return (
-    <div className={cn("relative w-full", className)} style={{ height: `${cards.length * 100}vh` }} ref={container}>
-      <div className="sticky-cards relative flex h-screen w-full items-center justify-center overflow-hidden p-3 lg:p-8">
+    <div 
+      ref={container}
+      className={cn("relative w-full h-screen", className)}
+    >
+      <div 
+        className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16"
+        style={{ perspective: "2000px" }}
+      >
         <div
           className={cn(
-            "relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-3xl",
-            containerClassName,
+            "relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl",
+            containerClassName
           )}
-          style={{ height: "600px" }}
+          style={{ 
+            height: "70vh",
+            maxHeight: "700px",
+            minHeight: "500px",
+            transformStyle: "preserve-3d"
+          }}
         >
           {cards.map((card, i) => (
-            <img
+            <div
               key={card.id}
-              src={card.image}
-              alt={card.alt || ""}
-              className={cn(
-                "absolute inset-0 h-full w-full object-cover rounded-3xl",
-                imageClassName,
-              )}
-              style={{ zIndex: i + 1 }}
               ref={(el) => {
-                imageRefs.current[i] = el;
+                cardRefs.current[i] = el;
               }}
-            />
+              className={cn(
+                "absolute inset-0 rounded-[40px] shadow-2xl",
+                imageClassName
+              )}
+              style={{
+                backgroundColor: card.bgColor || (i % 2 === 0 ? "#000000" : "#a0f0e8"),
+                transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
+              }}
+            >
+              {/* Card Content */}
+              <div 
+                className="relative h-full w-full p-6 md:p-8 lg:p-10 flex flex-col justify-between overflow-y-auto"
+                style={{ 
+                  color: card.bgColor === "#ffffff" || card.bgColor === "#a0f0e8" ? "#000000" : "#ffffff"
+                }}
+              >
+                {/* Image */}
+                <div className="w-32 h-32 md:w-36 md:h-36 lg:w-40 lg:h-40 mx-auto mb-4 md:mb-6 rounded-3xl overflow-hidden shadow-lg flex-shrink-0">
+                  <img
+                    src={card.image}
+                    alt={card.alt || ""}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* Title */}
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-center leading-tight flex-shrink-0">
+                  {card.title || "Title Here"}
+                </h2>
+                
+                {/* Description */}
+                <p className="text-sm md:text-base lg:text-lg leading-relaxed text-center max-w-2xl mx-auto opacity-90 flex-shrink-0">
+                  {card.description || "Add your description text here. This is placeholder content that shows the layout and design of the card."}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </div>

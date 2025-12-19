@@ -5,65 +5,62 @@ import { HoverExpand } from "@/components/ui/hover-expand";
 export default function HoverExpandGallery() {
   const images = [
     {
-      src: "/images/stack/1.webp",
-      alt: "Creative Design Work",
+      src: "/team_picture/1.webp",
+      alt: "Rajat Gupta",
       code: "# 01",
+      title: "Rajat Gupta",
+      subtitle: "Performance Marketing Manager ",
     },
     {
-      src: "/images/stack/2.webp",
-      alt: "Modern Architecture",
+      src: "/team_picture/2.webp",
+      alt: "Tripti Ray",
       code: "# 02",
+      title: "Tripti Ray",
+      subtitle: "Digital Marketing Strategist",
     },
     {
-      src: "/images/stack/3.webp",
-      alt: "Brand Identity",
+      src: "/team_picture/3.webp",
+      alt: "Harshita Sharma",
       code: "# 03",
+      title: "Harshita Sharma",
+      subtitle: "Social Media Strategist",
     },
     {
-      src: "/images/stack/4.webp",
-      alt: "Digital Experience",
+      src: "/team_picture/5.webp",
+      alt: "Vijay Vishwakarma",
       code: "# 04",
+      title: "Vijay Vishwakarma",
+      subtitle: "Senior Motion Graphic Designer",
     },
     {
-      src: "/images/stack/5.webp",
-      alt: "Visual Storytelling",
+      src: "/team_picture/4.webp",
+      alt: "Sankesh Pate",
       code: "# 05",
+      title: "Sankesh Pate",
+      subtitle: "Senior Graphic Designer",
     },
     {
-      src: "/images/stack/6.webp",
-      alt: "Innovation Design",
+      src: "/team_picture/6.webp",
+      alt: "Pankaj Vishwakarma",
       code: "# 06",
-    },
-    {
-      src: "/flower.webp",
-      alt: "Creative Solutions",
-      code: "# 07",
-    },
-    {
-      src: "/flower1.webp",
-      alt: "Design Excellence",
-      code: "# 08",
-    },
-    {
-      src: "/car.webp",
-      alt: "Portfolio Work",
-      code: "# 09",
+      title: "Pankaj Vishwakarma",
+      subtitle: "Wordpress & Shopify Developer",
     },
   ];
 
   return (
-    <section className="bg-[#E9E4D7] py-20">
+    <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Heading */}
         <div className="text-center mb-16">
           <p className="text-xs uppercase tracking-[0.55em] text-[#8c7b62] mb-4 clash-display-font">
-            Portfolio
+            Team
           </p>
           <h2 className="text-[#060010] text-5xl md:text-7xl font-bold boska-font">
-            Our Work
+            Meet Our Team
           </h2>
           <p className="text-[#312619]/80 text-lg mt-6 max-w-2xl mx-auto archivo-font">
-            Explore our latest projects and creative solutions
+            The talented people behind our success
           </p>
         </div>
 

@@ -7,7 +7,6 @@ import VideoShowcase from "@/components/VideoShowcase";
 import LoadingOverlay from "@/components/LoadingOverlay";
 import ImageWall from "@/components/ImageWall";
 import Footer from "@/components/global/Footer";
-import Art from "@/components/Art";
 import BrandsClients from "@/components/landing/BrandsClients";
 import FAQSection from "@/components/landing/faq";
 import Hero from "@/components/Hero";
@@ -15,6 +14,8 @@ import { BentoGridSection } from "@/components/landing/BentoGridSection";
 import OurServices from "@/components/landing/OurServices";
 import HoverExpandGallery from "@/components/landing/HoverExpandGallery";
 import StickyCardSection from "@/components/landing/StickyCardSection";
+import TextMarqueeSection from "@/components/landing/TextMarqueeSection";
+
 
 const breakpoints = [
   { maxWidth: 1000, translateY: -135, movMultiplier: 450 },
@@ -204,7 +205,7 @@ const MenuPage = () => {
   }, [showContent]);
 
   return (
-    <div className="min-h-screen text-black boska-font overflow-x-hidden" style={{ backgroundColor: '#E9E4D7' }}>
+    <div className="min-h-screen text-black boska-font overflow-x-hidden" style={{ backgroundColor: '#FFFFFF' }}>
       <Hero
         showLoading={showLoading}
         showHero={showHero}
@@ -221,15 +222,15 @@ const MenuPage = () => {
             {/* Desktop VideoShowcase */}
             <div className="hidden md:block">
               <VideoShowcase
-                videoSrc="https://www.youtube.com/embed/HXFkg0vwLpQ?autoplay=1&mute=1&controls=0&loop=1&playlist=HXFkg0vwLpQ"
-                title1="ROI™ Showreel"
-                title2="(Clients — 2018/2024)"
+                videoSrc="https://www.youtube.com/embed/aYSp5qUTC54?autoplay=1&mute=1&loop=1&playlist=aYSp5qUTC54"
+              
               />
             </div>
             {/* Mobile Video Preview removed */}
           </section>
+          <TextMarqueeSection />
           <section
-            className="outro flex flex-col justify-center items-center min-h-[100svh] w-full px-4 md:px-[2.5em]"
+            className="outro flex flex-col justify-center items-center min-h-[100vh] w-full px-4 md:px-[2.5em]"
             ref={outroRef}
           >
             <ImageWall
@@ -256,6 +257,8 @@ const MenuPage = () => {
           <HoverExpandGallery />
           <StickyCardSection />
           <BrandsClients />
+          {/* <Agency/>
+          <Services/> */}
           {/* <Art /> */}
           <FAQSection />
           <Footer />

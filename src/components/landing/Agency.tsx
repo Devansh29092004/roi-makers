@@ -154,7 +154,7 @@ export default function Agency(): React.ReactElement {
 
                 {/* CTA Button */}
                 <motion.button
-                  className="group bg-[#FF9933] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold flex items-center gap-2 mx-auto hover:bg-orange-600 transition-all duration-300 text-sm sm:text-base"
+                  className="group bg-[#FFAA17] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold flex items-center gap-2 mx-auto hover:bg-[#E69815] transition-all duration-300 text-sm sm:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}

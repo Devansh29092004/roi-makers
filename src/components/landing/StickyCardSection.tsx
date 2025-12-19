@@ -8,36 +8,30 @@ export default function StickyCardSection() {
       id: 1,
       image: "/images/stack/1.webp",
       alt: "Project 1",
+      title: "Pioneers",
+      description: "We're dedicated to creating the industry narrative that others follow 3 years from now. We paved the path for creative SEO, multi-channel search with Digital PR, and Social Search and we will continue to do it.",
+      bgColor: "#000000"
     },
     {
       id: 2,
       image: "/images/stack/2.webp",
       alt: "Project 2",
+      title: "Award Winning",
+      description: "A roll top bath full of 79 awards. Voted The Drum's best agency outside of London. We are official judges for industry awards including Global Search Awards and Global Content Marketing Awards.",
+      bgColor: "#a0f0e8"
     },
     {
       id: 3,
       image: "/images/stack/3.webp",
       alt: "Project 3",
-    },
-    {
-      id: 4,
-      image: "/images/stack/4.webp",
-      alt: "Project 4",
-    },
-    {
-      id: 5,
-      image: "/images/stack/5.webp",
-      alt: "Project 5",
-    },
-    {
-      id: 6,
-      image: "/images/stack/6.webp",
-      alt: "Project 6",
+      title: "Speed",
+      description: "People ask us why we are called Rise at Seven? Ever heard the saying Early Bird catches the worm? Google is moving fast, but humans are moving faster. We chase consumers, not algorithms. We've created a service which takes ideas to result within 60 minutes.",
+      bgColor: "#ffffff"
     },
   ];
 
   return (
-    <section className="bg-[#E9E4D7] min-h-screen">
+    <section className="bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-6 py-20">
         {/* Section Heading */}
         <div className="text-center mb-16">

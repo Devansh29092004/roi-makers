@@ -56,7 +56,7 @@ const columns = [flowingMenuItems.slice(0, 3), flowingMenuItems.slice(3, 6)];
 
 export default function OurServices() {
   return (
-    <main className="min-h-screen bg-[#E9E4D7] text-[#060010]">
+    <main className="min-h-screen bg-white text-[#060010]">
       <section className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-16 lg:gap-16 archivo-font">
         <header className="flex flex-col gap-8">
           <div className="space-y-5">
@@ -97,7 +97,7 @@ export default function OurServices() {
         <div id="services" className="grid gap-6 md:grid-cols-2 rounded-xl">
           {columns.map((column, columnIdx) => (
             <div key={`column-${columnIdx}`} className="space-y-8">
-              <div className="relative h-[240px] rounded-xl">
+              <div className="relative h-[300px] rounded-xl">
                 <FlowingMenu items={column} />
               </div>
             </div>

@@ -216,7 +216,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
   };
 
   return (
-    <Card className="team-section border-4 border-muted w-screen h-[100svh] flex md:flex-col justify-center items-center md:gap-[2.5em] gap-4 overflow-hidden relative team-page m-0 p-0 box-border flex-col-reverse md:flex-nowrap" style={{ backgroundColor: '#E9E4D7' }}>
+    <Card className="team-section border-4 border-muted w-screen h-[100svh] flex md:flex-col justify-center items-center md:gap-[2.5em] gap-4 overflow-hidden relative team-page m-0 p-0 box-border flex-col-reverse md:flex-nowrap" style={{ backgroundColor: '#FFFFFF' }}>
       <CardHeader className="absolute top-12 md:top-20 left-0 w-full flex justify-center items-center secondary-font z-30">
         <CardTitle className="text-3xl md:text-4xl lg:text-5xl" style={{ color: '#060010' }}>{title}</CardTitle>
       </CardHeader>

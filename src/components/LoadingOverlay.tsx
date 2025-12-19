@@ -46,7 +46,7 @@ const LoadingOverlay: React.FC<{ onFinish?: () => void }> = ({ onFinish }) => {
         position: "fixed",
         inset: 0,
         zIndex: 100,
-        background: "#E9E4D7",
+        background: "#FFFFFF",
         pointerEvents: "auto",
       }}
       className="loading-overlay boska-font"
@@ -85,7 +85,7 @@ const LoadingOverlay: React.FC<{ onFinish?: () => void }> = ({ onFinish }) => {
       </div>
       <style jsx>{`
         .loading-overlay {
-          background:#E9E4D7;
+          background:#FFFFFF;
         }
       `}</style>
     </div>

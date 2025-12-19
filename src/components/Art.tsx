@@ -199,7 +199,7 @@ export default function Art() {
       <section
         ref={heroRef}
         className="relative w-full min-h-screen text-gray-900 overflow-hidden flex flex-col items-center justify-center gap-4 md:gap-6 px-4 md:px-6 text-center"
-        style={{ backgroundColor: '#E9E4D7' }}
+        style={{ backgroundColor: '#FFFFFF' }}
       >
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
           Art is never just what you see.

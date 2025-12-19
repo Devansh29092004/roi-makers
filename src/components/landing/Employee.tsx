@@ -36,10 +36,10 @@ const catProfiles = [
 
 const Employee = () => {
   return (
-    <section className="w-full text-black py-16 sm:py-20 px-6 sm:px-12 lg:px-20" style={{ backgroundColor: '#E9E4D7' }}>
+    <section className="w-full text-black py-16 sm:py-20 px-6 sm:px-12 lg:px-20" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="max-w-6xl mx-auto flex flex-col gap-12">
         <div className="flex flex-col gap-3 text-center">
-          <p className="text-3xl font-bold  text-[#FF9933]">Our Crew</p>
+          <p className="text-3xl font-bold  text-[#FFAA17]">Our Crew</p>
           <h2 className="text-5xl sm:text-4xl lg:text-5xl font-extrabold">Meet The Team</h2>
           <p className="text-2xl   text-[#000000] max-w-2xl mx-auto">
             A team which define the infinite ideas

@@ -32,7 +32,6 @@ const TikTikColorList: React.FC<TikTikColorListProps> = ({
   className = "",
   showPreview = true,
   previewSize = "lg",
-  enableSound = false,
   infiniteScroll = true,
   scrollThreshold = 1000,
 }) => {

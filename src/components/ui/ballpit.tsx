@@ -65,7 +65,7 @@ const ICONS_BASE: Array<{
   },
   {
     key: "x",
-    href: "https://x.com",
+    href: "http://x.com/roimakers",
     label: "X (Twitter)",
     bg: "#000000",
     fg: "#ffffff",
@@ -73,7 +73,7 @@ const ICONS_BASE: Array<{
   },
   {
     key: "instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/roimakers/",
     label: "Instagram",
     bg: "#E4405F",
     fg: "#ffffff",
@@ -81,7 +81,7 @@ const ICONS_BASE: Array<{
   },
   {
     key: "linkedin",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/company/roimakers/",
     label: "LinkedIn",
     bg: "#0A66C2",
     fg: "#ffffff",
@@ -97,7 +97,7 @@ const ICONS_BASE: Array<{
   },
   {
     key: "facebook",
-    href: "https://facebook.com",
+    href: "https://www.facebook.com/roimakersin",
     label: "Facebook",
     bg: "#1877F2",
     fg: "#ffffff",

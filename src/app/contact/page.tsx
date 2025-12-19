@@ -35,7 +35,7 @@ export default function ContactPage() {
     {
       label: 'Email',
       value: 'hello@roimakers.com',
-      href: 'mailto:devanshjagtap2@gmail.com',
+      href: 'mailto:info@roimakers.in',
     },
     {
       label: 'Phone',
@@ -76,7 +76,7 @@ export default function ContactPage() {
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('There was an error submitting the form. Please try emailing us directly at devanshjagtap2@gmail.com');
+      alert('There was an error submitting the form. Please try emailing us directly at info@roimakers.in ');
     }
   };
 
@@ -87,7 +87,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen boska-font" style={{ backgroundColor: '#E9E4D7' }}>
+    <div className="min-h-screen boska-font" style={{ backgroundColor: '#FFFFFF' }}>
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">

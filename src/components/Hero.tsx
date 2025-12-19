@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
-import GradientBackground from '@/components/ui/gradient-background';
 import gsap from "gsap";
 
 interface HeroProps {
@@ -46,7 +45,7 @@ export default function Hero({ showLoading, showHero, showContent, onLoadingFini
   }, [showContent]);
 
 return (
-  <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center" style={{ backgroundColor: '#E9E4D7' }}>
+  <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center" style={{ backgroundColor: '#FFFFFF' }}>
     <section className="hero flex flex-col pt-[8em] sm:pt-[9em] md:pt-[6em] flex-1 w-full px-4 md:px-[2.5em] max-w-[95vw] mx-auto">
       <div className="mb-auto">
         <h1
@@ -65,7 +64,7 @@ return (
               Strategy, design, and campaigns for ambitious companies.
             </p>
             <p className="text-[16px] md:text-[18px] font-medium hidden md:flex select-none text-black">
-              {"{"}Scroll{"}"}
+              {"Scroll ↓"}
             </p>
           </div>
         )}
@@ -78,11 +77,11 @@ return (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}
       >
-        <div className="text-black font-bold text-[10px] sm:text-xs max-w-lg text-center md:text-left leading-relaxed">
+        <div className="text-black  text-[16px]   pp-neue-world-font font-normal select-none  max-w-lg text-center md:text-left leading-relaxed">
           Performance marketing specialists creating, optimizing & scaling <br className="hidden md:block" />
           <span className="font-bold">ROI-focused</span> campaigns for sustainable growth
         </div>
-        <div className="text-black font-bold text-[10px] sm:text-xs text-center md:text-right leading-relaxed">
+        <div className="text-black  pp-neue-world-font font-normal select-none text-[16px]  text-center md:text-right leading-relaxed">
           218-B ,Trade Center,South Tukoganj <br className="hidden md:block" /> 
           Indore , Madhya Pradesh 452001
         </div>

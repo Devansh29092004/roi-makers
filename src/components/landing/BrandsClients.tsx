@@ -116,7 +116,7 @@ export default function BrandsClients() {
     <section className={cn( "relative w-full overflow-hidden",
       "py-12 md:py-16 lg:py-20"
     )}
-    style={{ backgroundColor: '#E9E4D7' }}
+    style={{ backgroundColor: '#FFFFFF' }}
     >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -141,7 +141,7 @@ export default function BrandsClients() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+          className="mb-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -150,13 +150,16 @@ export default function BrandsClients() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="space-y-2"
+              whileHover={{ scale: 1.05 }}
+              className="relative group cursor-pointer"
             >
-              <div className="text-5xl md:text-4xl font-bold text-orange-500">
-                <CountUp value={stat.value} suffix={stat.suffix} duration={2} />
-              </div>
-              <div className="text-gray-600 font-medium">
-                {stat.label}
+              <div className="bg-white border-2 border-black/10 rounded-2xl p-6 md:p-8 text-center hover:border-orange-500/30 transition-all duration-300 hover:shadow-xl">
+                <div className="text-4xl md:text-5xl font-bold text-orange-500 mb-3">
+                  <CountUp value={stat.value} suffix={stat.suffix} duration={2} />
+                </div>
+                <div className="text-black/70 font-semibold text-sm md:text-base">
+                  {stat.label}
+                </div>
               </div>
             </motion.div>
           ))}

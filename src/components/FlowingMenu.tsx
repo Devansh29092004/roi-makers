@@ -79,15 +79,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
 
   const repeatedMarqueeContent = useMemo(() => {
     return Array.from({ length: 4 }).map((_, idx) => (
-      <React.Fragment key={idx}>
-        <span className="text-[#060010] uppercase font-normal text-[4vh] leading-[1.2] p-[1vh_1vw_0]">{text}</span>
-        <div
-          className="w-[200px] h-[7vh] my-[2em] mx-[2vw] p-[1em_0] rounded-[50px] bg-cover bg-center"
-          style={{ backgroundImage: `url(${image})` }}
-        />
-      </React.Fragment>
+      <span key={idx} className="text-white uppercase font-semibold text-[4vh] leading-[1.2] p-[1vh_1vw_0]">{text}</span>
     ));
-  }, [text, image]);
+  }, [text]);
 
   return (
     <div
@@ -103,10 +97,16 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
         {text}
       </a>
       <div
-        className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none bg-white"
+        className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
         ref={marqueeRef}
+        style={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
       >
-        <div className="h-full w-[200%] flex" ref={marqueeInnerRef}>
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="h-full w-[200%] flex relative z-10" ref={marqueeInnerRef}>
           <div className="flex items-center relative h-full w-[200%] will-change-transform animate-marquee">
             {repeatedMarqueeContent}
           </div>

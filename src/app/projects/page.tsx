@@ -114,7 +114,7 @@ export default function ProjectsPage() {
     selectedCategory === 'All' ? projects : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen boska-font" style={{ backgroundColor: '#E9E4D7' }}>
+    <div className="min-h-screen boska-font" style={{ backgroundColor: '#FFFFFF' }}>
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

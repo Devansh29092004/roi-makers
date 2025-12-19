@@ -8,8 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface VideoShowcaseProps {
   videoSrc: string;
-  title1: string;
-  title2: string;
   initialTranslateY?: number;
   finalTranslateY?: number;
   initialScale?: number;
@@ -23,8 +21,6 @@ interface VideoShowcaseProps {
 
 const VideoShowcase: React.FC<VideoShowcaseProps> = ({
   videoSrc,
-  title1,
-  title2,
   initialTranslateY = -110,
   finalTranslateY = -20,
   initialScale = 0.25,
@@ -186,24 +182,6 @@ const VideoShowcase: React.FC<VideoShowcaseProps> = ({
             ></iframe>
           )}
         </div>
-      </div>
-      <div className="video-title">
-        <p
-          ref={(el) => {
-            videoTitleRefs.current[0] = el;
-          }}
-          className="relative font-medium text-[78px]"
-        >
-          {title1}
-        </p>
-        <p
-          ref={(el) => {
-            videoTitleRefs.current[1] = el;
-          }}
-          className="relative font-medium text-[78px]"
-        >
-          {title2}
-        </p>
       </div>
     </div>
   );
