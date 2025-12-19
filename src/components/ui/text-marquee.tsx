@@ -11,21 +11,27 @@ import {
 } from 'motion/react';
 import { wrap } from '@motionone/utils';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+
+interface MarqueeItem {
+  text: string;
+  imageUrl: string;
+}
 
 interface ParallaxProps {
-  children: string;
+  items: MarqueeItem[];
   baseVelocity: number;
   clasname?: string;
-  scrollDependent?: boolean; // Toggle scroll-dependent behavior
-  delay?: number; // Delay before animation starts
+  scrollDependent?: boolean;
+  delay?: number;
 }
 
 export default function ScrollBaseAnimation({
-  children,
+  items,
   baseVelocity = -5,
   clasname,
-  scrollDependent = false, // Default to false
-  delay = 0, // Default delay is 0 (no delay)
+  scrollDependent = false,
+  delay = 0,
 }: ParallaxProps) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
@@ -73,21 +79,27 @@ export default function ScrollBaseAnimation({
   return (
     <div className='overflow-hidden whitespace-nowrap flex flex-nowrap'>
       <motion.div
-        className='flex whitespace-nowrap gap-10 flex-nowrap'
+        className='flex whitespace-nowrap gap-12 flex-nowrap items-center'
         style={{ x }}
       >
-        <span className={cn(`block sm:text-[8vw] text-[11vw]`, clasname)}>
-          {children}
-        </span>
-        <span className={cn(`block sm:text-[8vw] text-[11vw]`, clasname)}>
-          {children}
-        </span>
-        <span className={cn(`block sm:text-[8vw] text-[11vw]`, clasname)}>
-          {children}
-        </span>
-        <span className={cn(`block sm:text-[8vw] text-[11vw]`, clasname)}>
-          {children}
-        </span>
+        {[...Array(4)].map((_, repeatIndex) => (
+          <span key={repeatIndex} className="flex items-center gap-12">
+            {items.map((item, itemIndex) => (
+              <span key={itemIndex} className={cn(`flex items-center gap-8 sm:text-[10vw] text-[13vw] leading-none`, clasname)}>
+                <span className="inline-block relative sm:w-[10vw] sm:h-[10vw] w-[13vw] h-[13vw] rounded-3xl overflow-hidden flex-shrink-0">
+                  <Image
+                    src={item.imageUrl}
+                    alt="Brand visual"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 13vw, 10vw"
+                  />
+                </span>
+                {item.text}
+              </span>
+            ))}
+          </span>
+        ))}
       </motion.div>
     </div>
   );

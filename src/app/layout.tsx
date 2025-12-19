@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/global/Navbar";
 import LenisProvider from "@/app/providers/LenisProvider";
 
-const playfair = Playfair_Display({ subsets: ["latin"] });
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const ibmPlexMono = IBM_Plex_Mono({ 
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-ibm-plex-mono"
+});
 
 export const metadata: Metadata = {
   title: "ROI-MAKERS",
@@ -18,14 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={ibmPlexMono.variable}>
       <head>
         <link
-          href="https://api.fontshare.com/v2/css?f[]=archivo@100,101,200,201,300,301,400,401,500,501,600,601,700,701,800,801,900,901,1,2&f[]=clash-display@200,300,400,500,600,700,1&f[]=melodrama@300,400,500,600,700,1&f[]=boska@200,201,300,301,400,401,500,501,700,701,900,901&display=swap"
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className={playfair.className + " antialiased"}>
+      <body className={ibmPlexMono.className + " antialiased"}>
         <LenisProvider>
           <Navbar/>
           {children}

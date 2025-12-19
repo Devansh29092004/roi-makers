@@ -262,13 +262,13 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
             <h1
               className={
                 `split absolute w-full text-center uppercase font-extrabold leading-none select-none z-10 ` +
-                `font-['Barlow_Condensed'] text-[4rem] tracking-[0] drop-shadow-lg md:text-[13rem] md:tracking-[-0.5rem] ` +
+                `font-['IBM_Plex_Mono'] text-[4rem] tracking-[0] drop-shadow-lg md:text-[13rem] md:tracking-[-0.5rem] ` +
                 (i === 0
                   ? "-translate-x-1/2 -translate-y-[60%] left-1/2 top-1/2 md:-translate-y-[150%]"
                   : "-translate-x-1/2 translate-y-[50%] left-1/2 top-1/2 md:translate-y-[50%]")
               }
               style={{
-                fontFamily: "Barlow Condensed, Arial,  sans-serif",
+                fontFamily: "IBM Plex Mono, monospace",
                 color: i === 0 ? '#060010' : '#8c7b62',
               }}
             >

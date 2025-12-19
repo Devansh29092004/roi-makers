@@ -1,5 +1,6 @@
+"use client";
 import Image from "next/image";
-import FlowingMenu from "../FlowingMenu";
+import { useState } from "react";
 
 type Service = {
   title: string;
@@ -27,7 +28,7 @@ const services: Service[] = [
     href: "#data-insights",
   },
   {
-    title: "Social & Social Search",
+    title: "Organic Social & Content",
     image:
       "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
     href: "#social-social",
@@ -46,61 +47,74 @@ const services: Service[] = [
   },
 ];
 
-const flowingMenuItems = services.map((service) => ({
-  link: service.href,
-  text: service.title,
-  image: service.image,
-}));
-
-const columns = [flowingMenuItems.slice(0, 3), flowingMenuItems.slice(3, 6)];
-
 export default function OurServices() {
-  return (
-    <main className="min-h-screen bg-white text-[#060010]">
-      <section className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-16 lg:gap-16 archivo-font">
-        <header className="flex flex-col gap-8">
-          <div className="space-y-5">
-            <p className="text-xs uppercase tracking-[0.55em] text-[#8c7b62] clash-display-font">Capabilities</p>
-            <div className="flex flex-wrap items-center gap-4 text-5xl font-semibold tracking-tight md:text-7xl boska-font">
-              <span>Our</span>
-              <span className="relative inline-flex h-16 w-16 overflow-hidden rounded-3xl md:h-20 md:w-20">
-                <Image
-                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80"
-                  alt="Strategy workshop"
-                  fill
-                  sizes="80px"
-                  className="object-cover"
-                  priority
-                />
-              </span>
-              <span>Services</span>
-            </div>
-          </div>
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <p className="max-w-2xl text-lg leading-relaxed text-[#312619]/80">
-              Bespoke roadmaps, production firepower, and performance rituals that keep
-              campaigns compounding. Tap into specialists that move quickly while
-              keeping the craft dialed all the way up.
-            </p>
-            <a
-              href="#services"
-              className="inline-flex items-center gap-2 rounded-full border border-[#0f0d0b] bg-[#f7f3ea] px-8 py-3 text-xs font-semibold uppercase tracking-[0.35em] text-[#0f0d0b] clash-display-font shadow-sm transition hover:-translate-y-0.5 hover:bg-[#0f0d0b] hover:text-white"
-            >
-              View All <span aria-hidden>↗</span>
-            </a>
+  return (
+    <main className="min-h-screen bg-[#f5f5f5] text-black">
+      <section className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-6 py-20 lg:gap-16">
+        <header className="flex items-start justify-between">
+          <div className="flex items-center gap-4 text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl">
+            <span>Our</span>
+            <span className="relative inline-flex h-20 w-20 overflow-hidden rounded-3xl md:h-28 md:w-28">
+              <Image
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80"
+                alt="Strategy workshop"
+                fill
+                sizes="120px"
+                className="object-cover"
+                priority
+              />
+            </span>
+            <span>Services</span>
           </div>
+          
+          <a
+            href="#services"
+            className="inline-flex items-center gap-2 rounded-full bg-transparent px-6 py-3 text-sm font-medium text-black transition hover:gap-3"
+          >
+            View All Services <span aria-hidden>↗</span>
+          </a>
         </header>
 
-        <div className="h-px w-full rounded-3xl bg-[#c1b7a6]" />
+        <div className="h-px w-full bg-black" />
 
-        <div id="services" className="grid gap-6 md:grid-cols-2 rounded-xl">
-          {columns.map((column, columnIdx) => (
-            <div key={`column-${columnIdx}`} className="space-y-8">
-              <div className="relative h-[300px] rounded-xl">
-                <FlowingMenu items={column} />
+        <div id="services" className="grid gap-0 md:grid-cols-2 md:gap-x-12">
+          {services.map((service, index) => (
+            <a
+              key={service.href}
+              href={service.href}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="group relative block"
+            >
+              <div className="relative border-b border-black">
+                <div className="py-8">
+                  {/* Default state text */}
+                  <h3 className={`text-2xl font-medium md:text-3xl lg:text-4xl transition-opacity duration-500 ${hoveredIndex === index ? 'opacity-0' : 'opacity-100'}`}>
+                    {service.title}
+                  </h3>
+                </div>
+                
+                {/* Hover state with image background */}
+                <div className={`absolute inset-0 flex items-center overflow-hidden rounded-full transition-all duration-500 ease-out ${hoveredIndex === index ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40" />
+                  <div className="relative z-10 flex items-center gap-4 px-8 w-full">
+                    <span className="text-3xl text-white">↗</span>
+                    <span className="text-2xl font-medium text-white md:text-3xl lg:text-4xl">
+                      {service.title}
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>
