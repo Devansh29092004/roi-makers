@@ -4,7 +4,7 @@ import ScrollBaseAnimation from "@/components/ui/text-marquee";
 
 export default function TextMarqueeSection() {
   return (
-    <section className="w-full py-32 overflow-hidden bg-white">
+    <section className="w-full py-12 md:py-32 mt-24 md:mt-32 overflow-hidden bg-white">
       <ScrollBaseAnimation
         baseVelocity={-0.5}
         clasname="font-black text-black"

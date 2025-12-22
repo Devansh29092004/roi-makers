@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
 import gsap from "gsap";
+import GradientBackground from "@/components/ui/gradient-background";
 
 interface HeroProps {
   showLoading: boolean;
@@ -45,8 +46,9 @@ export default function Hero({ showLoading, showHero, showContent, onLoadingFini
   }, [showContent]);
 
 return (
-  <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center" style={{ backgroundColor: '#FFFFFF' }}>
-    <section className="hero flex flex-col pt-[8em] sm:pt-[9em] md:pt-[6em] flex-1 w-full px-4 md:px-[2.5em] max-w-[95vw] mx-auto">
+  <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-24 md:pb-32 bg-white">
+    <GradientBackground />
+    <section className="hero flex flex-col pt-[8em] sm:pt-[9em] md:pt-[6em] flex-1 w-full px-4 md:px-[2.5em] max-w-[95vw] mx-auto z-10 relative">
       <div className="mb-auto">
         <h1
           ref={heroTitleRef}
@@ -72,7 +74,7 @@ return (
 
       {/* Footer Texts */}
       <motion.div 
-        className="flex flex-col md:flex-row justify-between items-center md:items-start w-full gap-3 md:gap-0 pb-4"
+        className="flex flex-col md:flex-row justify-between items-center md:items-start w-full gap-3 md:gap-0 pb-8 md:pb-4"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}

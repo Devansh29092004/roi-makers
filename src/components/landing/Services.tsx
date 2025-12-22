@@ -167,29 +167,31 @@ export default function Services() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className={cn(
-                    "border border-gray-200 rounded-2xl overflow-hidden transition-all duration-300",
-                    expandedService === service.id ? "bg-black text-white" : "bg-white hover:bg-gray-50"
+                    "border border-gray-200 rounded-2xl overflow-hidden",
+                    "transition-all duration-500 ease-in-out will-change-[background-color,transform]",
+                    expandedService === service.id ? "bg-black text-white shadow-xl" : "bg-white hover:bg-gray-50 hover:shadow-md"
                   )}
                 >
                   {/* Service Header */}
                   <motion.div
                     className={cn(
                       "flex items-center justify-between p-4 md:p-6 cursor-pointer",
-                      "border-b border-gray-200 last:border-b-0"
+                      "border-b border-gray-200 last:border-b-0",
+                      "transition-all duration-300 ease-out"
                     )}
                     onClick={() => toggleService(service.id)}
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    whileHover={{ x: 8 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 20 }}
                   >
                     <div className="flex items-center gap-4">
                       <span className={cn(
-                        "text-2xl font-bold",
+                        "text-2xl font-bold transition-colors duration-500 ease-in-out",
                         expandedService === service.id ? "text-[#FFAA17]" : "text-gray-400"
                       )}>
                         {service.id}.
                       </span>
                       <h3 className={cn(
-                        "text-lg font-bold tracking-wide",
+                        "text-lg font-bold tracking-wide transition-colors duration-500 ease-in-out",
                         expandedService === service.id ? "text-white" : "text-black"
                       )}>
                         {service.title}
@@ -197,7 +199,10 @@ export default function Services() {
                     </div>
                     <motion.div
                       animate={{ rotate: expandedService === service.id ? 45 : 0 }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ 
+                        duration: 0.4,
+                        ease: [0.4, 0, 0.2, 1]
+                      }}
                       className={cn(
                         "w-8 h-8 rounded-full flex items-center justify-center",
                         expandedService === service.id ? "bg-[#FFAA17]" : "bg-gray-100"
@@ -217,8 +222,12 @@ export default function Services() {
                       height: expandedService === service.id ? "auto" : 0,
                       opacity: expandedService === service.id ? 1 : 0
                     }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
+                    transition={{ 
+                      duration: 0.5,
+                      ease: [0.4, 0, 0.2, 1],
+                      opacity: { duration: 0.3 }
+                    }}
+                    className="overflow-hidden will-change-[height,opacity]"
                   >
                     <div className="p-6 pt-0 space-y-4">
                       <p className={cn(
