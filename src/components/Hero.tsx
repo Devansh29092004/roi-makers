@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
 import gsap from "gsap";
-import GradientBackground from "@/components/ui/gradient-background";
 
 interface HeroProps {
   showLoading: boolean;
@@ -46,9 +45,8 @@ export default function Hero({ showLoading, showHero, showContent, onLoadingFini
   }, [showContent]);
 
 return (
-  <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-24 md:pb-32 bg-white">
-    <GradientBackground />
-    <section className="hero flex flex-col pt-[8em] sm:pt-[9em] md:pt-[6em] flex-1 w-full px-4 md:px-[2.5em] max-w-[95vw] mx-auto z-10 relative">
+  <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-24 md:pb-32" style={{ backgroundColor: '#FFFFFF' }}>
+    <section className="hero flex flex-col pt-[8em] sm:pt-[9em] md:pt-[6em] flex-1 w-full px-4 md:px-[2.5em] max-w-[95vw] mx-auto">
       <div className="mb-auto">
         <h1
           ref={heroTitleRef}

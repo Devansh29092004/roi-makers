@@ -1,20 +1,23 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, lazy, Suspense } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import VideoShowcase from "@/components/VideoShowcase";
-import LoadingOverlay from "@/components/LoadingOverlay";
-import ImageWall from "@/components/ImageWall";
-import Footer from "@/components/global/Footer";
-import BrandsClients from "@/components/landing/BrandsClients";
-import FAQSection from "@/components/landing/faq";
 import Hero from "@/components/Hero";
-import { BentoGridSection } from "@/components/landing/BentoGridSection";
-import OurServices from "@/components/landing/OurServices";
-import HoverExpandGallery from "@/components/landing/HoverExpandGallery";
-import StickyCardSection from "@/components/landing/StickyCardSection";
-import TextMarqueeSection from "@/components/landing/TextMarqueeSection";
+import LoadingOverlay from "@/components/LoadingOverlay";
+
+// Lazy load components that aren't immediately visible
+const VideoShowcase = lazy(() => import("@/components/VideoShowcase"));
+const ImageWall = lazy(() => import("@/components/ImageWall"));
+const TextMarqueeSection = lazy(() => import("@/components/landing/TextMarqueeSection"));
+const CardMarqueeSection = lazy(() => import("@/components/landing/CardMarqueeSection"));
+const OurServices = lazy(() => import("@/components/landing/OurServices"));
+const BentoGridSection = lazy(() => import("@/components/landing/BentoGridSection").then(module => ({ default: module.BentoGridSection })));
+const HoverExpandGallery = lazy(() => import("@/components/landing/HoverExpandGallery"));
+const StickyCardSection = lazy(() => import("@/components/landing/StickyCardSection"));
+const BrandsClients = lazy(() => import("@/components/landing/BrandsClients"));
+const FAQSection = lazy(() => import("@/components/landing/faq"));
+const Footer = lazy(() => import("@/components/global/Footer"));
 
 
 const breakpoints = [
@@ -214,7 +217,9 @@ const MenuPage = () => {
       />
       {showLoading && <LoadingOverlay onFinish={() => setShowLoading(false)} />}
       {showContent && (
-        <>
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">
+          <div className="animate-pulse text-lg">Loading...</div>
+        </div>}>
           <section
             className="intro max-md:-mt-80 h-full w-full px-4 md:px-[2.5em]"
             ref={videoSectionRef}
@@ -253,16 +258,17 @@ const MenuPage = () => {
             />
           </section>
           <OurServices/>
-          <BentoGridSection />
-          <HoverExpandGallery />
-          <StickyCardSection />
+          <CardMarqueeSection />
+          {/* <BentoGridSection /> */}
           <BrandsClients />
+          <StickyCardSection />
+          <HoverExpandGallery />
           {/* <Agency/>
           <Services/> */}
           {/* <Art /> */}
           <FAQSection />
           <Footer />
-        </>
+        </Suspense>
       )}
       <style jsx>{`
         @media (max-width: 900px) {

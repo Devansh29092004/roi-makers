@@ -21,7 +21,7 @@ const HoverExpand = ({
         duration: 0.3,
         delay: 0.5,
       }}
-      className={cn("relative w-full max-w-6xl px-5", className)}
+      className={cn("relative w-full max-w-10xl px-8", className)}
     >
       <motion.div
         initial={{ opacity: 0 }}
