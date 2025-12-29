@@ -220,20 +220,21 @@ const MenuPage = () => {
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">
           <div className="animate-pulse text-lg">Loading...</div>
         </div>}>
+          {/* Move VideoShowcase here, right after Hero and before TextMarquee */}
           <section
-            className="intro max-md:-mt-80 h-full w-full px-4 md:px-[2.5em]"
+            className="intro max-md:-mt-80 h-full w-full px-2 md:px-[2.5em] -mt-60 md:-mt-80"
             ref={videoSectionRef}
           >
             {/* Desktop VideoShowcase */}
             <div className="hidden md:block">
               <VideoShowcase
                 videoSrc="https://www.youtube.com/embed/aYSp5qUTC54?autoplay=1&mute=1&loop=1&playlist=aYSp5qUTC54"
-              
+                initialScale={0.15}
+                initialTranslateY={-130}
               />
             </div>
             {/* Mobile Video Preview removed */}
           </section>
-          <TextMarqueeSection />
           <section
             className="outro flex flex-col justify-center items-center min-h-[100vh] w-full px-4 md:px-[2.5em]"
             ref={outroRef}

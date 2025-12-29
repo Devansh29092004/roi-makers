@@ -9,28 +9,27 @@ import {
 const FAQSection = () => {
   const faqData = [
     {
-      question: "What is HACKWAVE?",
+      question: "What is ROI Makers?",
       answer:
-        "A 36-hour hackathon for dedicated builders and innovators. It's one part party, one part work-hard overnight battle against the clock and the competition. ",
+        "ROI Makers is a performance-driven digital marketing agency based in Indore, India, focused on helping businesses grow their online presence and maximize return on investment (ROI) through tailored digital strategies. ",
     },
     {
-      question: "When and where is HACKWAVE 2025?",
-      answer: "August 23-25, 2025. Venue: Chameli Devi Group of institutions.",
-    },
-    // {
-    //   question: "What are the prizes?",
-    //   answer:
-    //     "₹1 Lakh+ prize pool across multiple categories: Best Overall, Most Innovative, Best Technical Implementation, and Best Design.",
-    // },
-    {
-      question: "Will there be any travel allowance provided?",
-      answer:
-        "No, we will not be providing travel reimbursements. Participants are expected to arrange and cover their own travel expenses.",
+      question: "When was ROI Makers founded and by whom?",
+      answer: "ROI Makers was founded in 2023 by Amit Sharma, who brings over 7 years of experience in digital marketing and a passion for measurable, results-oriented campaigns.",
     },
     {
-      question: "Can we change our team members after Round 1?",
+     question: "What services does ROI Makers offer?",
+    answer:`We provide a range of digital services designed to boost your brand and revenue, including: Digital Marketing Performance Marketing Website & E-Commerce Development Shopify Store Development Social Media Marketing Search Engine Optimization (SEO) Virtual Tours Each service is customized to align with your business goals`
+   },
+    {
+      question: "What industries does ROI Makers work with?",
       answer:
-        "No, team compositions will be locked after Round 1 to ensure fairness and smooth coordination.",
+        "ROI Makers works with businesses across industries, including real estate, healthcare, blockchain/metaverse, advisory services, and more, tailoring strategies to each industry’s unique needs."
+    },
+    {
+      question: "How do I get started with ROI Makers?",
+      answer:
+        "You can contact us through the website’s Contact page, email, or phone. We’ll schedule a consultation to understand your business needs and recommend the best digital marketing strategy for you.",
     },
   ];
 
@@ -43,7 +42,7 @@ const FAQSection = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
-            Everything you need to know about HACKWAVE 2025. Can't find what
+            Everything you need to know about ROI-MAKERS. Can't find what
             you're looking for? Reach out to us on social media or email.
           </p>
         </div>
@@ -87,7 +86,7 @@ const FAQSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=eds@cdgi.edu.in"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@roimakers.in"
                 target="blank"
                 className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 bg-[#141414] text-[#fcf2e8] rounded-lg font-medium hover:bg-[#141414]/90 transition-colors text-sm sm:text-base"
               >

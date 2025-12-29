@@ -15,7 +15,7 @@
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-slot": "^1.2.2",
     "@react-three/drei": "^10.0.7",
-    "@react-three/fiber": "^9.1.2",
+    "@react-three/fiber": "^9.4.2",
     "@tabler/icons-react": "^3.35.0",
     "@types/gsap": "^3.0.0",
     "autoprefixer": "^10.4.21",
@@ -33,7 +33,7 @@
     "resend": "^6.5.2",
     "split-type": "^0.3.4",
     "tailwind-merge": "^3.2.0",
-    "three": "^0.176.0"
+    "three": "^0.167.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -118,6 +118,7 @@ export default function BrandsClients() {
     )}
     style={{ backgroundColor: '#FFFFFF' }}
     >
+      <div className="max-w-full mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -133,8 +134,6 @@ export default function BrandsClients() {
             to Fortune 500 companies, all achieving exceptional results with our ROI-driven solutions.
           </p>
         </motion.div>
-     
-      <div className="max-w-full mx-auto px-4">
         {/* Stats Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
