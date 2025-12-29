@@ -248,7 +248,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
               <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="aspect-square relative">
                   <Image
-                    src={teamImages[index + 1] || teamImages[(index % 3) + 1]} // Skip the first "Leads" image, cycle through available images
+                    src={teamImages[index]} // Direct mapping: teamInfo[index] → teamImages[index]
                     alt={member.fullName}
                     fill
                     className="object-cover"
