@@ -36,23 +36,23 @@ const milestones = [
 
 const leaders = [
 	{
-		name: 'Aarav Khanna',
-		title: 'Founder & Growth Lead',
+		name: 'Amit Sharma',
+		title: 'Founder & CEO',
 		image: '/team/1.webp',
-		bio: 'Former growth PM at Series-C startups. Obsessed with unit economics and creative velocity.',
+		bio: `At ROI Makers, we drive measurable success for clients across diverse industries—metaverse blockchain, real estate, advisory, healthcare, and beyond. With deep expertise in digital marketing, SEO, social media, and content strategy, I lead our team in crafting data-driven campaigns that deliver real results. We believe exceptional marketing combines creativity, strategy, and analytics. Whether you're a startup building your brand or an established business looking to maximize ROI, we're committed to helping you achieve your goals through innovative, results-oriented solutions.`,
 	},
 	{
-		name: 'Maya Bose',
-		title: 'Head of Creative Systems',
+		name: 'Vishal Yogi',
+		title: 'Co-Founder',
 		image: '/team/2.webp',
-		bio: 'Award-winning director who transitioned from film to performance storytelling.',
+		bio: 'I bring operational excellence and strategic problem-solving to ROI Makers. With expertise in market research, project management, and technology implementation, I ensure every campaign runs smoothly from concept to execution. My focus is on optimizing processes, leveraging the right tools, and managing resources efficiently to deliver consistent results. I specialize in bridging the gap between creative vision and technical execution, making sure our strategies are not just innovative but also practical and scalable for sustainable business growth.',
 	},
-	{
-		name: 'Raghav Desai',
-		title: 'Strategy Director',
-		image: '/team/3.webp',
-		bio: 'Ex-consultant specializing in go-to-market blueprints for multi-region launches.',
-	},
+	// {
+	// 	name: 'Raghav Desai',
+	// 	title: 'Strategy Director',
+	// 	image: '/team/3.webp',
+	// 	bio: 'Ex-consultant specializing in go-to-market blueprints for multi-region launches.',
+	// },
 ];
 
 const stackShots = ['/images/stack/1.webp', '/images/stack/4.webp'];
@@ -284,7 +284,7 @@ export default function About() {
 						keeps every pod ruthless about outcomes while protecting the craft.
 					</p>
 				</motion.div>
-				<div className="grid gap-8 md:grid-cols-3">
+				<div className="grid gap-8 md:grid-cols-2">
 					{leaders.map((leader, idx) => (
 						<motion.div
 							key={leader.name}

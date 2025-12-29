@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 gsap.registerPlugin(SplitText);
 
@@ -31,7 +31,19 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
   const imagesRef = useRef<HTMLDivElement>(null);
   const namesRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const prevActiveIndex = useRef<number | null>(null);
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const profileImagesContainer = imagesRef.current;
@@ -215,6 +227,59 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
     }
   };
 
+  // Mobile Card Layout (< 768px)
+  if (isMobile) {
+    return (
+      <div className="w-screen min-h-screen bg-white py-8 px-4">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold" style={{ color: '#060010' }}>
+            {title}
+          </h1>
+        </div>
+        
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {teamInfo.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+            >
+              <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="aspect-square relative">
+                  <Image
+                    src={teamImages[index + 1] || teamImages[(index % 3) + 1]} // Skip the first "Leads" image, cycle through available images
+                    alt={member.fullName}
+                    fill
+                    className="object-cover"
+                    priority={index < 4}
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="text-lg font-bold mb-1" style={{ color: '#060010' }}>
+                    {member.fullName}
+                  </h3>
+                  <p className="text-sm font-semibold mb-3" style={{ color: '#8c7b62' }}>
+                    {member.role}
+                  </p>
+                  <p className="text-sm leading-relaxed mb-2" style={{ color: '#060010' }}>
+                    {member.bio}
+                  </p>
+                  {member.fun && (
+                    <p className="text-xs italic" style={{ color: '#8c7b62' }}>
+                      {member.fun}
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop Animation Layout (≥ 768px) - Original animations preserved
   return (
     <Card className="team-section border-4 border-muted w-screen h-[100svh] flex md:flex-col justify-center items-center md:gap-[2.5em] gap-4 overflow-hidden relative team-page m-0 p-0 box-border flex-col-reverse md:flex-nowrap" style={{ backgroundColor: '#FFFFFF' }}>
       <CardHeader className="absolute top-12 md:top-20 left-0 w-full flex justify-center items-center secondary-font z-30">
