@@ -34,7 +34,7 @@ export default function ContactPage() {
   const contactInfo = [
     {
       label: 'Email',
-      value: 'hello@roimakers.com',
+      value: 'info@roimakers.in',
       href: 'mailto:info@roimakers.in',
     },
     {
@@ -98,13 +98,16 @@ export default function ContactPage() {
             className="text-center"
           >
             <p className="text-xs uppercase tracking-[0.5em] text-[#8c7b62] mb-6 clash-display-font">
-              Get In Touch
+              Contact Us
             </p>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#060010] mb-6">
-              Let's Build<br />Something Great
+              Connect With Us
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-[#312619]/80 max-w-3xl mx-auto archivo-font leading-relaxed">
-              Whether you're scaling to Series B or optimizing existing channels, we're here to architect your next growth phase.
+            <p className="text-lg sm:text-xl md:text-2xl text-[#312619]/80 max-w-3xl mx-auto archivo-font leading-relaxed mb-4">
+              Let's Grow Your Brand Together
+            </p>
+            <p className="text-base sm:text-lg text-[#312619]/70 max-w-2xl mx-auto archivo-font leading-relaxed">
+              Have a project in mind or just exploring ideas? Tell us what you're building—we'll help you take the next step.
             </p>
           </motion.div>
         </div>
@@ -151,50 +154,50 @@ export default function ContactPage() {
             >
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold text-[#060010] mb-4">
-                  Partner With Us
+                  Work With ROI Makers
                 </h2>
                 <p className="text-base md:text-lg text-[#312619]/80 archivo-font leading-relaxed">
-                  Fill out the form and we'll get back within 24 hours. Expect a conversation about your goals, current challenges, and how we can embed with your team.
+                  Share a few details with us and our team will reach out shortly. We'll understand your needs, your goals, and see how we can help you grow.
                 </p>
               </div>
 
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold text-[#060010] mb-3 flex items-center gap-2">
-                   What To Expect
+                   What Happens Next
                   </h3>
                   <ul className="space-y-2 text-sm archivo-font text-[#312619]/80">
                     <li className="flex items-start gap-2">
                       <span className="text-[#8c7b62] mt-1">→</span>
-                      <span>30-minute discovery call within 48 hours</span>
+                      <span>Quick intro call to understand your business</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#8c7b62] mt-1">→</span>
-                      <span>Custom growth roadmap and pilot plan</span>
+                      <span>Clear suggestions tailored to your goals</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#8c7b62] mt-1">→</span>
-                      <span>Transparent pricing and timelines</span>
+                      <span>Honest timelines, budgets, and next steps</span>
                     </li>
                   </ul>
                 </div>
 
                 <div>
                   <h3 className="text-xl font-bold text-[#060010] mb-3 flex items-center gap-2">
-                    Who We Work With
+                    Who Usually Reaches Out
                   </h3>
                   <ul className="space-y-2 text-sm archivo-font text-[#312619]/80">
                     <li className="flex items-start gap-2">
                       <span className="text-[#8c7b62] mt-1">→</span>
-                      <span>Series A-C startups scaling acquisition</span>
+                      <span>Growing brands looking for better leads</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#8c7b62] mt-1">→</span>
-                      <span>E-commerce brands doing $5M+ annually</span>
+                      <span>Businesses scaling online sales</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#8c7b62] mt-1">→</span>
-                      <span>SaaS companies optimizing CAC payback</span>
+                      <span>Founders who want measurable marketing results</span>
                     </li>
                   </ul>
                 </div>
@@ -202,11 +205,11 @@ export default function ContactPage() {
 
               <div className="bg-[#060010] text-[#E9E4D7] rounded-[28px] p-6">
                 <p className="text-sm archivo-font">
-                  <strong className="clash-display-font">Not sure if we're a fit?</strong> That's okay! Send us an email anyway at{' '}
-                  <a href="mailto:hello@roimakers.com" className="text-[#ff9933] hover:underline font-semibold">
-                    hello@roimakers.com
+                  <strong className="clash-display-font">Not sure where to start?</strong> Drop us a message anyway at{' '}
+                  <a href="mailto:info@roimakers.in" className="text-[#ff9933] hover:underline font-semibold">
+                    info@roimakers.in
                   </a>{' '}
-                  and we'll point you in the right direction.
+                  we'll guide you in the right direction.
                 </p>
               </div>
             </motion.div>

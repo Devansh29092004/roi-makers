@@ -7,25 +7,31 @@ export default function StickyCardSection() {
     {
       id: 1,
       image: "/images/stack/1.webp",
-      alt: "Project 1",
+      alt: "Our Mission",
       title: "Our Mission",
-      description: "Our mission is to empower businesses with expert digital marketing solutions, train people in digital marketing, and become the best agency for maximizing ROI and digital growth.... Read more",
+      description: "Our mission is to arm ambitious brands with marketing systems that compound, not campaigns that expire. To replace guesswork with growth science. To make ROI so predictable it becomes your unfair advantage.",
+      ctaText: "Read more",
+      ctaLink: "/about",
       bgColor: "#000000"
     },
     {
       id: 2,
       image: "/images/stack/2.webp",
-      alt: "Project 2",
+      alt: "Our Vision",
       title: "Our Vision",
-      description: "At ROI Makers, we aim to be a top digital agency, helping businesses grow with tailored solutions, maximizing ROI, and staying ahead in digital trends through innovation and expertise.... Read more",
+      description: "To become the agency that makes \"viral growth\" sound quaint and \"hockey stick trajectories\" look conservative. The team that founders call when they're ready to stop experimenting and start dominating.",
+      ctaText: "Read more",
+      ctaLink: "/about",
       bgColor: "#a0f0e8"
     },
     {
       id: 3,
       image: "/images/stack/3.webp",
-      alt: "Project 3",
+      alt: "Our History",
       title: "Our History",
-      description: "After 7 years in Digital Marketing, I founded ROI Makers in 2023 to help businesses grow with tailored strategies, driving traffic, leads, and a strong digital presence across industries.....Read more",
+      description: "Today: 250+ active partners. 1,200+ campaigns. 626K+ leads. But we're still hungry, still testing, still obsessed with finding the edges where strategy becomes an unfair advantage.",
+      ctaText: "Read more",
+      ctaLink: "/about",
       bgColor: "#ffffff"
     },
   ];
@@ -36,10 +42,10 @@ export default function StickyCardSection() {
         {/* Section Heading */}
         <div className="text-center mb-16">
           <h2 className="text-[#060010] text-5xl md:text-7xl font-bold boska-font mb-6">
-           Best design Agency solutions
+            Why brands fire their old agency for us
           </h2>
-          <p className="text-[#312619]/80 text-lg max-w-2xl mx-auto archivo-font">
-           There are many variations of passages of available but the majority have suffered alteration in some form, by injected humou or randomised words which don't look even slightly believable.
+          <p className="text-[#312619]/80 text-lg max-w-3xl mx-auto archivo-font">
+            Most agencies are expensive content mills wrapped in corporate jargon. They prioritize billable hours over breakthrough results, safety over scalability, and maintaining the status quo over making you money.
           </p>
         </div>
 

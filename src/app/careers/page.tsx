@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Image from 'next/image';
 import Footer from '@/components/global/Footer';
 
 export default function CareersPage() {
@@ -11,11 +10,8 @@ export default function CareersPage() {
     email: '',
     phone: '',
     position: '',
-    linkedin: '',
-    portfolio: '',
-    experience: '',
     resume: null as File | null,
-    coverLetter: ''
+    message: ''
   });
 
   const benefits = [
@@ -51,57 +47,22 @@ export default function CareersPage() {
     }
   ];
 
-  const openPositions = [
-    {
-      title: "Senior Performance Strategist",
-      department: "Strategy",
-      location: "Remote / Indore",
-      type: "Full-time",
-      description: "Design multi-channel growth experiments and own end-to-end campaign architecture."
-    },
-    {
-      title: "Creative Director",
-      department: "Creative",
-      location: "Remote / Indore",
-      type: "Full-time",
-      description: "Lead art direction, motion design, and brand systems for high-velocity campaigns."
-    },
-    {
-      title: "Media Science Lead",
-      department: "Media",
-      location: "Remote / Indore",
-      type: "Full-time",
-      description: "Model attribution, optimize bid strategies, and scale profitable channels."
-    },
-    {
-      title: "CRO Engineer",
-      department: "Product",
-      location: "Remote / Indore",
-      type: "Full-time",
-      description: "Build experimentation frameworks and landing page systems that convert."
-    },
-    {
-      title: "Data Analyst",
-      department: "Analytics",
-      location: "Remote / Indore",
-      type: "Full-time",
-      description: "Turn campaign data into actionable insights using SQL, Python, and BI tools."
-    },
-    {
-      title: "Content Strategist",
-      department: "Content",
-      location: "Remote / Indore",
-      type: "Contract",
-      description: "Craft narratives that resonate across paid social, email, and lifecycle journeys."
-    }
+  const positions = [
+    "Digital Marketing",
+    "Performance Marketing",
+    "SEO Expert",
+    "Social Media",
+    "Content Writing",
+    "Human Resources",
+    "Others"
   ];
 
   const perks = [
     "Annual company retreat to exotic locations",
-    "Unlimited books and Audible subscription",
     "Home office setup allowance",
-    "Team lunches and celebration budgets",
     "Mental health and wellness support",
+    "Unlimited books and Audible subscription",
+    "Team lunches and celebration budgets",
     "Equity participation for senior roles"
   ];
 
@@ -110,11 +71,14 @@ export default function CareersPage() {
     
     try {
       const data = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        if (value !== null && value !== '') {
-          data.append(key, value);
-        }
-      });
+      data.append('name', formData.name);
+      data.append('email', formData.email);
+      if (formData.phone) data.append('phone', formData.phone);
+      data.append('position', formData.position);
+      data.append('message', formData.message);
+      if (formData.resume) {
+        data.append('resume', formData.resume);
+      }
       
       const response = await fetch('/api/careers', {
         method: 'POST',
@@ -128,12 +92,12 @@ export default function CareersPage() {
           email: '',
           phone: '',
           position: '',
-          linkedin: '',
-          portfolio: '',
-          experience: '',
           resume: null,
-          coverLetter: '',
+          message: '',
         });
+        // Reset file input
+        const fileInput = document.getElementById('resume') as HTMLInputElement;
+        if (fileInput) fileInput.value = '';
       } else {
         const error = await response.json();
         throw new Error(error.error || 'Submission failed');
@@ -148,6 +112,12 @@ export default function CareersPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFormData({ ...formData, resume: e.target.files[0] });
+    }
+  };
+
   return (
     <div className="min-h-screen boska-font" style={{ backgroundColor: '#FFFFFF' }}>
       {/* Hero Section */}
@@ -159,43 +129,18 @@ export default function CareersPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <p className="text-xs uppercase tracking-[0.5em] text-[#8c7b62] mb-6 clash-display-font">Join Our Team</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-[#8c7b62] mb-6 clash-display-font">Career</p>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#060010] mb-6">
-              Build The Future<br />With Us
+              JOIN OUR TEAM
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-[#312619]/80 max-w-3xl mx-auto archivo-font leading-relaxed">
-              We're assembling a world-class team of growth obsessives, creative engineers, and data storytellers.
-              If you thrive in ambiguity and measure success in outcomes, let's talk.
+            <p className="text-lg sm:text-xl md:text-2xl text-[#312619]/80 max-w-3xl mx-auto archivo-font leading-relaxed mb-4">
+              Build The Future With Us
+            </p>
+            <p className="text-base sm:text-lg text-[#312619]/70 max-w-2xl mx-auto archivo-font leading-relaxed">
+              We're assembling a world-class team of growth obsessives, creative engineers, and data storytellers. If you thrive in ambiguity and measure success in outcomes, let's talk.
             </p>
           </motion.div>
         </div>
-      </section>
-
-      {/* Culture Image */}
-      <section className="px-4 sm:px-6 lg:px-8 pb-20">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-6xl mx-auto"
-        >
-          <div className="relative h-[400px] md:h-[500px] rounded-[40px] overflow-hidden border border-[#060010]/10 shadow-[0_25px_80px_-50px_rgba(6,0,16,0.4)]">
-            <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80"
-              alt="Team collaboration"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#060010]/70 via-[#060010]/20 to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12">
-              <p className="text-white text-2xl md:text-4xl font-bold">
-                "We hire T-shaped humans who can<br />zoom out to strategy and dive deep<br />into craft."
-              </p>
-              <p className="text-white/80 text-sm md:text-base mt-4 archivo-font">— Aarav Khanna, Founder</p>
-            </div>
-          </div>
-        </motion.div>
       </section>
 
       {/* Benefits Section */}
@@ -248,57 +193,6 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Open Positions */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <p className="text-xs uppercase tracking-[0.5em] text-[#8c7b62] clash-display-font">Open Roles</p>
-            <h2 className="mt-4 text-4xl md:text-5xl font-bold text-[#060010]">Current Openings</h2>
-          </motion.div>
-          <div className="space-y-6">
-            {openPositions.map((position, index) => (
-              <motion.div
-                key={position.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="bg-white/70 rounded-[28px] p-8 border border-[#060010]/10 shadow-[0_20px_60px_-40px_rgba(6,0,16,0.25)] hover:shadow-[0_30px_90px_-40px_rgba(6,0,16,0.4)] transition-all duration-300 group"
-              >
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-[#060010] group-hover:text-[#8c7b62] transition-colors duration-300">
-                      {position.title}
-                    </h3>
-                    <div className="flex flex-wrap gap-3 mt-2">
-                      <span className="text-xs uppercase tracking-wider text-[#8c7b62] clash-display-font">
-                        {position.department}
-                      </span>
-                      <span className="text-xs text-[#312619]/60 archivo-font">•</span>
-                      <span className="text-xs text-[#312619]/80 archivo-font">{position.location}</span>
-                      <span className="text-xs text-[#312619]/60 archivo-font">•</span>
-                      <span className="text-xs text-[#312619]/80 archivo-font">{position.type}</span>
-                    </div>
-                  </div>
-                  <a
-                    href="#apply"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#060010] text-[#E9E4D7] rounded-full text-sm font-semibold uppercase tracking-wider clash-display-font hover:bg-[#8c7b62] transition-all duration-300 hover:scale-105 shadow-md whitespace-nowrap"
-                  >
-                    Apply Now →
-                  </a>
-                </div>
-                <p className="text-base text-[#312619]/80 archivo-font leading-relaxed">{position.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Application Form */}
       <section id="apply" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -314,8 +208,8 @@ export default function CareersPage() {
             <h2 className="mt-4 text-4xl md:text-5xl font-bold text-[#060010]">Apply Now</h2>
             <p className="mt-4 text-base text-[#312619]/80 archivo-font max-w-2xl mx-auto">
               Fill out the form below or email your resume and portfolio to{' '}
-              <a href="mailto:careers@roimakers.com" className="text-[#8c7b62] font-semibold hover:underline">
-                careers@roimakers.com
+              <a href="mailto:info@roimakers.in" className="text-[#8c7b62] font-semibold hover:underline">
+                info@roimakers.in
               </a>
             </p>
           </motion.div>
@@ -388,10 +282,10 @@ export default function CareersPage() {
                   required
                   className="w-full px-4 py-3 rounded-2xl border border-[#060010]/20 bg-white/50 text-[#060010] archivo-font focus:outline-none focus:ring-2 focus:ring-[#8c7b62] transition-all"
                 >
-                  <option value="">Select a position</option>
-                  {openPositions.map((pos) => (
-                    <option key={pos.title} value={pos.title}>
-                      {pos.title}
+                  <option value="">Select A Position</option>
+                  {positions.map((pos) => (
+                    <option key={pos} value={pos}>
+                      {pos}
                     </option>
                   ))}
                 </select>
@@ -399,13 +293,27 @@ export default function CareersPage() {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="coverLetter" className="block text-sm font-semibold text-[#060010] mb-2 clash-display-font uppercase tracking-wider">
-                Why ROI Makers? *
+              <label htmlFor="resume" className="block text-sm font-semibold text-[#060010] mb-2 clash-display-font uppercase tracking-wider">
+                Upload Your CV/Resume here
+              </label>
+              <input
+                type="file"
+                id="resume"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                onChange={handleFileChange}
+                className="w-full px-4 py-3 rounded-2xl border border-[#060010]/20 bg-white/50 text-[#060010] archivo-font focus:outline-none focus:ring-2 focus:ring-[#8c7b62] transition-all file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#060010] file:text-[#E9E4D7] hover:file:bg-[#8c7b62] cursor-pointer"
+              />
+            </div>
+
+            <div className="mb-6">
+              <label htmlFor="message" className="block text-sm font-semibold text-[#060010] mb-2 clash-display-font uppercase tracking-wider">
+                Message *
               </label>
               <textarea
-                id="coverLetter"
-                name="coverLetter"
-                value={formData.coverLetter}
+                id="message"
+                name="message"
+                value={formData.message}
                 onChange={handleChange}
                 required
                 rows={6}
@@ -418,7 +326,7 @@ export default function CareersPage() {
               type="submit"
               className="w-full md:w-auto px-10 py-4 bg-[#060010] text-[#E9E4D7] rounded-full font-semibold text-sm uppercase tracking-wider clash-display-font hover:bg-[#8c7b62] transition-all duration-300 hover:scale-105 shadow-lg"
             >
-              Submit Application
+              Submit Now
             </button>
           </motion.form>
         </div>

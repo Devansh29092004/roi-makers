@@ -11,40 +11,52 @@ type Service = {
 
 const services: Service[] = [
   {
-    title: "Digital PR",
+    title: "Digital Marketing",
     image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80",
-    href: "/services/digital-pr",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+    href: "/services/digital-marketing",
   },
   {
-    title: "Search & Growth Strategy",
+    title: "Performance Marketing",
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80",
-    href: "/services/search-growth-strategy",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+    href: "/services/performance-marketing",
   },
   {
-    title: "Data & Insights",
-    image:
-      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80",
-    href: "/services/data-insights",
-  },
-  {
-    title: "Organic Social & Content",
-    image:
-      "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
-    href: "/services/organic-social-content",
-  },
-  {
-    title: "Content Experience",
-    image:
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80",
-    href: "/services/content-experience",
-  },
-  {
-    title: "Onsite SEO",
+    title: "Website Development",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
-    href: "/services/onsite-seo",
+    href: "/services/website-development",
+  },
+  {
+    title: "E-commerce",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80",
+    href: "/services/ecommerce",
+  },
+  {
+    title: "Shopify Development",
+    image:
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1600&q=80",
+    href: "/services/shopify-development",
+  },
+  {
+    title: "Social Media Marketing",
+    image:
+      "https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&w=1600&q=80",
+    href: "/services/social-media-marketing",
+  },
+  {
+    title: "Search Engine Optimization",
+    image:
+      "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80",
+    href: "/services/search-engine-optimization",
+  },
+  {
+    title: "Virtual Tours",
+    image:
+      "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?auto=format&fit=crop&w=1600&q=80",
+    href: "/services/virtual-tours",
   },
 ];
 

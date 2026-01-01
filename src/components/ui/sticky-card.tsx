@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface CardData {
@@ -13,6 +14,8 @@ interface CardData {
   title?: string;
   description?: string;
   bgColor?: string;
+  ctaText?: string;
+  ctaLink?: string;
 }
 
 interface StickyCard002Props {
@@ -156,6 +159,20 @@ const StickyCard002 = ({
                 <p className="text-sm md:text-base lg:text-lg leading-relaxed text-center max-w-2xl mx-auto opacity-90 flex-shrink-0">
                   {card.description || "Add your description text here. This is placeholder content that shows the layout and design of the card."}
                 </p>
+                
+                {/* CTA Link */}
+                {card.ctaText && card.ctaLink && (
+                  <div className="mt-4 text-center">
+                    <Link 
+                      href={card.ctaLink}
+                      className="inline-flex items-center font-semibold text-lg transition-all duration-300 hover:underline"
+                      style={{ color: '#FFAA17' }}
+                    >
+                      {card.ctaText}
+                      <span className="ml-2">→</span>
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           ))}

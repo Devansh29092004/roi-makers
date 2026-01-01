@@ -5,14 +5,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import Hero from "@/components/Hero";
 import LoadingOverlay from "@/components/LoadingOverlay";
+// import ArtWork from "@/components/Art";
 
 // Lazy load components that aren't immediately visible
 const VideoShowcase = lazy(() => import("@/components/VideoShowcase"));
 const ImageWall = lazy(() => import("@/components/ImageWall"));
 const TextMarqueeSection = lazy(() => import("@/components/landing/TextMarqueeSection"));
-const CardMarqueeSection = lazy(() => import("@/components/landing/CardMarqueeSection"));
+const CardMarqueeSection = lazy(() => import("@/components/landing/CardMarqueeSection")); 
 const OurServices = lazy(() => import("@/components/landing/OurServices"));
-const BentoGridSection = lazy(() => import("@/components/landing/BentoGridSection").then(module => ({ default: module.BentoGridSection })));
 const HoverExpandGallery = lazy(() => import("@/components/landing/HoverExpandGallery"));
 const StickyCardSection = lazy(() => import("@/components/landing/StickyCardSection"));
 const BrandsClients = lazy(() => import("@/components/landing/BrandsClients"));
@@ -242,11 +242,11 @@ const MenuPage = () => {
             <ImageWall
               heroText="See how we transform brands"
               heroTextClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl px-4 md:px-[2.5em] flex justify-center items-center font-medium text-foreground text-center w-full"
-              buttonText="Work With Us"
-              lines={[
-                "Creative strategy. Impactful design.",
-                "Campaigns that move brands forward.",
-                "Partner with Mocko™ for your next leap.",
+              buttonText="Start Your Growth Story"
+              lines= {[
+                "Razor-sharp strategy. Addictive design.",
+                "Campaigns that make CFOs smile and competitors nervous.",
+                "Ready To 10x Your Digital Game? Let's Build.",
               ]}
               footerContent={
                 <section className="hero mb-40 md:mb-60 flex justify-center items-center w-screen bg-background">
@@ -266,7 +266,7 @@ const MenuPage = () => {
           <HoverExpandGallery />
           {/* <Agency/>
           <Services/> */}
-          {/* <Art /> */}
+          {/* <ArtWork /> */}
           <FAQSection />
           <Footer />
         </Suspense>

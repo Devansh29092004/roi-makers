@@ -9,27 +9,42 @@ import {
 const FAQSection = () => {
   const faqData = [
     {
-      question: "What is ROI Makers?",
+      question: "What makes ROI Makers different from other agencies?",
       answer:
-        "ROI Makers is a performance-driven digital marketing agency based in Indore, India, focused on helping businesses grow their online presence and maximize return on investment (ROI) through tailored digital strategies. ",
+        "We're performance-obsessed, not portfolio-obsessed. While most agencies optimize for case study aesthetics, we optimize for your profit margins. You get full transparency into what's working, what's dying, and what we're testing next. No black boxes, no vanity metrics, no hiding behind \"brand awareness\" when conversions tank. Plus, we operate on results-first pricing models, if we don't deliver ROI, we don't deserve retention.",
     },
     {
-      question: "When was ROI Makers founded and by whom?",
-      answer: "ROI Makers was founded in 2023 by Amit Sharma, who brings over 7 years of experience in digital marketing and a passion for measurable, results-oriented campaigns.",
+      question: "What's your typical project timeline and onboarding process?",
+      answer: "Week 1:\nDeep-dive audit of your current marketing (tracking infrastructure, campaign performance, competitive landscape).\n\nWeek 2:\nStrategy presentation with prioritized recommendations and projected ROI.\n\nWeek 3:\nCampaign launch with real-time dashboard access.\n\nMost clients see actionable data within 30 days and measurable ROI improvements within 90 days. We move fast because velocity creates competitive advantages that budget can't buy.",
     },
     {
-     question: "What services does ROI Makers offer?",
-    answer:`We provide a range of digital services designed to boost your brand and revenue, including: Digital Marketing Performance Marketing Website & E-Commerce Development Shopify Store Development Social Media Marketing Search Engine Optimization (SEO) Virtual Tours Each service is customized to align with your business goals`
-   },
-    {
-      question: "What industries does ROI Makers work with?",
-      answer:
-        "ROI Makers works with businesses across industries, including real estate, healthcare, blockchain/metaverse, advisory services, and more, tailoring strategies to each industry’s unique needs."
+      question: "Do you work with businesses in my industry?",
+      answer: "We're industry-agnostic by design. Whether you're selling SaaS, real estate, healthcare services, or artisanal dog treats, buyer psychology is universal, execution is what's custom. We've scaled 50+ different verticals because we focus on what drives human behavior, not what's trendy in your industry's echo chamber. If you have customers and a growth goal, we can engineer a path there.",
     },
     {
-      question: "How do I get started with ROI Makers?",
+      question: "What's your pricing structure?",
       answer:
-        "You can contact us through the website’s Contact page, email, or phone. We’ll schedule a consultation to understand your business needs and recommend the best digital marketing strategy for you.",
+        "We offer three engagement models: Project-based (fixed scope, fixed price), Retainer (ongoing optimization with monthly sprint goals), and Performance-based (we eat our own cooking, compensation tied to your results). Pricing varies based on channels, scale, and complexity. Bottom line: we're not the cheapest, but we're the most profitable investment you'll make in marketing. Book a call and we'll build a custom proposal.",
+    },
+    {
+      question: "How do you measure and report ROI?",
+      answer:
+        "We implement proper attribution tracking from day one, Google Analytics 4, Tag Manager, conversion pixels, CRM integration, the works. You get access to live dashboards showing traffic sources, conversion paths, cost per acquisition, customer lifetime value, and actual revenue attributed to our campaigns. Monthly strategy calls break down what's working, what we're killing, and what we're scaling. No fluff reports that look impressive but say nothing.",
+    },
+    {
+      question: "What if we've been burned by agencies before?",
+      answer:
+        "You're not alone, 90% of our clients came to us after wasting budgets on agencies that over-promised and under-delivered. That's exactly why we built ROI Makers differently: transparent operations, ruthless testing, and compensation models that align our success with yours. We're happy to start with a pilot project so you can see how we operate before committing long-term. Results speak louder than proposals.",
+    },
+    {
+      question: "Can you guarantee specific results?",
+      answer:
+        "Anyone guaranteeing specific numbers before understanding your business, market, and current performance is either lying or incompetent. What we can guarantee: full transparency into what we're doing and why, ruthless optimization based on data, and immediate course-correction when something isn't working. We've delivered 200%+ ROI for clients across industries, but we'd rather under-promise and over-deliver than the reverse.",
+    },
+    {
+      question: "Do I need to have a big budget to work with you?",
+      answer:
+        "Not necessarily, but we're honest about minimum thresholds. For paid advertising, we recommend at least ₹50,000/month in ad spend to generate statistically significant data. For SEO and content, projects typically start at ₹75,000/month. If you're at an earlier stage, we can discuss project-based work or consulting to build your foundation. We'd rather tell you \"not yet\" than take your money before you're ready to scale.",
     },
   ];
 
@@ -42,8 +57,7 @@ const FAQSection = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
-            Everything you need to know about ROI-MAKERS. Can't find what
-            you're looking for? Reach out to us on social media or email.
+            Everything you need to know about partnering with ROI Makers. Can't find what you're looking for? Hit us up, we actually respond.
           </p>
         </div>
 

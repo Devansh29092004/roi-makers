@@ -60,7 +60,7 @@ export default function HoverExpandGallery() {
             Meet Our Team
           </h2>
           <p className="text-[#312619]/80 text-lg mt-6 max-w-2xl mx-auto archivo-font">
-            The talented people behind our success
+          The Minds Behind the Metrics
           </p>
         </div>
 

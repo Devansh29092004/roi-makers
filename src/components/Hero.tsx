@@ -112,7 +112,7 @@ return (
             ref={subtitleRef}
           >
             <p className="text-lg sm:text-xl md:text-[2.5vw] md:w-[50%] pp-neue-world-font font-normal select-none text-black leading-snug">
-              Strategy, design, and campaigns for ambitious companies.
+            ROI-first thinking for scale-hungry brands
             </p>
           </div>
         )}

@@ -5,78 +5,68 @@ import Footer from '@/components/global/Footer';
 import { CountUp } from '@/components/ui/count-up';
 
 const stats = [
-	{ label: 'Campaigns Shipped', value: 480 },
-	{ label: 'Avg. ROAS Lift', value: 3.4, suffix: 'x' },
-	{ label: 'In-House Specialists', value: 42 },
-	{ label: 'Global Markets', value: 17 },
+	{ label: 'Campaigns Executed', value: 1200 },
+	{ label: 'Active Clients', value: 250 },
+	{ label: 'Leads Generated', value: 626000 },
+	{ label: 'Businesses Scaled', value: 500 },
 ];
 
 const milestones = [
 	{
 		year: '2019',
-		title: 'Performance-first roots',
-		desc: 'ROI Makers launched as a boutique collective laser-focused on profitable growth for funded startups.',
+		title: 'Born from necessity',
+		desc: 'Started in a cramped Indore office with one mission: prove that creative agencies could actually drive P&L, not just win awards.',
 	},
 	{
 		year: '2021',
-		title: 'Creative × Media Lab',
-		desc: 'Expanded into a full creative lab pairing motion design, CRO, and media science to ship faster experiments.',
+		title: 'The lab expands',
+		desc: 'Built our creative-tech hybrid model. Brought motion designers, developers, and media buyers under one roof to kill the handoff delays.',
 	},
 	{
 		year: '2023',
-		title: 'Global launch partners',
-		desc: 'Brought in localized talent across EMEA & APAC to orchestrate 24/7 launches and multi-market learnings.',
+		title: 'Cross-border domination',
+		desc: 'Scaled beyond Indian borders. Now running synchronized campaigns across time zones with local creators who understand cultural nuance.',
 	},
 	{
 		year: 'Now',
-		title: 'Embedded growth teams',
-		desc: 'Operate as the always-on growth engine for consumer, fintech, and SaaS brands scaling past Series B.',
+		title: 'Growth infrastructure partners',
+		desc: "We're the internal growth team that scales with you. Embedded deep in consumer tech, D2C, B2B SaaS, and emerging crypto brands hitting hockey-stick growth.",
 	},
 ];
 
 const leaders = [
 	{
 		name: 'Amit Sharma',
-		title: 'Founder & CEO',
+		title: 'FOUNDER & CEO',
 		image: '/team/1.webp',
-		bio: `At ROI Makers, we drive measurable success for clients across diverse industries—metaverse blockchain, real estate, advisory, healthcare, and beyond. With deep expertise in digital marketing, SEO, social media, and content strategy, I lead our team in crafting data-driven campaigns that deliver real results. We believe exceptional marketing combines creativity, strategy, and analytics. Whether you're a startup building your brand or an established business looking to maximize ROI, we're committed to helping you achieve your goals through innovative, results-oriented solutions.`,
+		bio: `I've spent years in the digital trenches, working with everyone from bootstrapped startups to blockchain unicorns. My obsession? Building marketing machines that generate predictable revenue. At ROI Makers, we've cracked the code on blending scroll-stopping creative with performance engineering. I believe great marketing isn't about vanity metrics or pretty decks. It's about understanding human psychology, mapping customer journeys, and architecting systems that convert cold traffic into raving fans. If you're done with agencies that promise the moon and deliver PowerPoints, let's build something that actually moves your revenue needle.`,
 	},
 	{
 		name: 'Vishal Yogi',
-		title: 'Co-Founder',
+		title: 'CO-FOUNDER',
 		image: '/team/2.webp',
-		bio: 'I bring operational excellence and strategic problem-solving to ROI Makers. With expertise in market research, project management, and technology implementation, I ensure every campaign runs smoothly from concept to execution. My focus is on optimizing processes, leveraging the right tools, and managing resources efficiently to deliver consistent results. I specialize in bridging the gap between creative vision and technical execution, making sure our strategies are not just innovative but also practical and scalable for sustainable business growth.',
+		bio: "I'm the operator who makes our creative chaos actually work. While everyone else is chasing shiny objects, I'm building the infrastructure that lets us scale fast without breaking things. My background in systems thinking and tech implementation means I see gaps before they become problems. I translate between creative dreamers and technical builders, making sure our wild ideas actually ship on time and on budget. My philosophy is simple: brilliant strategy executed poorly is just expensive education. I make sure we execute brilliantly, every single time, so your growth compounds instead of stalling.",
 	},
-	// {
-	// 	name: 'Raghav Desai',
-	// 	title: 'Strategy Director',
-	// 	image: '/team/3.webp',
-	// 	bio: 'Ex-consultant specializing in go-to-market blueprints for multi-region launches.',
-	// },
 ];
 
 const stackShots = ['/images/stack/1.webp', '/images/stack/4.webp'];
 
 const values = [
 	{
-		title: 'Relentless Curiosity',
-		description: 'We question assumptions, test hypotheses, and let data reshape our thinking.',
-		
+		title: 'Radical Experimentation',
+		description: "We don't just test ideas. We break them, rebuild them, and 10x them until they scale.",
 	},
 	{
-		title: 'Craft Meets Speed',
-		description: 'Beautiful work that ships fast. No compromises between quality and velocity.',
-		
+		title: 'Aesthetic Precision',
+		description: 'Stunning creative delivery yesterday. We marry beauty with brutal efficiency.',
 	},
 	{
-		title: 'Transparent Partnership',
-		description: 'Open books, honest feedback, and shared accountability. We grow together.',
-		
+		title: 'No-Filter Collaboration',
+		description: 'Real talk, real numbers, real accountability. We succeed or fail together, period.',
 	},
 	{
-		title: 'Compound Learning',
-		description: 'Every campaign feeds our collective knowledge base. Insights scale infinitely.',
-	
+		title: 'Infinite Optimization',
+		description: "Last month's winning formula is this month's baseline. We never stop pushing metrics higher.",
 	},
 ];
 
@@ -91,13 +81,12 @@ export default function About() {
 					transition={{ duration: 0.8 }}
 					className="text-center mb-16"
 				>
-					<p className="uppercase tracking-[0.5em] text-xs font-semibold text-[#8c7b62] clash-display-font">About ROI Makers</p>
+					<p className="uppercase tracking-[0.5em] text-xs font-semibold text-[#8c7b62] clash-display-font">ABOUT ROI MAKERS</p>
 					<h1 className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#060010]">
-						We Build Growth<br />Engines
+						We Engineer Revenue<br />Acceleration
 					</h1>
 					<p className="mt-8 text-lg sm:text-xl md:text-2xl text-[#312619]/80 max-w-3xl mx-auto archivo-font leading-relaxed">
-						A band of strategists, analysts, filmmakers, and creative technologists who design systems that compound
-						revenue, not just impressions.
+						A collective of mad scientists, pixel perfectionists, data nerds, and brand architects who build marketing systems that don't just look good but print money.
 					</p>
 				</motion.div>
 
@@ -110,12 +99,10 @@ export default function About() {
 					<div className="space-y-8">
 						<div className="bg-white/70 rounded-[32px] border border-[#060010]/10 p-8 md:p-10 shadow-[0_25px_80px_-50px_rgba(6,0,16,0.3)]">
 							<h2 className="text-3xl md:text-4xl font-bold text-[#060010] mb-6">
-								Building soulful brands with relentless performance discipline.
+								Crafting brands that sell while the competition sleeps
 							</h2>
 							<p className="text-base md:text-lg text-[#312619]/80 archivo-font leading-relaxed">
-								We craft ads, landing experiences, films, data dashboards—every artifact serves one purpose: accelerate
-								measurable growth. Our multidisciplinary pods pair strategists with creatives, media scientists with
-								analysts, all united by a ruthless focus on outcomes.
+								We design conversion machines disguised as beautiful campaigns. Every pixel, every line of copy, every targeting parameter exists for one reason: turning your marketing budget into a revenue multiplier. Our cross-functional squads blend art with algorithms, creating experiences that captivate audiences while feeding your bottom line.
 							</p>
 						</div>
 						<div className="grid gap-6 sm:grid-cols-2">
@@ -125,9 +112,9 @@ export default function About() {
 								<p className="text-sm text-[#312619]/70 archivo-font mt-1">218-B Trade Center, South Tukoganj</p>
 							</div>
 							<div className="rounded-[28px] border border-[#060010]/10 bg-[#060010] text-[#E9E4D7] p-6">
-								<p className="text-xs uppercase tracking-[0.35em] text-[#ff9933] clash-display-font">Focus</p>
-								<p className="mt-3 text-2xl font-bold">Full-funnel pods</p>
-								<p className="text-sm text-[#E9E4D7]/80 archivo-font mt-1">Strategy · Creative · Media · CRO</p>
+								<p className="text-xs uppercase tracking-[0.35em] text-[#ff9933] clash-display-font">FOCUS</p>
+								<p className="mt-3 text-2xl font-bold">Revenue-obsessed squads</p>
+								<p className="text-sm text-[#E9E4D7]/80 archivo-font mt-1">Growth · Brand · Analytics · Tech</p>
 							</div>
 						</div>
 					</div>
@@ -164,7 +151,7 @@ export default function About() {
 						>
 						<p className="text-5xl font-black text-[#060010]">
 							<CountUp value={stat.value} duration={2} />
-							{stat.suffix || '+'}
+							+
 						</p>
 							<p className="mt-3 text-xs uppercase tracking-[0.3em] text-[#8c7b62] clash-display-font">{stat.label}</p>
 						</motion.div>
@@ -181,8 +168,8 @@ export default function About() {
 					viewport={{ once: true }}
 					className="text-center mb-12"
 				>
-					<p className="uppercase tracking-[0.5em] text-xs font-semibold text-[#8c7b62] clash-display-font">Our Values</p>
-					<h2 className="mt-4 text-4xl md:text-5xl font-bold text-[#060010]">What Drives Us</h2>
+					<p className="uppercase tracking-[0.5em] text-xs font-semibold text-[#8c7b62] clash-display-font">OUR VALUES</p>
+					<h2 className="mt-4 text-4xl md:text-5xl font-bold text-[#060010]">What Moves Us Forward</h2>
 				</motion.div>
 				<div className="grid gap-6 md:grid-cols-2">
 					{values.map((value, idx) => (
@@ -209,30 +196,29 @@ export default function About() {
 					transition={{ duration: 0.8 }}
 					viewport={{ once: true }}
 				>
-					<p className="uppercase tracking-[0.5em] text-xs font-semibold text-[#8c7b62] clash-display-font">How we work</p>
+					<p className="uppercase tracking-[0.5em] text-xs font-semibold text-[#8c7b62] clash-display-font">How We Work</p>
 					<h2 className="mt-4 text-3xl sm:text-4xl font-bold text-[#060010]">
-						Operating systems built for compounding learning.
+						Revenue frameworks engineered for infinite scale.
 					</h2>
 					<p className="mt-6 text-[#312619]/80 archivo-font leading-relaxed">
-						We embed with founders, marketing leaders, and product teams to architect a single source of truth for
-						performance. Every sprint unites creative experimentation, channel science, and revenue analytics.
+						We don't just join your team. We become your growth operating system. Our integrated squads work inside your business, building feedback loops that turn every campaign into institutional knowledge and every dollar spent into predictable returns.
 					</p>
 					<ul className="mt-8 space-y-3 text-sm uppercase tracking-[0.25em] text-[#8c7b62] clash-display-font">
 						<li className="flex items-center gap-3">
 							<span className="w-1.5 h-1.5 bg-[#8c7b62] rounded-full" />
-							Audience intelligence mapping
+							Behavioral Data Architecture
 						</li>
 						<li className="flex items-center gap-3">
 							<span className="w-1.5 h-1.5 bg-[#8c7b62] rounded-full" />
-							Creative engineering & storyboarding
+							Performance Creative Systems
 						</li>
 						<li className="flex items-center gap-3">
 							<span className="w-1.5 h-1.5 bg-[#8c7b62] rounded-full" />
-							Media simulations and routing
+							Omnichannel Orchestration
 						</li>
 						<li className="flex items-center gap-3">
 							<span className="w-1.5 h-1.5 bg-[#8c7b62] rounded-full" />
-							CRO & lifecycle playbooks
+							Conversion Psychology Frameworks
 						</li>
 					</ul>
 				</motion.div>
@@ -276,12 +262,11 @@ export default function About() {
 					<div>
 						<p className="uppercase tracking-[0.5em] text-xs font-semibold text-[#8c7b62] clash-display-font">Leadership</p>
 						<h2 className="mt-3 text-4xl sm:text-5xl font-bold text-[#060010]">
-							Humans behind the<br />growth machine.
+							The architects behind<br />your next breakthrough
 						</h2>
 					</div>
 					<p className="text-sm text-[#312619]/80 archivo-font max-w-xl leading-relaxed">
-						Multidisciplinary pods pair strategists, creatives, media scientists, analysts, and engineers. Leadership
-						keeps every pod ruthless about outcomes while protecting the craft.
+						Our leadership doesn't just talk strategy from corner offices. They're in the trenches daily, optimizing campaigns, reviewing creative, and obsessing over conversion rates alongside our squads.
 					</p>
 				</motion.div>
 				<div className="grid gap-8 md:grid-cols-2">
@@ -324,22 +309,16 @@ export default function About() {
 					viewport={{ once: true }}
 					className="bg-[#060010] text-[#E9E4D7] rounded-[40px] p-12 md:p-16 text-center shadow-2xl"
 				>
-					<h2 className="text-3xl md:text-5xl font-bold mb-6">Join Our Mission</h2>
+					<h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Scale?</h2>
 					<p className="text-lg md:text-xl mb-8 text-[#E9E4D7]/80 archivo-font max-w-2xl mx-auto">
-						We're always looking for talented individuals who share our passion for growth and creativity.
+						Stop settling for marketing that looks good in reports but doesn't move revenue. Let's build your growth engine.
 					</p>
 					<div className="flex flex-wrap justify-center gap-4">
 						<a
-							href="/careers"
+							href="/contact"
 							className="inline-flex items-center gap-3 px-8 py-4 bg-[#E9E4D7] text-[#060010] rounded-full font-semibold text-sm uppercase tracking-wider clash-display-font hover:bg-white transition-all duration-300 hover:scale-105 shadow-lg"
 						>
-							View Careers <span aria-hidden>→</span>
-						</a>
-						<a
-							href="/contact"
-							className="inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-[#E9E4D7] text-[#E9E4D7] rounded-full font-semibold text-sm uppercase tracking-wider clash-display-font hover:bg-[#E9E4D7] hover:text-[#060010] transition-all duration-300 hover:scale-105"
-						>
-							Get in Touch
+							Explore Opportunities <span aria-hidden>→</span>
 						</a>
 					</div>
 				</motion.div>

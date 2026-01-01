@@ -120,12 +120,12 @@ export default function BlogPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <p className="text-xs uppercase tracking-[0.5em] text-[#8c7b62] mb-6 clash-display-font">Insights & Stories</p>
+            <p className="text-xs uppercase tracking-[0.5em] text-[#8c7b62] mb-6 clash-display-font">blog Blog</p>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#060010] mb-6">
-              The Growth Lab
+              Insights & Stories
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-[#312619]/80 max-w-3xl mx-auto archivo-font leading-relaxed">
-              Deep dives into performance marketing, creative systems, data science, and the art of building scalable growth engines.
+              Explore trends, tips, and real-world experiences from our team to help you navigate modern marketing confidently.
             </p>
           </motion.div>
         </div>

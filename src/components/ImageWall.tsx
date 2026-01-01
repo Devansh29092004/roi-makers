@@ -17,15 +17,15 @@ export interface ImageWallProps {
 }
 
 const defaultLines = [
-  "Creative strategy. Impactful design.",
-  "Campaigns that move brands forward.",
-  "Partner with Mocko™ for your next leap.",
+  "Razor-sharp strategy. Addictive design.",
+  "Campaigns that make CFOs smile and competitors nervous.",
+  "Ready To 10x Your Digital Game? Let's Build.",
 ];
 
 const ImageWall: React.FC<ImageWallProps> = ({
-  heroText = "See how we transform brands",
+  heroText = "Watch us turn marketing budgets into money printers!",
   lines = defaultLines,
-  buttonText = "Work With Us",
+  buttonText = "Start Your Growth Story",
   footerContent = (
     <div className="w-full hidden  flex-col items-start gap-2 p-4 z-2">
       <span className="text-3xl font-bold tracking-tight">Mocko™</span>
@@ -203,11 +203,11 @@ const ImageWall: React.FC<ImageWallProps> = ({
               className="text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] font-bold leading-tight tracking-tight mb-8 md:mb-12"
               style={{ lineHeight: 1.05 }}
             >
-              Defining how brands move, scale,
+             Engineering digital ecosystems where
               <br className="hidden sm:block" />
-              and express themselves across
+              brands don't just exist they dominate,
               <br className="hidden sm:block" />
-              modern media
+              disrupt, and redefine their categories
             </h2>
             {/* Two-column grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-6 md:mt-8">
@@ -219,21 +219,18 @@ const ImageWall: React.FC<ImageWallProps> = ({
               </div>
               <div ref={subheadlineRef} className="pp-neue-world-font">
                 <div className="font-semibold text-lg md:text-xl mb-2">
-                  Motion is the new frontier of branding and communication.
+                The game changed. Static is dead. Attention is currency.
                 </div>
                 <div className="text-gray-500 text-sm md:text-base leading-relaxed space-y-4">
                   <p>
-                    The media landscape has evolved, brands are called to scale
-                    beyond static and adapt to the world of motion. With
-                    countless digital touchpoints and an increasingly saturated
-                    market, they seek consistency across platforms while
-                    striving to uniquely stand out.
+                  Today's winning brands understand one truth: visibility without velocity is vanity. In an attention economy where consumers swipe past your best work in 0.3 seconds, you need more than pretty graphics you need psychological triggers wrapped in strategic precision.
                   </p>
 
                   <p>
-                    As a boutique studio, we seamlessly integrate as an
-                    extension of these teams—gaining a deep understanding of
-                    each brand&apos;s essence and goals.
+                  We architect brand experiences that hijack scroll patterns and rewire buying behavior. Every pixel serves a purpose. Every campaign carries intent. We're not making content we're engineering conversion machines disguised as creative brilliance.
+                  </p>
+                  <p>
+                  Think less "marketing agency," more "growth laboratory." Where hypotheses become campaigns, data becomes direction, and your competitors become case studies.
                   </p>
                 </div>
               </div>
