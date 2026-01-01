@@ -5,66 +5,54 @@ import CardMarquee from "@/components/ui/card-marquee";
 export default function CardMarqueeSection() {
   const cards = [
     {
-      title: "Brand Strategy & Identity",
-      description: "We create powerful brand identities that resonate with your audience.",
-      imageUrl: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80",
-      tag: "Branding"
-    },
-    {
       title: "Digital Marketing",
-      description: "Data-driven campaigns that deliver measurable results.",
+      description: "Data-driven strategies to scale visibility, engagement, and conversions.",
       imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-      tag: "Marketing"
+      tag: "Growth"
     },
     {
-      title: "Web Development",
-      description: "Modern, responsive websites that convert visitors into customers.",
+      title: "Performance Marketing",
+      description: "Measurable campaigns built to maximize returns and efficiency.",
+      imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      tag: "ROI"
+    },
+    {
+      title: "Website Development",
+      description: "High-performing websites designed for speed, clarity, conversions.",
       imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
-      tag: "Development"
+      tag: "Build"
     },
     {
-      title: "Creative Design",
-      description: "Stunning visuals that capture attention and drive engagement.",
-      imageUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
-      tag: "Design"
+      title: "E-commerce",
+      description: "Scalable online stores built for seamless buying experiences.",
+      imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+      tag: "Commerce"
     },
     {
-      title: "Social Media",
-      description: "Build a strong social presence that connects with your community.",
+      title: "Shopify Development",
+      description: "Custom Shopify solutions optimized for growth and performance.",
+      imageUrl: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80",
+      tag: "Shopify"
+    },
+    {
+      title: "Social Media Marketing",
+      description: "Content and campaigns that build brands and communities.",
       imageUrl: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
       tag: "Social"
     },
     {
-      title: "Content Creation",
-      description: "Compelling content that tells your brand story effectively.",
-      imageUrl: "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80",
-      tag: "Content"
+      title: "Search Engine Optimization",
+      description: "Improving rankings, traffic, and long-term organic visibility.",
+      imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      tag: "Search"
     },
-      {
-        title: "Creative Design",
-        description: "Stunning visuals that capture attention and drive engagement.",
-        imageUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
-        tag: "Design",
-        colors: { from: "rose-200", via: "fuchsia-200", to: "purple-200", button: "white" },
-        textColor: "text-black"
-      },
-      {
-        title: "Social Media",
-        description: "Build a strong social presence that connects with your community.",
-        imageUrl: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
-        tag: "Social",
-        colors: { from: "green-200", via: "teal-200", to: "cyan-100", button: "white" },
-        textColor: "text-black"
-      },
-      {
-        title: "Content Creation",
-        description: "Compelling content that tells your brand story effectively.",
-        imageUrl: "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=800&q=80",
-        tag: "Content",
-        colors: { from: "amber-200", via: "yellow-100", to: "lime-100", button: "white" },
-        textColor: "text-black"
-      }
-    ];
+    {
+      title: "Virtual Tours",
+      description: "Interactive experiences bringing spaces to life digitally.",
+      imageUrl: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80",
+      tag: "Immersive"
+    }
+  ];
 
   return (
     <section className="w-full py-12 md:py-24 overflow-hidden bg-gray-50">
