@@ -53,10 +53,10 @@ const FAQSection = () => {
       <div className="max-w-6xl mx-auto mt-14">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="text-4xl px-10 sm:text-3xl md:text-4xl lg:text-5xl font-black text-balance mb-4 sm:mb-6">
+          <h2 className="text-2xl px-4 sm:text-3xl md:text-4xl lg:text-5xl font-black text-balance mb-4 sm:mb-6">
             Frequently Asked Questions
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Everything you need to know about partnering with ROI Makers. Can't find what you're looking for? Hit us up, we actually respond.
           </p>
         </div>

@@ -124,12 +124,12 @@ export default function BrandsClients() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-8 md:mb-12 lg:mb-16"
+          className="text-center mb-8 md:mb-12 lg:mb-16 px-4"
         >
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-4 md:mb-6">
             Brands Our <span className="text-orange-500">Clients</span>
           </h1>
-          <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
             Trusted by industry leaders across diverse sectors. Our clients range from innovative startups 
             to Fortune 500 companies, all achieving exceptional results with our ROI-driven solutions.
           </p>
@@ -140,7 +140,7 @@ export default function BrandsClients() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mb-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto"
+          className="mb-8 sm:mb-10 md:mb-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-6xl mx-auto px-2"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -152,11 +152,11 @@ export default function BrandsClients() {
               whileHover={{ scale: 1.05 }}
               className="relative group cursor-pointer"
             >
-              <div className="bg-white border-2 border-black/10 rounded-2xl p-6 md:p-8 text-center hover:border-orange-500/30 transition-all duration-300 hover:shadow-xl">
-                <div className="text-4xl md:text-5xl font-bold text-orange-500 mb-3">
+              <div className="bg-white border-2 border-black/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-center hover:border-orange-500/30 transition-all duration-300 hover:shadow-xl">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-orange-500 mb-2 sm:mb-3">
                   <CountUp value={stat.value} suffix={stat.suffix} duration={2} />
                 </div>
-                <div className="text-black/70 font-semibold text-sm md:text-base">
+                <div className="text-black/70 font-semibold text-xs sm:text-sm md:text-base">
                   {stat.label}
                 </div>
               </div>

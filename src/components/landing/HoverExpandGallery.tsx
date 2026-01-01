@@ -49,17 +49,17 @@ export default function HoverExpandGallery() {
   ];
 
   return (
-    <section className="bg-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-white py-12 sm:py-16 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Heading */}
-        <div className="text-center mb-16">
-          <p className="text-xs uppercase tracking-[0.55em] text-[#8c7b62] mb-4 clash-display-font">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <p className="text-xs uppercase tracking-[0.55em] text-[#8c7b62] mb-3 sm:mb-4 clash-display-font">
             Team
           </p>
-          <h2 className="text-[#060010] text-5xl md:text-7xl font-bold boska-font">
+          <h2 className="text-[#060010] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold boska-font">
             Meet Our Team
           </h2>
-          <p className="text-[#312619]/80 text-lg mt-6 max-w-2xl mx-auto archivo-font">
+          <p className="text-[#312619]/80 text-sm sm:text-base md:text-lg mt-4 sm:mt-6 max-w-2xl mx-auto archivo-font px-2">
           The Minds Behind the Metrics
           </p>
         </div>

@@ -45,13 +45,13 @@ export default function Hero({ showLoading, showHero, showContent, onLoadingFini
   }, [showContent]);
 
 return (
-  <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-24 md:pb-32" style={{ backgroundColor: '#FFFFFF' }}>
+  <main className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center items-center pb-0" style={{ backgroundColor: '#FFFFFF' }}>
     
     {/* Premium Glass Container */}
-    <div className="relative w-full max-w-[95vw] mx-auto mt-8 md:mt-12 mb-8 md:mb-12">
+    <div className="relative w-full h-[85vh] sm:h-[90vh] md:h-[75vh] lg:h-[80vh] mx-auto my-0">
       {/* Clean glass background */}
       <div 
-        className="absolute inset-0 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl"
+        className="absolute inset-0 backdrop-blur-xl border border-white/20 rounded-2xl md:rounded-3xl shadow-2xl"
         style={{ 
           background: 'rgba(255, 255, 255, 0.1)',
           boxShadow: `
@@ -62,7 +62,7 @@ return (
       ></div>
       
       {/* Moving Corner Gradients Inside Glass */}
-      <div className="absolute inset-0 rounded-3xl overflow-hidden">
+      <div className="absolute inset-0 rounded-2xl md:rounded-5xl overflow-hidden">
         {/* Top-right corner gradient */}
         <div 
           className="absolute -top-40 -right-40 w-[48rem] h-[48rem] rounded-full opacity-85"
@@ -97,39 +97,42 @@ return (
           }}
         />
       </div>
-      <section className="hero relative flex flex-col pt-[6em] sm:pt-[7em] md:pt-[4em] pb-8 md:pb-12 flex-1 w-full px-6 md:px-[3em]">
-      <div className="mb-auto">
-        <h1
-          ref={heroTitleRef}
-          className="relative uppercase font-black left-[-0.05em] text-[15vw] sm:text-[18vw] md:text-[20vw] tracking-[-0.04em] leading-[0.9] select-none text-black mb-6 md:mb-8"
-          style={{ opacity: showHero ? 1 : 0 }}
-        >
-          ROI<span className="align-super text-[0.5em] ml-1">™</span>
-        </h1>
-        {showContent && (
-          <div
-            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 md:gap-8 mt-4 md:mt-6"
-            ref={subtitleRef}
+      <section className="hero relative flex flex-col w-full h-full px-6 sm:px-8 md:px-12 lg:px-[3em] justify-between md:pt-12 lg:pt-20 pb-0">
+      {/* Hero Content - Centered on mobile, normal on desktop */}
+      <div className="flex-1 flex items-center justify-center md:items-start md:justify-start pt-8 sm:pt-12 md:pt-0">
+        <div className="text-center md:text-left w-full">
+          <h1
+            ref={heroTitleRef}
+            className="relative uppercase font-black left-0 md:left-[-0.05em] text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] tracking-[-0.04em] leading-[0.9] select-none text-black mb-6 sm:mb-8 md:mb-10"
+            style={{ opacity: showHero ? 1 : 0 }}
           >
-            <p className="text-lg sm:text-xl md:text-[2.5vw] md:w-[50%] pp-neue-world-font font-normal select-none text-black leading-snug">
-            ROI-first thinking for scale-hungry brands
-            </p>
-          </div>
-        )}
+            ROI<span className="align-super text-[0.5em] ml-1">™</span>
+          </h1>
+          {showContent && (
+            <div
+              className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-end gap-4 sm:gap-5 md:gap-8 mt-4 sm:mt-5 md:mt-6"
+              ref={subtitleRef}
+            >
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-[2.5vw] md:w-[50%] pp-neue-world-font font-normal select-none text-black leading-snug text-center md:text-left">
+              ROI-first thinking for scale-hungry brands
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Footer Texts */}
+      {/* Footer Marquee - Glued to bottom */}
       <motion.div 
-        className="flex flex-col md:flex-row justify-between items-center md:items-start w-full gap-3 md:gap-0 pb-8 md:pb-4"
+        className="w-full pb-4 sm:pb-6 md:pb-8"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}
       >
-        <div className="w-full h-20 md:h-20">
-          <div className="w-full py-2 md:py-4 overflow-hidden">
+        <div className="w-full h-20 sm:h-24 md:h-28">
+          <div className="w-full py-3 sm:py-4 md:py-5 overflow-hidden">
             <ScrollBaseAnimation
               baseVelocity={-1}
-              clasname="font-extrabold text-black !text-5xl md:!text-base [&_span]:!w-15 [&_span]:!h-15 md:[&_span]:!w-17 md:[&_span]:!h-17"
+              clasname="font-extrabold text-black !text-3xl sm:!text-4xl md:!text-5xl lg:!text-base [&_span]:!w-14 [&_span]:!h-14 sm:[&_span]:!w-16 sm:[&_span]:!h-16 md:[&_span]:!w-17 md:[&_span]:!h-17"
               scrollDependent={false}
               items={[
                 {

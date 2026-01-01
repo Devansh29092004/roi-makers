@@ -38,13 +38,13 @@ export default function StickyCardSection() {
 
   return (
     <section className="bg-white min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         {/* Section Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-[#060010] text-5xl md:text-7xl font-bold boska-font mb-6">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-[#060010] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold boska-font mb-4 sm:mb-6">
             Why brands fire their old agency for us
           </h2>
-          <p className="text-[#312619]/80 text-lg max-w-3xl mx-auto archivo-font">
+          <p className="text-[#312619]/80 text-sm sm:text-base md:text-lg max-w-3xl mx-auto archivo-font px-2">
             Most agencies are expensive content mills wrapped in corporate jargon. They prioritize billable hours over breakthrough results, safety over scalability, and maintaining the status quo over making you money.
           </p>
         </div>

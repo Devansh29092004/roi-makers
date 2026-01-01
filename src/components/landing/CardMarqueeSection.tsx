@@ -55,9 +55,9 @@ export default function CardMarqueeSection() {
   ];
 
   return (
-    <section className="w-full py-12 md:py-24 overflow-hidden bg-gray-50">
-      <div className="mb-8 md:mb-12 px-4 md:px-8">
-        <h2 className="text-4xl md:text-6xl font-bold text-center text-black">
+    <section className="w-full py-8 sm:py-12 md:py-24 overflow-hidden bg-gray-50">
+      <div className="mb-6 sm:mb-8 md:mb-12 px-4 md:px-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-black">
           Our Services
         </h2>
       </div>

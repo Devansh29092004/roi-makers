@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "@/components/global/Footer";
 import Navbar from "@/components/global/Navbar";
-import { Skiper19 } from "@/components/ui/skiper19";
+import { Skiper19 } from "@/components/ui/Skiper19";
 
 export default function PrivacyPolicy() {
   return (

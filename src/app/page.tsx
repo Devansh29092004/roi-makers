@@ -3,7 +3,7 @@ import React, { useEffect, useRef, lazy, Suspense } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import Hero from "@/components/Hero";
+import Hero from "@/components/landing/Hero";
 import LoadingOverlay from "@/components/LoadingOverlay";
 // import ArtWork from "@/components/Art";
 
@@ -16,7 +16,7 @@ const OurServices = lazy(() => import("@/components/landing/OurServices"));
 const HoverExpandGallery = lazy(() => import("@/components/landing/HoverExpandGallery"));
 const StickyCardSection = lazy(() => import("@/components/landing/StickyCardSection"));
 const BrandsClients = lazy(() => import("@/components/landing/BrandsClients"));
-const FAQSection = lazy(() => import("@/components/landing/faq"));
+const FAQSection = lazy(() => import("@/components/landing/FAQ"));
 const Footer = lazy(() => import("@/components/global/Footer"));
 
 
@@ -222,26 +222,26 @@ const MenuPage = () => {
         </div>}>
           {/* Move VideoShowcase here, right after Hero and before TextMarquee */}
           <section
-            className="intro max-md:-mt-80 h-full w-full px-2 md:px-[2.5em] -mt-60 md:-mt-80"
+            className="intro max-md:-mt-32 h-full w-full px-2 md:px-[2.5em] -mt-32 sm:-mt-40 md:-mt-40 lg:-mt-48"
             ref={videoSectionRef}
           >
             {/* Desktop VideoShowcase */}
             <div className="hidden md:block">
               <VideoShowcase
                 videoSrc="https://www.youtube.com/embed/aYSp5qUTC54?autoplay=1&mute=1&loop=1&playlist=aYSp5qUTC54"
-                initialScale={0.15}
-                initialTranslateY={-130}
+                initialScale={0.12}
+                initialTranslateY={-120}
               />
             </div>
             {/* Mobile Video Preview removed */}
           </section>
           <section
-            className="outro flex flex-col justify-center items-center min-h-[100vh] w-full px-4 md:px-[2.5em]"
+            className="outro flex flex-col justify-center items-center min-h-[100vh] w-full px-2 sm:px-4 md:px-[2.5em] mt-16 sm:mt-20 md:mt-0"
             ref={outroRef}
           >
             <ImageWall
               heroText="See how we transform brands"
-              heroTextClassName="text-4xl sm:text-5xl md:text-6xl lg:text-7xl px-4 md:px-[2.5em] flex justify-center items-center font-medium text-foreground text-center w-full"
+              heroTextClassName="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl px-2 sm:px-4 md:px-[2.5em] flex justify-center items-center font-medium text-foreground text-center w-full"
               buttonText="Start Your Growth Story"
               lines= {[
                 "Razor-sharp strategy. Addictive design.",
@@ -249,8 +249,8 @@ const MenuPage = () => {
                 "Ready To 10x Your Digital Game? Let's Build.",
               ]}
               footerContent={
-                <section className="hero mb-40 md:mb-60 flex justify-center items-center w-screen bg-background">
-                  <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl px-4 md:px-[2.5em] flex justify-center items-center font-medium text-foreground text-center w-full">
+                <section className="hero mb-20 sm:mb-30 md:mb-40 lg:mb-60 flex justify-center items-center w-screen bg-background">
+                  <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl px-2 sm:px-4 md:px-[2.5em] flex justify-center items-center font-medium text-foreground text-center w-full">
                     See how we transform brands
                   </p>
                 </section>
@@ -271,40 +271,6 @@ const MenuPage = () => {
           <Footer />
         </Suspense>
       )}
-      <style jsx>{`
-        @media (max-width: 900px) {
-          nav,
-          section {
-            padding: 1.5em;
-          }
-          .hero {
-            padding-top: 4em;
-            justify-content: flex-start;
-            gap: 2em;
-          }
-          .hero h1 {
-            font-size: 18vw;
-          }
-          .video-container-desktop {
-            display: none;
-          }
-          .video-container-mobile {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-          }
-        }
-        @media (max-width: 640px) {
-          .hero {
-            padding-top: 3em;
-            padding-left: 1em;
-            padding-right: 1em;
-          }
-          .hero h1 {
-            font-size: 18vw;
-          }
-        }
-      `}</style>
     </div>
   );
 };
