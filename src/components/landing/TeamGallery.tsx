@@ -1,6 +1,7 @@
 "use client";
 
 import { HoverExpand } from "@/components/ui/hover-expand";
+import Image from "next/image";
 
 export default function TeamGallery() {
   const images = [
@@ -64,9 +65,38 @@ export default function TeamGallery() {
           </p>
         </div>
 
-        {/* Hover Expand Gallery */}
-        <div className="flex items-center justify-center">
+        {/* Desktop: Hover Expand Gallery */}
+        <div className="hidden md:flex items-center justify-center">
           <HoverExpand images={images} />
+        </div>
+
+        {/* Mobile: Grid Layout */}
+        <div className="md:hidden grid grid-cols-2 gap-3 sm:gap-4">
+          {images.map((member, index) => (
+            <div
+              key={index}
+              className="relative group overflow-hidden rounded-2xl bg-gray-100 aspect-[3/4]"
+            >
+              <Image
+                src={member.src}
+                alt={member.alt}
+                fill
+                className="object-cover"
+              />
+              {/* Overlay - Always visible */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              
+              {/* Info - Always visible */}
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                <h3 className="text-white font-bold text-sm sm:text-base leading-tight">
+                  {member.title}
+                </h3>
+                <p className="text-[#FFAA17] text-xs sm:text-sm mt-1 leading-tight">
+                  {member.subtitle}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
