@@ -165,17 +165,31 @@ export default function ClientsStats() {
         </motion.div>
         <LogoLoop
                       logos={[
-                        { src: "/images/stack/1.webp", alt: "Brand 1" },
-                        { src: "/images/stack/2.webp", alt: "Brand 2" },
-                        { src: "/images/stack/3.webp", alt: "Brand 3" },
-                        { src: "/images/stack/4.webp", alt: "Brand 4" },
-                        { src: "/images/stack/5.webp", alt: "Brand 5" },
-                        { src: "/images/stack/6.webp", alt: "Brand 6" },
+                        { src: "/clients/2.webp", alt: "Client 2" },
+                        { src: "/clients/3.webp", alt: "Client 3" },
+                        { src: "/clients/6.webp", alt: "Client 6" },
+                        { src: "/clients/8.webp", alt: "Client 8" },
+                        { src: "/clients/9.webp", alt: "Client 9" },
+                        { src: "/clients/10.webp", alt: "Client 10" },
+                        { src: "/clients/11.webp", alt: "Client 11" },
+                        { src: "/clients/12.webp", alt: "Client 12" },
+                        { src: "/clients/13.webp", alt: "Client 13" },
+                        { src: "/clients/14.webp", alt: "Client 14" },
+                        { src: "/clients/15.webp", alt: "Client 15" },
+                        { src: "/clients/17.webp", alt: "Client 17" },
+                        { src: "/clients/18.webp", alt: "Client 18" },
+                        { src: "/clients/21.webp", alt: "Client 21" },
+                        { src: "/clients/22.webp", alt: "Client 22" },
+                        { src: "/clients/25.webp", alt: "Client 25" },
+                        { src: "/clients/26.webp", alt: "Client 26" },
+                        { src: "/clients/28.webp", alt: "Client 28" },
+                        { src: "/clients/31.webp", alt: "Client 31" },
+                        { src: "/clients/32.webp", alt: "Client 32" },
                       ]}
-                      speed={80}
+                      speed={100}
                       direction="left"
-                      logoHeight={150}
-                      gap={80}
+                      logoHeight={80}
+                      gap={60}
                       pauseOnHover={true}
                       fadeOut={true}
                       scaleOnHover={true}
