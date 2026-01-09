@@ -2,7 +2,7 @@
 
 import { HoverExpand } from "@/components/ui/hover-expand";
 
-export default function HoverExpandGallery() {
+export default function TeamGallery() {
   const images = [
     {
       src: "/team_picture/1.webp",

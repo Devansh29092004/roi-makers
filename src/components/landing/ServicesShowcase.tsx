@@ -2,7 +2,7 @@
 
 import CardMarquee from "@/components/ui/card-marquee";
 
-export default function CardMarqueeSection() {
+export default function ServicesShowcase() {
   const cards = [
     {
       title: "Digital Marketing",

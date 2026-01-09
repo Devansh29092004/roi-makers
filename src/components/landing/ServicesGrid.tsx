@@ -60,7 +60,7 @@ const services: Service[] = [
   },
 ];
 
-export default function OurServices() {
+export default function ServicesGrid() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (

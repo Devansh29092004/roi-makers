@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "@/components/global/Footer";
 import Navbar from "@/components/global/Navbar";
-import { Skiper19 } from "@/components/ui/Skiper19";
+import { AnimatedLinePath } from "@/components/ui/animated-line-path";
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen relative" style={{ backgroundColor: '#FFFFFF' }}>
       <div className="absolute inset-0 pointer-events-none">
-        <Skiper19 />
+        <AnimatedLinePath />
       </div>
       <Navbar />
       <main className="relative z-10 max-w-4xl mx-auto px-6 py-24 md:py-32">

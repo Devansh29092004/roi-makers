@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { CountUp } from '../ui/count-up';
 import LogoLoop from '../LogoLoop';
 
-export default function BrandsClients() {
+export default function ClientsStats() {
   const stats = [
     { value: 1200, suffix: '+', label: 'Total Clients' },
     { value: 98, suffix: '%', label: 'Client Retention' },

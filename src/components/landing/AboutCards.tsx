@@ -2,7 +2,7 @@
 
 import { StickyCard002 } from "@/components/ui/sticky-card";
 
-export default function StickyCardSection() {
+export default function AboutCards() {
   const cards = [
     {
       id: 1,

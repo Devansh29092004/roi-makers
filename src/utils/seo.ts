@@ -1,1 +1,0 @@
-// SEO utility functions

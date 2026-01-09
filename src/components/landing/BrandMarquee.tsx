@@ -2,7 +2,7 @@
 
 import ScrollBaseAnimation from "@/components/ui/text-marquee";
 
-export default function TextMarqueeSection() {
+export default function BrandMarquee() {
   return (
     <section className="w-full py-2 md:py-4 mt-4 md:mt-6 overflow-hidden bg-white">
       <ScrollBaseAnimation
