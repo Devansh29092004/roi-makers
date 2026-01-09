@@ -167,11 +167,11 @@ export default function Hero({
   }, [showContent]);
 
   return (
-    <section className="relative w-full min-h-[200vh] bg-white">
+    <section className={`relative w-full ${isMobile ? 'min-h-screen' : 'min-h-[200vh]'} bg-white`}>
       {/* HERO BOX - The pinned container */}
       <div 
         ref={heroContainerRef}
-        className="relative w-full h-screen flex flex-col overflow-hidden"
+        className={`relative w-full ${isMobile ? 'h-[85vh] sm:h-[90vh]' : 'h-screen'} flex flex-col overflow-hidden`}
       >
         {/* Glass background */}
         <div 
@@ -219,30 +219,30 @@ export default function Hero({
         {/* HERO CONTENT - flex-1 takes space above marquee */}
         <section className="relative flex-1 flex flex-col px-6 sm:px-8 md:px-12 lg:px-[3em] pt-12 lg:pt-20 overflow-hidden z-[2]">
           
-          {/* Heading Section - Animates up and fades on scroll */}
+          {/* Heading Section - Centered on mobile, left-aligned on desktop */}
           <div 
             ref={headingSectionRef}
-            className="relative z-[3] mt-4 md:mt-8"
+            className={`relative z-[3] mt-4 md:mt-8 ${isMobile ? 'flex-1 flex flex-col items-center justify-center text-center' : ''}`}
             style={{ willChange: 'transform, opacity' }}
           >
             <h1
               ref={heroTitleRef}
-              className="uppercase font-black text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] tracking-[-0.04em] leading-[0.85] select-none text-black mb-4 md:mb-6"
+              className={`uppercase font-black text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] tracking-[-0.04em] leading-[0.85] select-none text-black mb-4 md:mb-6 ${isMobile ? 'md:left-0' : 'md:left-[-0.05em]'}`}
               style={{ opacity: showHero ? 1 : 0 }}
             >
               ROI<span className="align-super text-[0.5em] ml-1">™</span>
             </h1>
             {showContent && (
-              <div ref={subtitleRef} className="mt-4 md:mt-6">
-                <p className="text-lg sm:text-xl md:text-2xl lg:text-[2.5vw] md:w-[50%] pp-neue-world-font font-normal select-none text-black leading-snug">
+              <div ref={subtitleRef} className={`mt-4 md:mt-6 ${isMobile ? 'flex flex-col items-center' : ''}`}>
+                <p className={`text-lg sm:text-xl md:text-2xl lg:text-[2.5vw] md:w-[50%] pp-neue-world-font font-normal select-none text-black leading-snug ${isMobile ? 'text-center w-full px-4' : ''}`}>
                   ROI-first thinking for scale-hungry brands
                 </p>
               </div>
             )}
           </div>
 
-          {/* VIDEO WRAPPER - Absolutely positioned, scroll-animated */}
-          {showContent && (
+          {/* VIDEO WRAPPER - Desktop only, scroll-animated */}
+          {showContent && !isMobile && (
             <div
               ref={videoWrapperRef}
               className="hidden md:flex absolute items-center justify-center w-full"
@@ -256,7 +256,7 @@ export default function Hero({
                 justifyContent: 'center',
                 willChange: 'transform',
                 transformOrigin: 'center center',
-                transform: isMobile ? 'scale(1)' : 'translateX(-50%) translateY(-50%) scale(0.4)',
+                transform: 'translateX(-50%) translateY(-50%) scale(0.4)',
               }}
             >
               <div 
