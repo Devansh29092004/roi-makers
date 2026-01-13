@@ -113,10 +113,9 @@ export default function ClientsStats() {
   // ];
 
   return (
-    <section className={cn( "relative w-full overflow-hidden",
+    <section className={cn( "relative w-full overflow-hidden bg-background",
       "py-12 md:py-16 lg:py-20"
     )}
-    style={{ backgroundColor: '#FFFFFF' }}
     >
       <div className="max-w-full mx-auto px-4">
         <motion.div
@@ -126,10 +125,10 @@ export default function ClientsStats() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-12 lg:mb-16 px-4"
         >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black mb-4 md:mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 md:mb-6">
             Brands Our <span className="text-orange-500">Clients</span>
           </h1>
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto leading-relaxed">
             Trusted by industry leaders across diverse sectors. Our clients range from innovative startups 
             to Fortune 500 companies, all achieving exceptional results with our ROI-driven solutions.
           </p>
@@ -152,11 +151,11 @@ export default function ClientsStats() {
               whileHover={{ scale: 1.05 }}
               className="relative group cursor-pointer"
             >
-              <div className="bg-white border-2 border-black/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-center hover:border-orange-500/30 transition-all duration-300 hover:shadow-xl">
+              <div className="bg-card border-2 border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-center hover:border-orange-500/30 transition-all duration-300 hover:shadow-xl">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-orange-500 mb-2 sm:mb-3">
                   <CountUp value={stat.value} suffix={stat.suffix} duration={2} />
                 </div>
-                <div className="text-black/70 font-semibold text-xs sm:text-sm md:text-base">
+                <div className="text-muted-foreground font-semibold text-xs sm:text-sm md:text-base">
                   {stat.label}
                 </div>
               </div>
@@ -186,18 +185,53 @@ export default function ClientsStats() {
                         { src: "/clients/31.webp", alt: "Client 31" },
                         { src: "/clients/32.webp", alt: "Client 32" },
                       ]}
-                      speed={100}
+                      speed={150}
                       direction="left"
-                      logoHeight={80}
-                      gap={60}
+                      logoHeight={100}
+                      gap={50}
                       pauseOnHover={true}
                       fadeOut={true}
                       scaleOnHover={true}
                       className="w-full"
                     />
 
+
+
         {/* Sticky Scroll Component */}
         {/* <StickyScroll content={content} /> */}
+         <LogoLoop
+                      logos={[
+                        { src: "/clients/2.webp", alt: "Client 2" },
+                        { src: "/clients/3.webp", alt: "Client 3" },
+                        { src: "/clients/6.webp", alt: "Client 6" },
+                        { src: "/clients/8.webp", alt: "Client 8" },
+                        { src: "/clients/9.webp", alt: "Client 9" },
+                        { src: "/clients/10.webp", alt: "Client 10" },
+                        { src: "/clients/11.webp", alt: "Client 11" },
+                        { src: "/clients/12.webp", alt: "Client 12" },
+                        { src: "/clients/13.webp", alt: "Client 13" },
+                        { src: "/clients/14.webp", alt: "Client 14" },
+                        { src: "/clients/15.webp", alt: "Client 15" },
+                        { src: "/clients/17.webp", alt: "Client 17" },
+                        { src: "/clients/18.webp", alt: "Client 18" },
+                        { src: "/clients/21.webp", alt: "Client 21" },
+                        { src: "/clients/22.webp", alt: "Client 22" },
+                        { src: "/clients/25.webp", alt: "Client 25" },
+                        { src: "/clients/26.webp", alt: "Client 26" },
+                        { src: "/clients/28.webp", alt: "Client 28" },
+                        { src: "/clients/31.webp", alt: "Client 31" },
+                        { src: "/clients/32.webp", alt: "Client 32" },
+                      ]}
+                      speed={150}
+                      direction="right"
+                      logoHeight={100}
+                      gap={50}
+                      pauseOnHover={true}
+                      fadeOut={true}
+                      scaleOnHover={true}
+                      className="w-full"
+                    />
+
       </div>
     </section>
   );

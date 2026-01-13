@@ -3,6 +3,8 @@ import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/global/Navbar";
 import LenisProvider from "@/app/providers/LenisProvider";
+import { ThemeProvider } from "@/app/providers/ThemeProvider";
+import ThemeToggle from "@/components/ui/theme-toggle";
 
 const ibmPlexMono = IBM_Plex_Mono({ 
   subsets: ["latin"],
@@ -30,10 +32,13 @@ export default function RootLayout({
         />
       </head>
       <body className={ibmPlexMono.className + " antialiased"}>
-        <LenisProvider>
-          <Navbar/>
-          {children}
-        </LenisProvider>
+        <ThemeProvider>
+          <LenisProvider>
+            <Navbar/>
+            {children}
+            <ThemeToggle />
+          </LenisProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

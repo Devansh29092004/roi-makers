@@ -16,160 +16,212 @@ const servicesData: Record<string, {
   benefits: string[];
   process: { step: string; description: string }[];
 }> = {
-  'digital-pr': {
-    title: 'Digital PR',
-    description: 'Build your brand reputation and earn high-quality backlinks through strategic digital PR campaigns that get you featured in top-tier publications.',
-    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80',
+  'digital-marketing': {
+    title: 'Digital Marketing',
+    description: 'Drive measurable growth with comprehensive digital marketing strategies that connect your brand with the right audience across all digital channels.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80',
     features: [
-      'Media Outreach & Relationship Building',
-      'Press Release Distribution',
-      'Influencer Partnerships',
-      'Crisis Management',
-      'Brand Reputation Monitoring',
-      'High-Authority Link Building'
+      'Multi-Channel Campaign Management',
+      'Content Marketing Strategy',
+      'Email Marketing Automation',
+      'Marketing Analytics & Reporting',
+      'Customer Journey Optimization',
+      'Brand Positioning & Messaging'
     ],
     benefits: [
-      'Increase brand visibility and credibility',
-      'Earn high-quality backlinks from authoritative sources',
-      'Build relationships with key media contacts',
-      'Improve search engine rankings',
-      'Generate positive brand sentiment'
+      'Reach your target audience effectively',
+      'Build consistent brand presence across channels',
+      'Generate qualified leads continuously',
+      'Improve customer engagement and retention',
+      'Maximize marketing ROI with data-driven decisions'
     ],
     process: [
-      { step: 'Research', description: 'Identify target publications and media contacts relevant to your industry' },
-      { step: 'Strategy', description: 'Develop compelling story angles and newsworthy content' },
-      { step: 'Outreach', description: 'Connect with journalists and influencers to secure coverage' },
-      { step: 'Amplify', description: 'Promote secured coverage across channels for maximum impact' }
+      { step: 'Discovery', description: 'Understand your business goals and target audience' },
+      { step: 'Strategy', description: 'Develop comprehensive digital marketing roadmap' },
+      { step: 'Execution', description: 'Launch campaigns across selected channels' },
+      { step: 'Optimize', description: 'Continuously refine based on performance data' }
     ]
   },
-  'search-growth-strategy': {
-    title: 'Search & Growth Strategy',
-    description: 'Develop a comprehensive search strategy that drives sustainable growth through organic search, paid campaigns, and conversion optimization.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80',
+  'performance-marketing': {
+    title: 'Performance Marketing',
+    description: 'Pay only for results with performance-driven marketing campaigns that deliver measurable ROI through strategic paid advertising and conversion optimization.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80',
     features: [
-      'SEO Strategy & Implementation',
-      'PPC Campaign Management',
+      'PPC Campaign Management (Google Ads, Meta Ads)',
       'Conversion Rate Optimization',
-      'Keyword Research & Analysis',
-      'Competitor Analysis',
-      'Growth Roadmap Development'
+      'Landing Page Design & Testing',
+      'Retargeting & Remarketing',
+      'Performance Analytics Dashboard',
+      'Budget Optimization & Scaling'
     ],
     benefits: [
-      'Achieve sustainable organic traffic growth',
-      'Maximize ROI on paid campaigns',
-      'Improve conversion rates across channels',
-      'Gain competitive advantage in search',
-      'Data-driven decision making'
+      'Pay only for actual results and conversions',
+      'Quick market entry and faster results',
+      'Precise audience targeting capabilities',
+      'Real-time campaign performance tracking',
+      'Scalable growth based on performance'
     ],
     process: [
-      { step: 'Audit', description: 'Comprehensive analysis of current search performance and opportunities' },
-      { step: 'Planning', description: 'Create detailed roadmap with prioritized initiatives' },
-      { step: 'Execution', description: 'Implement strategies across SEO, PPC, and CRO' },
-      { step: 'Optimization', description: 'Continuously test and refine based on performance data' }
+      { step: 'Audit', description: 'Analyze current performance and opportunities' },
+      { step: 'Setup', description: 'Configure tracking and launch campaigns' },
+      { step: 'Test', description: 'Run A/B tests to optimize performance' },
+      { step: 'Scale', description: 'Increase budget on winning campaigns' }
     ]
   },
-  'data-insights': {
-    title: 'Data & Insights',
-    description: 'Transform raw data into actionable insights that drive business decisions and marketing performance through advanced analytics and reporting.',
-    image: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80',
-    features: [
-      'Custom Analytics Dashboards',
-      'Performance Tracking & Reporting',
-      'Predictive Analytics',
-      'Customer Journey Mapping',
-      'Attribution Modeling',
-      'Data Visualization'
-    ],
-    benefits: [
-      'Make data-driven marketing decisions',
-      'Understand customer behavior patterns',
-      'Identify growth opportunities',
-      'Optimize marketing spend',
-      'Improve forecasting accuracy'
-    ],
-    process: [
-      { step: 'Collection', description: 'Set up tracking and data collection across all channels' },
-      { step: 'Analysis', description: 'Process and analyze data to uncover insights' },
-      { step: 'Visualization', description: 'Create clear dashboards and reports' },
-      { step: 'Action', description: 'Implement recommendations based on insights' }
-    ]
-  },
-  'organic-social-content': {
-    title: 'Organic Social & Content',
-    description: 'Build authentic connections with your audience through engaging social media content and strategic community management.',
-    image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80',
-    features: [
-      'Social Media Strategy',
-      'Content Creation & Curation',
-      'Community Management',
-      'Social Listening',
-      'Influencer Collaboration',
-      'Platform Optimization'
-    ],
-    benefits: [
-      'Grow engaged social media following',
-      'Build brand loyalty and trust',
-      'Generate user-generated content',
-      'Increase organic reach',
-      'Drive website traffic from social'
-    ],
-    process: [
-      { step: 'Strategy', description: 'Define social media goals and content pillars' },
-      { step: 'Creation', description: 'Develop engaging content calendar' },
-      { step: 'Engagement', description: 'Active community management and response' },
-      { step: 'Growth', description: 'Optimize and scale successful content' }
-    ]
-  },
-  'content-experience': {
-    title: 'Content Experience',
-    description: 'Create immersive content experiences that engage, educate, and convert your audience at every stage of their journey.',
-    image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80',
-    features: [
-      'Content Strategy & Planning',
-      'Interactive Content Creation',
-      'Video Production',
-      'User Experience Design',
-      'Content Distribution',
-      'Performance Optimization'
-    ],
-    benefits: [
-      'Increase engagement and time on site',
-      'Improve content conversion rates',
-      'Create memorable brand experiences',
-      'Generate qualified leads',
-      'Build thought leadership'
-    ],
-    process: [
-      { step: 'Discovery', description: 'Understand audience needs and content gaps' },
-      { step: 'Design', description: 'Create engaging content experiences' },
-      { step: 'Develop', description: 'Build and test interactive elements' },
-      { step: 'Distribute', description: 'Launch and promote across channels' }
-    ]
-  },
-  'onsite-seo': {
-    title: 'Onsite SEO',
-    description: 'Optimize your website for search engines and users with comprehensive technical SEO, content optimization, and site architecture improvements.',
+  'website-development': {
+    title: 'Website Development',
+    description: 'Build fast, secure, and scalable websites that deliver exceptional user experiences and drive business growth with modern web technologies.',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
     features: [
-      'Technical SEO Audit',
-      'On-Page Optimization',
-      'Site Architecture Planning',
-      'Core Web Vitals Optimization',
-      'Schema Markup Implementation',
-      'Internal Linking Strategy'
+      'Custom Website Design & Development',
+      'Responsive & Mobile-First Design',
+      'CMS Integration (WordPress, Contentful)',
+      'Performance Optimization',
+      'Security & SSL Implementation',
+      'Ongoing Maintenance & Support'
     ],
     benefits: [
-      'Improve search engine rankings',
-      'Enhance user experience',
-      'Increase organic traffic',
-      'Better crawlability and indexation',
-      'Higher conversion rates'
+      'Professional online presence that builds trust',
+      'Fast loading speeds for better user experience',
+      'Mobile-optimized for all devices',
+      'SEO-friendly architecture for better rankings',
+      'Easy content management for your team'
     ],
     process: [
-      { step: 'Audit', description: 'Comprehensive technical and on-page SEO analysis' },
-      { step: 'Prioritize', description: 'Create prioritized list of optimization opportunities' },
-      { step: 'Implement', description: 'Execute technical and content optimizations' },
-      { step: 'Monitor', description: 'Track performance and make ongoing improvements' }
+      { step: 'Planning', description: 'Define requirements and create sitemap' },
+      { step: 'Design', description: 'Create mockups and design system' },
+      { step: 'Development', description: 'Build and integrate all features' },
+      { step: 'Launch', description: 'Test, deploy, and train your team' }
+    ]
+  },
+  'ecommerce': {
+    title: 'E-commerce',
+    description: 'Launch and grow your online store with complete e-commerce solutions that convert visitors into customers and maximize revenue.',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80',
+    features: [
+      'Custom E-commerce Development',
+      'Shopping Cart & Checkout Optimization',
+      'Payment Gateway Integration',
+      'Inventory Management Systems',
+      'Product Catalog Management',
+      'Order Fulfillment Automation'
+    ],
+    benefits: [
+      'Increase online sales and revenue',
+      'Provide seamless shopping experience',
+      'Reduce cart abandonment rates',
+      'Automate order processing and fulfillment',
+      'Scale your business efficiently'
+    ],
+    process: [
+      { step: 'Setup', description: 'Configure store structure and product catalog' },
+      { step: 'Design', description: 'Create conversion-optimized store design' },
+      { step: 'Integration', description: 'Connect payment, shipping, and tools' },
+      { step: 'Growth', description: 'Optimize and scale your store performance' }
+    ]
+  },
+  'shopify-development': {
+    title: 'Shopify Development',
+    description: 'Build and customize your Shopify store with expert development that maximizes conversions and creates a unique brand experience.',
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1600&q=80',
+    features: [
+      'Custom Shopify Theme Development',
+      'Shopify App Integration',
+      'Custom Functionality Development',
+      'Store Migration to Shopify',
+      'Performance Optimization',
+      'Shopify Plus Solutions'
+    ],
+    benefits: [
+      'Launch your store quickly with Shopify',
+      'Get unique custom features for your brand',
+      'Seamless integration with marketing tools',
+      'Reliable and secure e-commerce platform',
+      'Easily manage products and orders'
+    ],
+    process: [
+      { step: 'Consultation', description: 'Understand your store requirements' },
+      { step: 'Development', description: 'Build custom theme and features' },
+      { step: 'Testing', description: 'Ensure everything works perfectly' },
+      { step: 'Launch', description: 'Go live and monitor performance' }
+    ]
+  },
+  'social-media-marketing': {
+    title: 'Social Media Marketing',
+    description: 'Build engaged communities and drive business results with strategic social media marketing across all major platforms.',
+    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&w=1600&q=80',
+    features: [
+      'Social Media Strategy Development',
+      'Content Creation & Curation',
+      'Community Management',
+      'Paid Social Advertising',
+      'Influencer Marketing',
+      'Social Media Analytics'
+    ],
+    benefits: [
+      'Build brand awareness and recognition',
+      'Engage directly with your audience',
+      'Drive traffic to your website',
+      'Generate leads from social platforms',
+      'Build loyal customer community'
+    ],
+    process: [
+      { step: 'Strategy', description: 'Define goals and content pillars' },
+      { step: 'Create', description: 'Produce engaging social content' },
+      { step: 'Engage', description: 'Manage community and conversations' },
+      { step: 'Grow', description: 'Scale reach with paid and organic tactics' }
+    ]
+  },
+  'search-engine-optimization': {
+    title: 'Search Engine Optimization',
+    description: 'Dominate search results and drive organic traffic with comprehensive SEO strategies that improve rankings and increase visibility.',
+    image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80',
+    features: [
+      'Technical SEO Optimization',
+      'Keyword Research & Strategy',
+      'On-Page SEO Optimization',
+      'Link Building Campaigns',
+      'Local SEO & Google Business',
+      'SEO Content Strategy'
+    ],
+    benefits: [
+      'Increase organic search traffic',
+      'Improve search engine rankings',
+      'Build long-term sustainable visibility',
+      'Attract high-intent customers',
+      'Reduce dependency on paid advertising'
+    ],
+    process: [
+      { step: 'Audit', description: 'Comprehensive SEO analysis of your site' },
+      { step: 'Strategy', description: 'Create prioritized SEO roadmap' },
+      { step: 'Optimize', description: 'Implement on-page and technical fixes' },
+      { step: 'Build', description: 'Earn quality backlinks and authority' }
+    ]
+  },
+  'virtual-tours': {
+    title: 'Virtual Tours',
+    description: 'Showcase your spaces with immersive 360° virtual tours that engage customers and drive conversions for real estate, hospitality, and retail.',
+    image: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc696?auto=format&fit=crop&w=1600&q=80',
+    features: [
+      '360° Photography & Videography',
+      'Interactive Virtual Tour Creation',
+      'Virtual Staging & Enhancement',
+      'Google Street View Integration',
+      'Custom Branding & Hotspots',
+      'Virtual Reality (VR) Compatible'
+    ],
+    benefits: [
+      'Showcase properties 24/7 remotely',
+      'Reduce in-person showing requirements',
+      'Engage customers with immersive experience',
+      'Stand out from competitors',
+      'Increase conversion rates and bookings'
+    ],
+    process: [
+      { step: 'Planning', description: 'Schedule shoot and plan tour flow' },
+      { step: 'Capture', description: 'Professional 360° photography' },
+      { step: 'Production', description: 'Edit and create interactive tour' },
+      { step: 'Publish', description: 'Deploy on your website and platforms' }
     ]
   }
 };

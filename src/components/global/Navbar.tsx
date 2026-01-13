@@ -40,11 +40,11 @@ export default function Navbar() {
         displaySocials={true}
         displayItemNumbering={true}
         logoUrl="/roi-logo.webp"
-        menuButtonColor="#000000"
-        openMenuButtonColor="#000000"
+        menuButtonColor="currentColor"
+        openMenuButtonColor="currentColor"
         accentColor="#FFAA17"
         isFixed={false}
-        changeMenuColorOnOpen={true}
+        changeMenuColorOnOpen={false}
       />
     </div>
   );

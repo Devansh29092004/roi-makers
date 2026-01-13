@@ -8,51 +8,67 @@ import Footer from '@/components/global/Footer';
 const services = [
   {
     id: 1,
-    slug: 'digital-pr',
-    title: 'Digital PR',
-    shortDesc: 'Build brand authority through strategic media outreach and high-quality backlinks.',
-    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80',
-    category: 'Brand & Media'
+    slug: 'digital-marketing',
+    title: 'Digital Marketing',
+    shortDesc: 'Drive measurable growth with comprehensive digital marketing strategies that connect your brand with the right audience.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80',
+    category: 'Marketing'
   },
   {
     id: 2,
-    slug: 'search-growth-strategy',
-    title: 'Search & Growth',
-    shortDesc: 'Data-driven SEO and PPC strategies that drive sustainable organic growth.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80',
+    slug: 'performance-marketing',
+    title: 'Performance Marketing',
+    shortDesc: 'Pay only for results with performance-driven campaigns that deliver measurable ROI through strategic paid advertising.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80',
     category: 'Performance'
   },
   {
     id: 3,
-    slug: 'data-insights',
-    title: 'Data & Insights',
-    shortDesc: 'Transform raw data into actionable intelligence for smarter decision-making.',
-    image: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80',
-    category: 'Analytics'
+    slug: 'website-development',
+    title: 'Website Development',
+    shortDesc: 'Build fast, secure, and scalable websites that deliver exceptional user experiences and drive business growth.',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
+    category: 'Development'
   },
   {
     id: 4,
-    slug: 'organic-social-content',
-    title: 'Social & Content',
-    shortDesc: 'Engage audiences with authentic social strategies and compelling content.',
-    image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80',
-    category: 'Creative'
+    slug: 'ecommerce',
+    title: 'E-commerce',
+    shortDesc: 'Launch and grow your online store with complete e-commerce solutions that convert visitors into customers.',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80',
+    category: 'E-commerce'
   },
   {
     id: 5,
-    slug: 'content-experience',
-    title: 'Content Experience',
-    shortDesc: 'Create immersive, interactive content that converts visitors into customers.',
-    image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80',
-    category: 'Creative'
+    slug: 'shopify-development',
+    title: 'Shopify Development',
+    shortDesc: 'Build and customize your Shopify store with expert development that maximizes conversions and creates unique experiences.',
+    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1600&q=80',
+    category: 'E-commerce'
   },
   {
     id: 6,
-    slug: 'onsite-seo',
-    title: 'Onsite SEO',
-    shortDesc: 'Technical optimization and on-page SEO to improve rankings and user experience.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
+    slug: 'social-media-marketing',
+    title: 'Social Media Marketing',
+    shortDesc: 'Build engaged communities and drive business results with strategic social media marketing across all major platforms.',
+    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&w=1600&q=80',
+    category: 'Marketing'
+  },
+  {
+    id: 7,
+    slug: 'search-engine-optimization',
+    title: 'Search Engine Optimization',
+    shortDesc: 'Dominate search results and drive organic traffic with comprehensive SEO strategies that improve rankings.',
+    image: 'https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1600&q=80',
     category: 'Performance'
+  },
+  {
+    id: 8,
+    slug: 'virtual-tours',
+    title: 'Virtual Tours',
+    shortDesc: 'Showcase your spaces with immersive 360° virtual tours that engage customers and drive conversions.',
+    image: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc696?auto=format&fit=crop&w=1600&q=80',
+    category: 'Creative'
   }
 ];
 

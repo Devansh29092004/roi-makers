@@ -81,7 +81,7 @@ const MenuPage = () => {
   }, [showContent]);
 
   return (
-    <div className="min-h-screen text-black boska-font overflow-x-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+    <div className="min-h-screen text-foreground boska-font overflow-x-hidden bg-background">
       <Hero
         showLoading={showLoading}
         showHero={showHero}

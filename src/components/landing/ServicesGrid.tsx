@@ -64,7 +64,7 @@ export default function ServicesGrid() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <main className="min-h-screen bg-[#f5f5f5] text-black">
+    <main className="min-h-screen bg-muted dark:bg-background text-foreground">
       <section className="mx-auto flex w-full max-w-7xl flex-col gap-8 sm:gap-10 md:gap-12 lg:gap-16 px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <header className="flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-6">
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4 text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold tracking-tight">

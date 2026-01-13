@@ -49,7 +49,7 @@ const FAQSection = () => {
   ];
 
   return (
-  <div className="text-black py-12 sm:py-16 md:py-20 lg:py-24 px-3 sm:px-4 md:px-6 lg:px-8 min-h-screen" style={{ backgroundColor: '#FFFFFF' }}>
+  <div className="text-foreground py-12 sm:py-16 md:py-20 lg:py-24 px-3 sm:px-4 md:px-6 lg:px-8 min-h-screen bg-background">
       <div className="max-w-6xl mx-auto mt-14">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
@@ -72,8 +72,7 @@ const FAQSection = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="text-black rounded-lg sm:rounded-xl border border-black/10 shadow-sm hover:shadow-md transition-all duration-300"
-                style={{ backgroundColor: '#FFFFFF' }}
+                className="text-foreground rounded-lg sm:rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <AccordionTrigger className="px-4 sm:px-6 py-3 sm:py-4 text-left font-semibold text-sm sm:text-base">
                   {faq.question}
@@ -90,7 +89,7 @@ const FAQSection = () => {
 
         {/* Contact CTA */}
         <div className="text-center mt-12 sm:mt-16 px-2 sm:px-4">
-          <div className="text-black rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto border border-black/10 sm:mx-auto" style={{ backgroundColor: '#FFFFFF' }}>
+          <div className="text-foreground rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto border border-border bg-card sm:mx-auto">
             <h3 className="text-xl sm:text-2xl font-black mb-3 sm:mb-4">
               Still have questions?
             </h3>
@@ -110,7 +109,7 @@ const FAQSection = () => {
                 href="https://www.instagram.com/roimakers/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 border border-black text-black rounded-lg font-medium hover:bg-black hover:text-white transition-colors text-sm sm:text-base"
+                className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 border border-border text-foreground rounded-lg font-medium hover:bg-foreground hover:text-background transition-colors text-sm sm:text-base"
               >
                 Follow on Instagram
               </a>

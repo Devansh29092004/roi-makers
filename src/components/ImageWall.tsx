@@ -213,7 +213,7 @@ const ImageWall: React.FC<ImageWallProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mt-4 sm:mt-6 md:mt-8">
               <div
                 ref={approachRef}
-                className="text-lg sm:text-xl md:text-2xl text-black/80 flex items-start font-bold italic"
+                className="text-lg sm:text-xl md:text-2xl text-foreground/80 flex items-start font-bold italic"
               >
                 (Approach)
               </div>
@@ -221,7 +221,7 @@ const ImageWall: React.FC<ImageWallProps> = ({
                 <div className="font-semibold text-base sm:text-lg md:text-xl mb-2">
                 The game changed. Static is dead. Attention is currency.
                 </div>
-                <div className="text-gray-500 text-xs sm:text-sm md:text-base leading-relaxed space-y-3 sm:space-y-4">
+                <div className="text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed space-y-3 sm:space-y-4">
                   <p>
                   Today's winning brands understand one truth: visibility without velocity is vanity. In an attention economy where consumers swipe past your best work in 0.3 seconds, you need more than pretty graphics you need psychological triggers wrapped in strategic precision.
                   </p>

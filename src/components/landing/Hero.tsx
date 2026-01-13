@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollBaseAnimation from "@/components/ui/text-marquee";
+import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react';
+import * as reactSpring from '@react-spring/three';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -167,7 +169,7 @@ export default function Hero({
   }, [showContent]);
 
   return (
-    <section className={`relative w-full ${isMobile ? 'min-h-screen' : 'min-h-[200vh]'} bg-white`}>
+    <section className={`relative w-full ${isMobile ? 'min-h-screen' : 'min-h-[200vh]'} bg-background`}>
       {/* HERO BOX - The pinned container */}
       <div 
         ref={heroContainerRef}
@@ -175,45 +177,56 @@ export default function Hero({
       >
         {/* Glass background */}
         <div 
-          className="absolute inset-0 backdrop-blur-xl border border-white/20 rounded-2xl md:rounded-3xl shadow-2xl z-0"
-          style={{ 
-            background: 'rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-          }}
+          className="absolute inset-0 backdrop-blur-xl border border-foreground/10 rounded-2xl md:rounded-3xl shadow-2xl z-0 bg-white/10 dark:bg-black/20"
         />
         
-        {/* Corner Gradients */}
-        <div className="absolute inset-0 rounded-2xl md:rounded-3xl overflow-hidden z-[1] pointer-events-none">
-          <div 
-            className="absolute -top-40 -right-40 w-[48rem] h-[48rem] rounded-full opacity-85"
+        {/* Shader Gradient Background */}
+        <div className="absolute inset-0 rounded-3xl md:rounded-3xl overflow-hidden z-[1] pointer-events-none">
+          <ShaderGradientCanvas
             style={{
-              background: `radial-gradient(circle, 
-                rgba(255, 170, 23, 1) 0%, 
-                rgba(255, 170, 23, 0.9) 15%,
-                rgba(255, 200, 100, 0.8) 30%, 
-                rgba(255, 220, 150, 0.6) 50%, 
-                rgba(255, 240, 200, 0.4) 70%, 
-                rgba(255, 250, 230, 0.2) 85%,
-                transparent 100%
-              )`,
-              animation: 'floatTopRight 8s ease-in-out infinite'
+              width: '100%',
+              height: '100%',
             }}
-          />
-          <div 
-            className="absolute -bottom-40 -left-40 w-[48rem] h-[48rem] rounded-full opacity-80"
-            style={{
-              background: `radial-gradient(circle, 
-                rgba(255, 170, 23, 0.95) 0%, 
-                rgba(255, 170, 23, 0.85) 15%,
-                rgba(255, 200, 100, 0.75) 30%, 
-                rgba(255, 220, 150, 0.55) 50%, 
-                rgba(255, 240, 200, 0.35) 70%, 
-                rgba(255, 250, 230, 0.18) 85%,
-                transparent 100%
-              )`,
-              animation: 'floatBottomLeft 10s ease-in-out infinite reverse'
-            }}
-          />
+            lazyLoad={undefined}
+            fov={undefined}
+            pixelDensity={1}
+            pointerEvents="none"
+          >
+            <ShaderGradient
+              animate="on"
+              type="plane"
+              wireframe={false}
+              shader="defaults"
+              uTime={5}
+              uSpeed={0.2}
+              uStrength={1.2}
+              uDensity={1}
+              uFrequency={0}
+              uAmplitude={0}
+              positionX={0}
+              positionY={0}
+              positionZ={0}
+              rotationX={45}
+              rotationY={0}
+              rotationZ={0}
+              color1="#ff7e5f"
+              color2="#feb47b"
+              color3="#ffcda5"
+              reflection={0.2}
+              cAzimuthAngle={180}
+              cPolarAngle={75}
+              cDistance={3}
+              cameraZoom={8}
+              lightType="3d"
+              brightness={1.2}
+              envPreset="dawn"
+              grain="on"
+              toggleAxis={false}
+              zoomOut={false}
+              hoverState=""
+              enableTransition={false}
+            />
+          </ShaderGradientCanvas>
         </div>
 
         {/* HERO CONTENT - flex-1 takes space above marquee */}
@@ -227,14 +240,14 @@ export default function Hero({
           >
             <h1
               ref={heroTitleRef}
-              className={`uppercase font-black text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] tracking-[-0.04em] leading-[0.85] select-none text-black mb-4 md:mb-6 ${isMobile ? 'md:left-0' : 'md:left-[-0.05em]'}`}
+              className={`uppercase font-black text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[14vw] tracking-[-0.04em] leading-[0.85] select-none text-foreground mb-4 md:mb-6 ${isMobile ? 'md:left-0' : 'md:left-[-0.05em]'}`}
               style={{ opacity: showHero ? 1 : 0 }}
             >
               ROI<span className="align-super text-[0.5em] ml-1">™</span>
             </h1>
             {showContent && (
               <div ref={subtitleRef} className={`mt-4 md:mt-6 ${isMobile ? 'flex flex-col items-center' : ''}`}>
-                <p className={`text-lg sm:text-xl md:text-2xl lg:text-[2.5vw] md:w-[50%] pp-neue-world-font font-normal select-none text-black leading-snug ${isMobile ? 'text-center w-full px-4' : ''}`}>
+                <p className={`text-lg sm:text-xl md:text-2xl lg:text-[2.5vw] md:w-[50%] pp-neue-world-font font-normal select-none text-foreground leading-snug ${isMobile ? 'text-center w-full px-4' : ''}`}>
                   ROI-first thinking for scale-hungry brands
                 </p>
               </div>
@@ -293,10 +306,7 @@ export default function Hero({
 
         {/* MARQUEE - Locked to bottom with mt-auto, higher z-index */}
         <motion.div 
-          className="relative w-full pb-4 sm:pb-6 md:pb-8 px-6 sm:px-8 md:px-12 lg:px-[3em] mt-auto z-[10]"
-          style={{
-            background: 'linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, transparent 100%)',
-          }}
+          className="relative w-full pb-4 sm:pb-6 md:pb-8 px-6 sm:px-8 md:px-12 lg:px-[3em] mt-auto z-[10] bg-gradient-to-t from-white/95 via-white/80 to-transparent dark:from-black/95 dark:via-black/80 dark:to-transparent"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
@@ -305,7 +315,7 @@ export default function Hero({
             <div className="w-full py-3 sm:py-4 md:py-5 overflow-hidden">
               <ScrollBaseAnimation
                 baseVelocity={-1}
-                clasname="font-extrabold text-black !text-3xl sm:!text-4xl md:!text-5xl lg:!text-base [&_span]:!w-14 [&_span]:!h-14 sm:[&_span]:!w-16 sm:[&_span]:!h-16 md:[&_span]:!w-17 md:[&_span]:!h-17"
+                clasname="font-extrabold text-foreground !text-3xl sm:!text-4xl md:!text-5xl lg:!text-base [&_span]:!w-14 [&_span]:!h-14 sm:[&_span]:!w-16 sm:[&_span]:!h-16 md:[&_span]:!w-17 md:[&_span]:!h-17"
                 scrollDependent={false}
                 items={[
                   {

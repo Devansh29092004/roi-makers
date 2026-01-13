@@ -4,10 +4,10 @@ import ScrollBaseAnimation from "@/components/ui/text-marquee";
 
 export default function BrandMarquee() {
   return (
-    <section className="w-full py-2 md:py-4 mt-4 md:mt-6 overflow-hidden bg-white">
+    <section className="w-full py-2 md:py-4 mt-4 md:mt-6 overflow-hidden bg-background">
       <ScrollBaseAnimation
         baseVelocity={-0.5}
-        clasname="font-black text-black"
+        clasname="font-black text-foreground"
         scrollDependent={false}
         items={[
           {

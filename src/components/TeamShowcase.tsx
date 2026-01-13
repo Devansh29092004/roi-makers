@@ -230,9 +230,9 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
   // Mobile Card Layout (< 768px)
   if (isMobile) {
     return (
-      <div className="w-screen min-h-screen bg-white py-8 px-4">
+      <div className="w-screen min-h-screen bg-background py-8 px-4">
         <div className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl font-bold" style={{ color: '#060010' }}>
+          <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
             {title}
           </h1>
         </div>
@@ -245,7 +245,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
-              <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-card">
                 <div className="aspect-square relative">
                   <Image
                     src={teamImages[index]} // Direct mapping: teamInfo[index] → teamImages[index]
@@ -256,17 +256,17 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
                   />
                 </div>
                 <CardContent className="p-4">
-                  <h3 className="text-lg font-bold mb-1" style={{ color: '#060010' }}>
+                  <h3 className="text-lg font-bold mb-1 text-foreground">
                     {member.fullName}
                   </h3>
-                  <p className="text-sm font-semibold mb-3" style={{ color: '#8c7b62' }}>
+                  <p className="text-sm font-semibold mb-3 text-orange-500">
                     {member.role}
                   </p>
-                  <p className="text-sm leading-relaxed mb-2" style={{ color: '#060010' }}>
+                  <p className="text-sm leading-relaxed mb-2 text-foreground/90">
                     {member.bio}
                   </p>
                   {member.fun && (
-                    <p className="text-xs italic" style={{ color: '#8c7b62' }}>
+                    <p className="text-xs italic text-muted-foreground">
                       {member.fun}
                     </p>
                   )}
@@ -281,9 +281,9 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
 
   // Desktop Animation Layout (≥ 768px) - Original animations preserved
   return (
-    <Card className="team-section border-4 border-muted w-screen h-[100svh] flex md:flex-col justify-center items-center md:gap-[2.5em] gap-4 overflow-hidden relative team-page m-0 p-0 box-border flex-col-reverse md:flex-nowrap" style={{ backgroundColor: '#FFFFFF' }}>
+    <Card className="team-section border-4 border-muted w-screen h-[100svh] flex md:flex-col justify-center items-center md:gap-[2.5em] gap-4 overflow-hidden relative team-page m-0 p-0 box-border flex-col-reverse md:flex-nowrap bg-background">
       <CardHeader className="absolute top-12 md:top-20 left-0 w-full flex justify-center items-center secondary-font z-30">
-        <CardTitle className="text-3xl md:text-4xl lg:text-5xl" style={{ color: '#060010' }}>{title}</CardTitle>
+        <CardTitle className="text-3xl md:text-4xl lg:text-5xl text-foreground">{title}</CardTitle>
       </CardHeader>
       <div
         className="profile-images flex flex-wrap md:flex-nowrap justify-center items-center w-full md:w-max max-w-[95%] sm:max-w-[85%] md:max-w-none gap-2 md:gap-0"
@@ -329,12 +329,11 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
                 `split absolute w-full text-center uppercase font-extrabold leading-none select-none z-10 ` +
                 `font-['IBM_Plex_Mono'] text-[4rem] tracking-[0] drop-shadow-lg md:text-[13rem] md:tracking-[-0.5rem] ` +
                 (i === 0
-                  ? "-translate-x-1/2 -translate-y-[60%] left-1/2 top-1/2 md:-translate-y-[150%]"
-                  : "-translate-x-1/2 translate-y-[50%] left-1/2 top-1/2 md:translate-y-[50%]")
+                  ? "-translate-x-1/2 -translate-y-[60%] left-1/2 top-1/2 md:-translate-y-[150%] text-foreground"
+                  : "-translate-x-1/2 translate-y-[50%] left-1/2 top-1/2 md:translate-y-[50%] text-orange-500")
               }
               style={{
                 fontFamily: "IBM Plex Mono, monospace",
-                color: i === 0 ? '#060010' : '#8c7b62',
               }}
             >
               {i === 0
@@ -349,8 +348,8 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
         {activeIndex !== null && teamInfo[activeIndex] && (
           <Card
             key={activeIndex}
-            className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 md:bottom-8 w-[calc(100%-20px)] sm:w-[calc(100%-40px)] max-w-2xl md:max-w-4xl rounded-xl shadow-xl p-0 secondary-font border-none min-h-[180px] sm:min-h-[160px] md:min-h-[100px] flex flex-col justify-center items-center"
-            style={{ zIndex: 20, backgroundColor: 'rgba(255, 255, 255, 0.95)' }}
+            className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 md:bottom-8 w-[calc(100%-20px)] sm:w-[calc(100%-40px)] max-w-2xl md:max-w-4xl rounded-xl shadow-xl p-0 secondary-font border-none min-h-[180px] sm:min-h-[160px] md:min-h-[100px] flex flex-col justify-center items-center bg-card/95 backdrop-blur-sm"
+            style={{ zIndex: 20 }}
           >
             <motion.div
               initial={{ opacity: 0 }}
@@ -361,26 +360,26 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
             >
               {/* Left: Name and Role */}
               <div className="flex flex-col items-start min-w-[120px] w-full md:w-auto md:max-w-[40%]">
-                <h3 className="text-xl sm:text-2xl font-bold leading-tight" style={{ color: '#060010' }}>
+                <h3 className="text-xl sm:text-2xl font-bold leading-tight text-foreground">
                   {teamInfo[activeIndex]?.fullName ||
                     teamNames[activeIndex + 1]}
                 </h3>
-                <p className="text-xs sm:text-sm font-semibold mt-1" style={{ color: '#060010' }}>
+                <p className="text-xs sm:text-sm font-semibold mt-1 text-foreground">
                   {teamInfo[activeIndex].role}
                 </p>
               </div>
               {/* Right: Bio and Fun Fact */}
-              <div className="flex-1 text-left md:pl-6 md:border-l-4 flex flex-col justify-center w-full" style={{ borderColor: '#8c7b62' }}>
+              <div className="flex-1 text-left md:pl-6 md:border-l-4 border-orange-500 flex flex-col justify-center w-full">
                 <div className="flex items-start gap-2">
-                  <span className="text-2xl sm:text-3xl select-none leading-none" style={{ color: '#8c7b62' }}>
+                  <span className="text-2xl sm:text-3xl select-none leading-none text-orange-500">
                     "
                   </span>
-                  <span className="text-base sm:text-lg md:text-xl font-medium leading-snug" style={{ color: '#060010' }}>
+                  <span className="text-base sm:text-lg md:text-xl font-medium leading-snug text-foreground">
                     {teamInfo[activeIndex].bio}
                   </span>
                 </div>
                 {teamInfo[activeIndex].fun && (
-                  <span className="block text-xs sm:text-sm italic mt-2 pl-6 md:pl-8" style={{ color: '#8c7b62' }}>
+                  <span className="block text-xs sm:text-sm italic mt-2 pl-6 md:pl-8 text-muted-foreground">
                     {teamInfo[activeIndex].fun}
                   </span>
                 )}
