@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { CountUp } from '../ui/count-up';
-import LogoLoop from '../LogoLoop';
+import LogoMarquee from '@/components/media/LogoMarquee';
 
 export default function ClientsStats() {
   const stats = [
@@ -162,7 +162,7 @@ export default function ClientsStats() {
             </motion.div>
           ))}
         </motion.div>
-        <LogoLoop
+        <LogoMarquee
                       logos={[
                         { src: "/clients/2.webp", alt: "Client 2" },
                         { src: "/clients/3.webp", alt: "Client 3" },
@@ -199,7 +199,7 @@ export default function ClientsStats() {
 
         {/* Sticky Scroll Component */}
         {/* <StickyScroll content={content} /> */}
-         <LogoLoop
+         <LogoMarquee
                       logos={[
                         { src: "/clients/2.webp", alt: "Client 2" },
                         { src: "/clients/3.webp", alt: "Client 3" },

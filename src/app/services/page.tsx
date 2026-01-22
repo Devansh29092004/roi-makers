@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import Footer from '@/components/global/Footer';
+import SiteFooter from '@/components/layout/SiteFooter';
 
 const services = [
   {
@@ -185,7 +185,7 @@ export default function ServicesPage() {
         </motion.div>
       </section>
 
-      <Footer />
+      <SiteFooter />
     </main>
   );
 }

@@ -3,19 +3,19 @@ import React, { useEffect, useRef, lazy, Suspense } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import Hero from "@/components/landing/Hero";
-import LoadingOverlay from "@/components/LoadingOverlay";
+import HomeHero from "@/components/sections/home/HomeHero";
+import LoadingOverlay from "@/components/feedback/LoadingOverlay";
 
 // Lazy load components that aren't immediately visible
-const ImageWall = lazy(() => import("@/components/ImageWall"));
-const BrandMarquee = lazy(() => import("@/components/landing/BrandMarquee"));
+const ImageWall = lazy(() => import("@/components/sections/shared/ImageWall"));
+const HomeBrandMarquee = lazy(() => import("@/components/sections/home/HomeBrandMarquee"));
 const ServicesShowcase = lazy(() => import("@/components/landing/ServicesShowcase")); 
-const ServicesGrid = lazy(() => import("@/components/landing/ServicesGrid"));
-const TeamGallery = lazy(() => import("@/components/landing/TeamGallery"));
-const AboutCards = lazy(() => import("@/components/landing/AboutCards"));
+const HomeServicesGrid = lazy(() => import("@/components/sections/home/HomeServicesGrid"));
+const HomeTeamGallery = lazy(() => import("@/components/sections/home/HomeTeamGallery"));
+const HomeAbout = lazy(() => import("@/components/sections/home/HomeAbout"));
 const ClientsStats = lazy(() => import("@/components/landing/ClientsStats"));
-const FAQSection = lazy(() => import("@/components/landing/FAQ"));
-const Footer = lazy(() => import("@/components/global/Footer"));
+const HomeFAQ = lazy(() => import("@/components/sections/home/HomeFAQ"));
+const SiteFooter = lazy(() => import("@/components/layout/SiteFooter"));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,7 +82,7 @@ const MenuPage = () => {
 
   return (
     <div className="min-h-screen text-foreground boska-font overflow-x-hidden bg-background">
-      <Hero
+      <HomeHero
         showLoading={showLoading}
         showHero={showHero}
         showContent={showContent}
@@ -117,13 +117,13 @@ const MenuPage = () => {
               stackImageCount={6}
             />
           </section>
-          <ServicesGrid/>
+          <HomeServicesGrid/>
           <ServicesShowcase />
           <ClientsStats />
-          <AboutCards />
-          <TeamGallery />
-          <FAQSection />
-          <Footer />
+          <HomeAbout />
+          <HomeTeamGallery />
+          <HomeFAQ />
+          <SiteFooter />
         </Suspense>
       )}
     </div>

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import Footer from '@/components/global/Footer';
+import SiteFooter from '@/components/layout/SiteFooter';
 
 type BlogPost = {
   id: string;
@@ -295,7 +295,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

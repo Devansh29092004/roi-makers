@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft } from 'lucide-react';
 import { notFound } from 'next/navigation';
-import Footer from '@/components/global/Footer';
+import SiteFooter from '@/components/layout/SiteFooter';
 
 const servicesData: Record<string, {
   title: string;
@@ -410,7 +410,7 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
         </motion.div>
       </section>
 
-      <Footer />
+      <SiteFooter />
     </main>
   );
 }

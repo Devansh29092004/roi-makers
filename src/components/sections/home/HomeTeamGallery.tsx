@@ -81,6 +81,7 @@ export default function TeamGallery() {
                 src={member.src}
                 alt={member.alt}
                 fill
+                sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover"
               />
               {/* Overlay - Always visible */}

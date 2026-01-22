@@ -28,7 +28,7 @@ export interface StaggeredMenuProps {
   onMenuClose?: () => void;
 }
 
-export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
+export const MobileNavMenu: React.FC<StaggeredMenuProps> = ({
   position = 'right',
   colors = ['#B19EEF', '#5227FF'],
   items = [],
@@ -561,4 +561,4 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   );
 };
 
-export default StaggeredMenu;
+export default MobileNavMenu;

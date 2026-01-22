@@ -7,7 +7,7 @@ import {
   IconBrandInstagram,
 } from "@tabler/icons-react";
 
-const Footer = () => (
+const SiteFooter = () => (
   <footer className="w-full flex items-center justify-center py-8 sm:py-12 bg-background">
     <div className="w-full max-w-[95vw] sm:max-w-[90vw] bg-black text-white rounded-2xl sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-20 min-h-[30rem] sm:min-h-[35rem] lg:min-h-[40rem] flex flex-col gap-6 sm:gap-8 items-center justify-center border border-[#222] shadow-2xl">
       {/* Newsletter Signup */}
@@ -108,4 +108,4 @@ const Footer = () => (
   </footer>
 );
 
-export default Footer;
+export default SiteFooter;

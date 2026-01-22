@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/global/Navbar";
+import SiteHeader from "@/components/layout/SiteHeader";
 import LenisProvider from "@/app/providers/LenisProvider";
 import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import ThemeToggle from "@/components/ui/theme-toggle";
@@ -34,7 +34,7 @@ export default function RootLayout({
       <body className={ibmPlexMono.className + " antialiased"}>
         <ThemeProvider>
           <LenisProvider>
-            <Navbar/>
+            <SiteHeader/>
             {children}
             <ThemeToggle />
           </LenisProvider>

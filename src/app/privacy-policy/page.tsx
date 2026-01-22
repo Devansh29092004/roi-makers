@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "@/components/global/Footer";
-import Navbar from "@/components/global/Navbar";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 import { AnimatedLinePath } from "@/components/ui/animated-line-path";
 
 export default function PrivacyPolicy() {
@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
       <div className="absolute inset-0 pointer-events-none">
         <AnimatedLinePath />
       </div>
-      <Navbar />
+      <SiteHeader />
       <main className="relative z-10 max-w-4xl mx-auto px-6 py-24 md:py-32">
         <div className="space-y-8">
           <div className="text-center">
@@ -126,7 +126,7 @@ export default function PrivacyPolicy() {
           </div>
         </div>
       </main>
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

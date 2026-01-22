@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Footer from '@/components/global/Footer';
+import SiteFooter from '@/components/layout/SiteFooter';
 
 export default function CareersPage() {
   const [formData, setFormData] = useState({
@@ -332,7 +332,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

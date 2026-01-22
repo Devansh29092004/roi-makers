@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import Footer from '@/components/global/Footer';
+import SiteFooter from '@/components/layout/SiteFooter';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -427,7 +427,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { StaggeredMenu, StaggeredMenuItem, StaggeredMenuSocialItem } from "@/components/StaggeredMenu";
+import { MobileNavMenu, StaggeredMenuItem, StaggeredMenuSocialItem } from "@/components/layout/MobileNavMenu";
 
 const menuItems: StaggeredMenuItem[] = [
   { label: "Home", ariaLabel: "Home", link: "/" },
@@ -18,7 +18,7 @@ const socialItems: StaggeredMenuSocialItem[] = [
   { label: "LinkedIn", link: "https://www.linkedin.com/company/roimakers/" },
 ];
 
-export default function Navbar() {
+export default function SiteHeader() {
   return (
     <div 
       style={{ 
@@ -32,7 +32,7 @@ export default function Navbar() {
         pointerEvents: 'none',
       }}
     >
-      <StaggeredMenu
+      <MobileNavMenu
         position="right"
         colors={['#FFAA17', '#E69815', '#CC8713', '#B36619']}
         items={menuItems}

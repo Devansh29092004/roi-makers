@@ -55,7 +55,7 @@ const services: Service[] = [
   {
     title: "Virtual Tours",
     image:
-      "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
     href: "/services/virtual-tours",
   },
 ];

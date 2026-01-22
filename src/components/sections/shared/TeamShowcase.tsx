@@ -251,6 +251,7 @@ const TeamShowcase: React.FC<TeamShowcaseProps> = ({
                     src={teamImages[index]} // Direct mapping: teamInfo[index] → teamImages[index]
                     alt={member.fullName}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"
                     priority={index < 4}
                   />
