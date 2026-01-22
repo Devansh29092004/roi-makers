@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { MobileNavMenu, StaggeredMenuItem, StaggeredMenuSocialItem } from "@/components/layout/MobileNavMenu";
+import { MobileNavMenu, StaggeredMenuItem, StaggeredMenuSocialItem } from "@/components/global/MobileNavMenu";
 
 const menuItems: StaggeredMenuItem[] = [
   { label: "Home", ariaLabel: "Home", link: "/" },

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import SiteHeader from "@/components/layout/SiteHeader";
+import SiteHeader from "@/components/global/SiteHeader";
 import LenisProvider from "@/app/providers/LenisProvider";
 import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import ThemeToggle from "@/components/ui/theme-toggle";

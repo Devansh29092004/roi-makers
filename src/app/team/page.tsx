@@ -1,4 +1,4 @@
-import TeamShowcase, { TeamInfo } from "@/components/sections/shared/TeamShowcase";
+import TeamShowcase, { TeamInfo } from "@/components/ui/shared/TeamShowcase";
 
 const teamImages = [
   "/team_picture/1.webp",

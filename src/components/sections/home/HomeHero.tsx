@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ScrollBaseAnimation from "@/components/ui/text-marquee";
+import VideoShowcase from "@/components/ui/media/VideoShowcase";
 import { ShaderGradientCanvas, ShaderGradient } from '@shadergradient/react';
 import * as reactSpring from '@react-spring/three';
 
@@ -272,34 +273,10 @@ export default function Hero({
                 transform: 'translateX(-50%) translateY(-50%) scale(0.4)',
               }}
             >
-              <div 
-                className="relative w-full max-w-[1400px] aspect-[16/9] rounded-[1rem] overflow-hidden"
-                style={{
-                  backgroundColor: '#1a365d',
-                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                }}
-              >
-                {videoSrc.endsWith(".mp4") || videoSrc.endsWith(".webm") ? (
-                  <video
-                    src={videoSrc}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
-                  />
-                ) : (
-                  <iframe
-                    src={videoSrc}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    loading="lazy"
-                    title="Hero video"
-                    className="absolute top-0 left-0 w-full h-full pointer-events-none"
-                  />
-                )}
-              </div>
+              <VideoShowcase 
+                videoSrc={videoSrc} 
+                containerClassName="w-full max-w-[1400px]"
+              />
             </div>
           )}
         </section>

@@ -4,18 +4,18 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import HomeHero from "@/components/sections/home/HomeHero";
-import LoadingOverlay from "@/components/feedback/LoadingOverlay";
+import LoadingOverlay from "@/components/ui/feedback/LoadingOverlay";
 
 // Lazy load components that aren't immediately visible
-const ImageWall = lazy(() => import("@/components/sections/shared/ImageWall"));
+const ImageWall = lazy(() => import("@/components/ui/shared/ImageWall"));
 const HomeBrandMarquee = lazy(() => import("@/components/sections/home/HomeBrandMarquee"));
-const ServicesShowcase = lazy(() => import("@/components/landing/ServicesShowcase")); 
+const ServicesShowcase = lazy(() => import("@/components/sections/home/ServicesShowcase")); 
 const HomeServicesGrid = lazy(() => import("@/components/sections/home/HomeServicesGrid"));
 const HomeTeamGallery = lazy(() => import("@/components/sections/home/HomeTeamGallery"));
 const HomeAbout = lazy(() => import("@/components/sections/home/HomeAbout"));
-const ClientsStats = lazy(() => import("@/components/landing/ClientsStats"));
+const ClientsStats = lazy(() => import("@/components/sections/home/ClientsStats"));
 const HomeFAQ = lazy(() => import("@/components/sections/home/HomeFAQ"));
-const SiteFooter = lazy(() => import("@/components/layout/SiteFooter"));
+const SiteFooter = lazy(() => import("@/components/global/SiteFooter"));
 
 gsap.registerPlugin(ScrollTrigger);
 

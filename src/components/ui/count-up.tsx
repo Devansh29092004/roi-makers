@@ -13,6 +13,7 @@ type CountUpProps = {
 
 /**
  * Animated numeric counter that increments when it enters the viewport.
+ * Used in ClientsStats and other statistics displays.
  */
 export function CountUp({
   value,

@@ -1,6 +1,6 @@
 import React from "react";
-import SiteFooter from "@/components/layout/SiteFooter";
-import SiteHeader from "@/components/layout/SiteHeader";
+import SiteFooter from "@/components/global/SiteFooter";
+import SiteHeader from "@/components/global/SiteHeader";
 import { AnimatedLinePath } from "@/components/ui/animated-line-path";
 
 export default function PrivacyPolicy() {

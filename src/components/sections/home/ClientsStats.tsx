@@ -1,8 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { CountUp } from '../ui/count-up';
-import LogoMarquee from '@/components/media/LogoMarquee';
+import { CountUp } from '../../ui/count-up';
+import LogoMarquee from '@/components/ui/media/LogoMarquee';
 
 export default function ClientsStats() {
   const stats = [
